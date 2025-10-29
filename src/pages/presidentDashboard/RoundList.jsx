@@ -186,20 +186,22 @@ const RoundList = () => {
                 </ul>
                 <div className="grid grid-cols-2 gap-2 mt-4">
                   <button
-                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px] sm:text-sm font-semibold"
+                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px]  font-semibold"
                     onClick={() =>
                       handleParticipate(round.id, round.next_round_qualifier)
                     }
                   >
-                    VIEW PARTICIPANT <TbListDetails size={20} />
+                    VIEW PARTICIPANT{" "}
+                    <TbListDetails className="text-base xl:text-lg 2xl:text-xl" />
                   </button>
                   <button
                     onClick={() =>
                       openModal(round.id, id || round.announcement)
                     }
-                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px] sm:text-sm font-semibold"
+                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px]  font-semibold"
                   >
-                    CREATE QUIZ <LuCirclePlus size={20} />
+                    CREATE QUIZ{" "}
+                    <LuCirclePlus className="text-base xl:text-lg 2xl:text-xl" />
                   </button>
                 </div>
               </div>

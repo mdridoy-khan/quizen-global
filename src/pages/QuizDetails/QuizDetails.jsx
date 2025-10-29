@@ -139,12 +139,12 @@ const QuizDetails = () => {
             />
             <InfoItem
               icon={<FaRegCalendarAlt />}
-              label="Created At"
+              label="Post Date"
               value={formatDateTime(announcement.created_at)}
             />
             <InfoItem
               icon={<FaRegCalendarAlt />}
-              label="Updated At"
+              label="Last Update"
               value={formatDateTime(announcement.updated_at)}
             />
             <InfoItem

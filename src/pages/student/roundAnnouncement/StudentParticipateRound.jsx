@@ -24,6 +24,7 @@ const StudentParticipateRound = ({
   total_question,
   isParticipateEnabled,
   duration,
+  disable,
 }) => {
   const isHorizontal = layout === "horizontal";
 
@@ -82,11 +83,7 @@ const StudentParticipateRound = ({
           </div>
 
           {/* image */}
-          <div
-            className={`overflow-hidden shadow my-3 ${
-              isHorizontal ? "w-1/2" : ""
-            }`}
-          >
+          <div className="overflow-hidden shadow my-3">
             <img
               src={image}
               alt="Card Image"
@@ -142,14 +139,33 @@ const StudentParticipateRound = ({
               </button>
             )}
 
-            {round_status === "active" && !is_participated && (
+            {disable === "true" ? (
+              <button
+                disabled
+                className="bg-secondary w-full rounded-full text-base font-semibold text-white py-[6px] opacity-50 cursor-not-allowed"
+              >
+                QUIZ END
+              </button>
+            ) : (
+              round_status === "active" &&
+              !is_participated && (
+                <button
+                  className="bg-secondary w-full rounded-full text-base font-semibold text-white py-[6px] transition hover:text-white hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => setShowParticipateModal(true)}
+                >
+                  PARTICIPATE
+                </button>
+              )
+            )}
+
+            {/* {round_status === "active" && !is_participated &&  (
               <button
                 className="bg-secondary w-full rounded-full text-base font-semibold text-white py-[6px] transition hover:text-white hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={() => setShowParticipateModal(true)}
               >
                 PARTICIPATE
               </button>
-            )}
+            )} */}
 
             {round_status === "completed" && !is_participated && (
               <button

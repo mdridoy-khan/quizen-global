@@ -26,6 +26,8 @@ const StudentQuizCard = ({
   showSwitcher = false,
   registared,
   cardButtonText,
+  department_name,
+  subject,
 }) => {
   const isHorizontal = layout === "horizontal";
 
@@ -45,6 +47,30 @@ const StudentQuizCard = ({
             {startDate} to {endDate}
           </span>
         </div>
+      </div>
+
+      {/* subject and Department name */}
+      <div className="px-6 pb-4 flex items-center flex-wrap gap-2">
+        <Link
+          to={`/quiz-details/${quizId}`}
+          state={{ scrollTo: "gratifications" }}
+          className="text-sm text-gray-600 border border-gray-300 py-1 px-2 rounded-full"
+        >
+          <span className="text-gray-500">Subject:</span>{" "}
+          <span className="font-semibold text-gray-800">{subject}</span>
+        </Link>
+        <Link
+          to={`/quiz-details/${quizId}`}
+          state={{ scrollTo: "gratifications" }}
+          className="flex items-center gap-1 border border-gray-300 py-1 px-2 rounded-full bg-pink-50"
+        >
+          <span className="text-sm font-semibold text-gray-700">
+            Departmenent:
+          </span>
+          <span className="text-sm font-bold text-green-600">
+            {department_name}
+          </span>
+        </Link>
       </div>
 
       {/* Organizer and Prize Info */}

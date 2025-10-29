@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,6 +22,8 @@ const AllAnnouncementList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("");
+
+  const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
   const [selectedQuizId, setSelectedQuizId] = useState(null);
@@ -57,7 +60,7 @@ const AllAnnouncementList = () => {
       console.log("Error fetching announcements:", err);
       setQuizData([]);
       setCount(0);
-      setErrorMessage("Failed to fetch announcements!");
+      setErrorMessage("No active announcements found");
     } finally {
       setLoading(false);
     }
@@ -126,6 +129,7 @@ const AllAnnouncementList = () => {
       toast.error(errorMsg);
     } finally {
       setLoading(false);
+      navigate("/student/my-announcement");
     }
   };
 
@@ -186,6 +190,8 @@ const AllAnnouncementList = () => {
                       termsLink={`/terms/${quiz.id}`}
                       organizer={quiz.organizer_name}
                       onButtonClick={handleOpenModal}
+                      department_name={quiz.department_name}
+                      subject={quiz.subject}
                     />
                   ))
               ) : (

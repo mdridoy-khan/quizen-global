@@ -162,7 +162,7 @@ const Login = () => {
             <img
               src={FormImage}
               alt="Signup Illustration"
-              class="w-full h-full object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
 

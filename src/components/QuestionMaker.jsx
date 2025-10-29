@@ -26,6 +26,7 @@ const QuestionMaker = () => {
   const [prompt, setPrompt] = useState("");
   const [quizResponse, setQuizResponse] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [noticeData, setNoticeData] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -224,7 +225,28 @@ const QuestionMaker = () => {
       setLoading(false);
     }
   };
+  // fetch notice data
+  useEffect(() => {
+    const getNotice = async () => {
+      setLoading(true);
+      try {
+        const response = await API.get(
+          `/anc/view-announcement-notice-anc/${announcementId}/`
+        );
+        console.log("get notice response:", response.data);
 
+        if (response.data.status) {
+          setNoticeData(response.data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching notice:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (announcementId) getNotice();
+  }, [announcementId]);
   return (
     <div className="min-h-screen mt-10">
       {/* bg-gradient-to-br from-indigo-50 to-blue-100 py-8 px-4 sm:px-6 */}
@@ -308,13 +330,35 @@ const QuestionMaker = () => {
                     <h3 className="font-bold text-amber-800 mb-1">
                       Notice for “Math Quiz 2025”
                     </h3>
-                    <p className="text-amber-700 text-sm">
-                      We're truly excited to have you here! You're valued and
-                      supported every step of the way. Make yourself at home,
-                      explore freely, and don't hesitate to reach out if you
-                      need anything. Once again, a heartfelt welcome — we're
-                      excited for what lies ahead!
-                    </p>
+                    <div className="space-y-3">
+                      {loading ? (
+                        // Loading state
+                        <div className="flex items-center justify-center py-6">
+                          <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                          <span className="ml-2 text-gray-600 font-medium">
+                            Loading notices...
+                          </span>
+                        </div>
+                      ) : noticeData.length > 0 ? (
+                        // Data found
+                        noticeData.map((item) => (
+                          <div key={item.id}>
+                            <p className="text-gray-800 font-medium">
+                              {item.notice_text}
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              Created:{" "}
+                              {new Date(item.created_at).toLocaleString()}
+                            </p>
+                          </div>
+                        ))
+                      ) : (
+                        // No data
+                        <p className="text-gray-500 text-center py-4">
+                          No announcement notices found.
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <button

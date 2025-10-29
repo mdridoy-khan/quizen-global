@@ -18,6 +18,7 @@ const RoundAnnouncement = () => {
   const [error, setError] = useState("");
   const [notice, setNotice] = useState(true);
   const navigate = useNavigate();
+  const [noticeData, setNoticeData] = useState([]);
   const { quizId } = useParams();
 
   // get announcement data
@@ -76,6 +77,29 @@ const RoundAnnouncement = () => {
       return next;
     });
   };
+
+  // fetch notice data
+  useEffect(() => {
+    const getNotice = async () => {
+      setLoading(true);
+      try {
+        const response = await API.get(
+          `/anc/view-announcement-notice-anc/${quizId}/`
+        );
+        console.log("get notice response:", response.data);
+
+        if (response.data.status) {
+          setNoticeData(response.data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching notice:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (quizId) getNotice();
+  }, [quizId]);
 
   // const handleCountdownComplete = (roundId) => {
   //   setEnabledButtons((prev) => ({ ...prev, [roundId]: true }));
@@ -152,19 +176,43 @@ const RoundAnnouncement = () => {
               <RxCross2 size={20} />
             </button>
           </div>
-          <p className="text-sm font-medium">
-            We're truly glad, know that you’re valued and supported every step
-            of the way. Make yourself at home, explore freely, and don’t
-            hesitate to reach out if you need anything. Once again, a heartfelt
-            welcome — we’re excited for what lies ahead!
-          </p>
+          <div className="text-sm font-medium">
+            <div className="space-y-3">
+              {loading ? (
+                // Loading state
+                <div className="flex items-center justify-center py-6">
+                  <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                  <span className="ml-2 text-gray-600 font-medium">
+                    Loading notices...
+                  </span>
+                </div>
+              ) : noticeData.length > 0 ? (
+                // Data found
+                noticeData.map((item) => (
+                  <div key={item.id}>
+                    <p className="text-gray-800 font-medium">
+                      {item.notice_text}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      Created: {new Date(item.created_at).toLocaleString()}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                // No data
+                <p className="text-gray-500 text-center py-4">
+                  No announcement notices found.
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       )}
 
       {/* Loader */}
       {loading && (
         <div className="flex justify-center items-center mt-6">
-          <div className="w-10 h-10 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <div className="w-10 h-10 border-4 border-t-transparent border-primary rounded-full animate-spin"></div>
         </div>
       )}
 
@@ -206,11 +254,15 @@ const RoundAnnouncement = () => {
                   </h3>
                   <div className="flex items-center justify-center">
                     <div className="bg-primary text-white py-[2px] px-3 text-base font-semibold rounded-md">
-                      {round.round_status === "upcoming" && (
+                      {round.round_status === "upcoming" ? (
                         <CountdownTimer
                           targetDate={round.quiz_start_date}
                           onComplete={() => handleCountdownComplete(round.id)}
                         />
+                      ) : (
+                        <p className="bg-primary text-white py-[2px] px-2 text-base font-semibold rounded-md ">
+                          Started
+                        </p>
                       )}
                       {/* <CountdownTimer
                         targetDate={round.quiz_start_date}
@@ -244,7 +296,7 @@ const RoundAnnouncement = () => {
               </div>
             ))
           ) : (
-            <p>No Data Found</p>
+            <p>No Round Available Now</p>
           )}
         </div>
       )}

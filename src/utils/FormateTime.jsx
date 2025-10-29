@@ -4,12 +4,8 @@ const formatTime = (minutes) => {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-lg lg:text-xl md:text-xl sm:text-lg xs:text-base">
-        {hours}h
-      </span>
-      <span className="text-lg lg:text-xl md:text-xl sm:text-lg xs:text-base">
-        {mins}m
-      </span>
+      <span className="text-base">{hours}h</span>
+      <span className="text-base">{mins}m</span>
     </div>
   );
 };

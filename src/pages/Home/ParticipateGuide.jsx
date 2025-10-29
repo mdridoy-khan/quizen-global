@@ -1,17 +1,17 @@
 import { FaPlay } from "react-icons/fa";
 import Singnal from "../../assets/images/banner-images/singnal.svg";
-import icon0 from "../../assets/images/banner-images/steps-icons/Icon.svg";
-import icon1 from "../../assets/images/banner-images/steps-icons/Icon1.svg";
-import icon2 from "../../assets/images/banner-images/steps-icons/Icon2.svg";
-import icon3 from "../../assets/images/banner-images/steps-icons/Icon3.svg";
-import icon4 from "../../assets/images/banner-images/steps-icons/Icon4.svg";
-import icon5 from "../../assets/images/banner-images/steps-icons/Icon5.svg";
+import icon from "../../assets/images/banner-images/steps-icons/icon.svg";
+import icon1 from "../../assets/images/banner-images/steps-icons/icon1.svg";
+import icon2 from "../../assets/images/banner-images/steps-icons/icon2.svg";
+import icon3 from "../../assets/images/banner-images/steps-icons/icon3.svg";
+import icon4 from "../../assets/images/banner-images/steps-icons/icon4.svg";
+import icon5 from "../../assets/images/banner-images/steps-icons/icon5.svg";
 import TicTokImg from "../../assets/images/banner-images/tictok.png";
 
 const ParticipateGuide = () => {
   const features = [
     {
-      icon: icon0,
+      icon: icon,
       title: "Create Account",
       desc: "Sign up quickly with email or social media to get started",
       bg: "bg-purple-200",

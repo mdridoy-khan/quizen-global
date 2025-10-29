@@ -1,4 +1,3 @@
-import { saveAs } from "file-saver";
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
@@ -41,27 +40,14 @@ const SingleRoundDetails = ({ onClose, roundID }) => {
 
   // File download handler
 
-  const handleDownload = async (fileUrl) => {
-    try {
-      const response = await fetch(fileUrl, { mode: "cors" });
-
-      // Check if response is OK
-      if (!response.ok) {
-        throw new Error(`Failed to fetch file: ${response.statusText}`);
-      }
-
-      // Convert response to blob
-      const blob = await response.blob();
-
-      // Extract filename from URL
-      const fileName = fileUrl.split("/").pop();
-
-      // Trigger download
-      saveAs(blob, fileName);
-    } catch (error) {
-      console.error("Download failed:", error);
-      alert("Failed to download file. Please try again.");
-    }
+  const handleDownload = (fileUrl) => {
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = fileUrl.split("/").pop();
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -308,7 +294,7 @@ const SingleRoundDetails = ({ onClose, roundID }) => {
             {/* Banner Section */}
             <div className="relative w-full h-56 md:h-64 lg:h-72 overflow-hidden rounded-t-xl">
               <img
-                src={rounds.study_material}
+                src={rounds.round_image}
                 alt="Banner"
                 className="w-full h-full object-cover"
               />
@@ -403,7 +389,7 @@ const SingleRoundDetails = ({ onClose, roundID }) => {
 
                   <div className="text-sm text-gray-600 mt-3">
                     <p>
-                      <span className="font-semibold text-gray-700">
+                      <span className="font-semibold text-black">
                         Timeframe:
                       </span>{" "}
                       Starts: {formatDateTime(rounds.quiz_start_date)} | Ends:{" "}
@@ -420,7 +406,7 @@ const SingleRoundDetails = ({ onClose, roundID }) => {
                 </h4>
                 <div className="bg-gray-50 border border-gray-100 rounded-lg p-4 space-y-3">
                   <div className="flex justify-between items-center bg-white border rounded-lg px-3 py-2 shadow-sm">
-                    <p className="text-sm font-medium text-gray-700 truncate">
+                    <p className="text-sm font-medium text-black truncate">
                       Study Material
                     </p>
 

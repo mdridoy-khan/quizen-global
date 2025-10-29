@@ -793,7 +793,7 @@ const Registration = () => {
                       to="/login"
                       className="inline-block px-1 rounded text-primary "
                     >
-                      SignUp Here
+                      Login Here
                     </Link>
                   </p>
                 </div>

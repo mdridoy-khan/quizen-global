@@ -25,6 +25,7 @@ const AiQuestionMaker = () => {
   const [prompt, setPrompt] = useState("");
   const [quizResponse, setQuizResponse] = useState(null);
   const [showNotice, setShowNotice] = useState(true);
+  const [noticeData, setNoticeData] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -158,8 +159,8 @@ const AiQuestionMaker = () => {
 
   // Set default number of questions if announcement has tutor_share_qes_number
   useEffect(() => {
-    if (announcement?.tutor_share_qes_number) {
-      setNumberOfQuestions(announcement.tutor_share_qes_number);
+    if (announcement?.total_questions) {
+      setNumberOfQuestions(announcement.total_questions);
     }
   }, [announcement]);
 
@@ -231,6 +232,29 @@ const AiQuestionMaker = () => {
       setLoading(false);
     }
   };
+
+  // fetch notice data
+  useEffect(() => {
+    const getNotice = async () => {
+      setLoading(true);
+      try {
+        const response = await API.get(
+          `/anc/view-announcement-notice-anc/${annId}/`
+        );
+        console.log("get notice response:", response.data);
+
+        if (response.data.status) {
+          setNoticeData(response.data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching notice:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (annId) getNotice();
+  }, [annId]);
 
   return (
     <div className="min-h-screen mt-10">
@@ -313,13 +337,35 @@ const AiQuestionMaker = () => {
                   />
                   <div>
                     <h3 className="font-bold text-amber800 mb-1">Notice</h3>
-                    <p className="text-amber700 text-sm">
-                      We're truly excited to have you here! You're valued and
-                      supported every step of the way. Make yourself at home,
-                      explore freely, and don't hesitate to reach out if you
-                      need anything. Once again, a heartfelt welcome — we're
-                      excited for what lies ahead!
-                    </p>
+                    <div className="space-y-3">
+                      {loading ? (
+                        // Loading state
+                        <div className="flex items-center justify-center py-6">
+                          <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                          <span className="ml-2 text-gray-600 font-medium">
+                            Loading notices...
+                          </span>
+                        </div>
+                      ) : noticeData.length > 0 ? (
+                        // Data found
+                        noticeData.map((item) => (
+                          <div key={item.id}>
+                            <p className="text-gray-800 font-medium">
+                              {item.notice_text}
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              Created:{" "}
+                              {new Date(item.created_at).toLocaleString()}
+                            </p>
+                          </div>
+                        ))
+                      ) : (
+                        // No data
+                        <p className="text-gray-500 text-center py-4">
+                          No announcement notices found.
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <button

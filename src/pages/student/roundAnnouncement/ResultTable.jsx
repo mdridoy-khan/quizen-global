@@ -131,12 +131,14 @@ const ResultTable = ({ roundId, next_round_qualifier }) => {
                   </td>
                   <td className="px-4 py-2 border">{item.marks_obtained}</td>
                   <td className="px-4 py-2 border text-center">
-                    <Link to={`/quiz-answer/${roundId}`}>
-                      <AiOutlineEye
-                        size={20}
-                        className="text-blue-500 cursor-pointer"
-                      />
-                    </Link>
+                    {item.you === true && (
+                      <Link to={`/quiz-answer/${roundId}`}>
+                        <AiOutlineEye
+                          size={20}
+                          className="text-primary cursor-pointer"
+                        />
+                      </Link>
+                    )}
                   </td>
                 </tr>
               ))

@@ -7,7 +7,7 @@ import facebook from "../assets/icons/facebook.svg";
 import linkedin from "../assets/icons/linkedin.svg";
 import messanger from "../assets/icons/messanger.svg";
 import whatsapp from "../assets/icons/whatsapp.svg";
-import Logo from "../assets/logo/logo-blue.svg";
+import Logo from "../assets/logo/logo.png";
 import { formatDateTime } from "../utils/FormateDateTime";
 import { UserLogout } from "../utils/UserLogout";
 
@@ -366,12 +366,8 @@ const Header = () => {
 
             {isLogin ? (
               <div className="group relative">
-                <button className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-600">
-                  <img
-                    src="https://i.pravatar.cc/100"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
+                <button className="w-9 h-9 bg-primary text-white flex items-center justify-center rounded-full font-semibold text-sm">
+                  {parsedData?.username?.slice(0, 2).toUpperCase() || "U"}
                 </button>
                 <ul className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <li>
@@ -427,14 +423,15 @@ const Header = () => {
       {/* Mobile Sidebar (visible below 2xl) */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 bg-white shadow-2xl z-50 transform transition-all duration-300 ease-in-out ${
-          sidebarOpen
-            ? "translate-x-0 opacity-100 visible w-64 sm:w-72 lg:w-80 h-full"
-            : "translate-x-full opacity-0 invisible w-0 h-full overflow-hidden"
-        } 2xl:hidden`}
+        className={`fixed top-0 right-0 z-50 bg-white shadow-2xl transform transition-all duration-300 ease-in-out overflow-y-auto 2xl:hidden
+    ${
+      sidebarOpen
+        ? "translate-x-0 opacity-100 visible w-64 sm:w-72 lg:w-80 h-[100vh]"
+        : "translate-x-full opacity-0 invisible w-0 h-[100vh] overflow-hidden"
+    }`}
       >
         {/* Sidebar Header */}
-        <div className="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gradient-to-r from-gradientStart to-gradientEnd">
+        <div className="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gradient-to-r from-gradientStart to-gradientEnd sticky top-0 z-10">
           <span className="font-semibold text-lg text-white tracking-wide">
             Menu
           </span>
@@ -447,7 +444,8 @@ const Header = () => {
         </div>
 
         {/* Sidebar Menu Items */}
-        <ul className="flex flex-col p-4 gap-2 lg:gap-3">
+        <ul className="flex flex-col p-4 gap-2 sm:gap-3 bg-white min-h-[calc(100vh-60px)]">
+          {/* Menu Items */}
           <li>
             <Link
               to="/"
@@ -461,6 +459,7 @@ const Header = () => {
               Home
             </Link>
           </li>
+
           <li>
             <Link
               to="/winner-announcement"
@@ -474,6 +473,7 @@ const Header = () => {
               Winner Announcement
             </Link>
           </li>
+
           <li>
             <Link
               to="/closed-quiz"
@@ -490,7 +490,7 @@ const Header = () => {
 
           {/* Social Media Icons */}
           <li className="mt-4 border-t border-gray-200 pt-4">
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="https://facebook.com/fleekbangladesh"
                 target="_blank"
@@ -542,29 +542,13 @@ const Header = () => {
             </div>
           </li>
 
-          {/* Language Switcher */}
-          {/* <li className="mt-2">
-            <button
-              onClick={() =>
-                setLanguage((prev) => (prev === "En" ? "Bn" : "En"))
-              }
-              className="w-full text-left px-4 py-2 text-gray-700 font-medium text-sm lg:text-base rounded-lg hover:bg-indigo-50 hover:text-gradientEnd"
-            >
-              Language: {language}
-            </button>
-          </li> */}
-
           {/* Profile/Login Section */}
           {isLogin ? (
-            <li className="mt-2 border-t border-gray-200 pt-4">
+            <li className="mt-4 border-t border-gray-200 pt-4">
               <div className="flex items-center gap-3 px-4">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden border-2 border-indigo-600">
-                  <img
-                    src="https://i.pravatar.cc/100"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <button className="w-9 h-9 bg-primary text-white flex items-center justify-center rounded-full font-semibold text-sm">
+                  {parsedData?.username?.slice(0, 2).toUpperCase() || "U"}
+                </button>
                 <span className="font-medium text-gray-700 text-sm lg:text-base">
                   My Account
                 </span>

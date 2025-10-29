@@ -76,8 +76,7 @@ const RoundCreationForm = () => {
             question_type: round.question_type || "",
             total_questions: round.total_questions || "",
             marks_per_question: round.marks_per_question || "",
-            negative_marks_per_question:
-              round.negative_marks_per_question || "",
+            negative_marks_per_question: round.negative_marks_per_question || 0,
             next_round_qualifier: round.next_round_qualifier || "",
             exam_type: round.exam_type || "",
             address: round.address || "",
@@ -660,6 +659,8 @@ const RoundCreationForm = () => {
                   showCertificate={announcement.is_certificate}
                   termsLink="/terms-and-conditions"
                   organizer={announcement.organizer_name}
+                  subject={announcement.subject}
+                  department_name={announcement.department_name}
                 />
               </div>
             )
@@ -989,7 +990,6 @@ const RoundCreationForm = () => {
                   className="text-sm font-semibold text-gray-700 mb-2 flex items-center"
                 >
                   Address
-                  <span className="text-[#FF2474] ml-1">*</span>
                 </label>
                 <input
                   type="text"

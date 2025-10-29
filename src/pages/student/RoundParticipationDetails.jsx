@@ -36,14 +36,14 @@ const RoundParticipationDetails = () => {
   return (
     <div className="px-4">
       <div className="mb-20">
-        <h2 className="text-2xl xl:text-4xl font-bold flex items-center gap-2 mb-6">
+        <h2 className="text-xl md:text-2xl 2xl:text-3xl text-black font-semibold mb-4 lg:mb-6">
           ROUND PARTICIPATION STATUS
         </h2>
 
         {/* loading spinner */}
         {loading && (
           <div className="flex justify-center items-center py-10">
-            <div className="w-10 h-10 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+            <div className="w-10 h-10 border-4 border-primary border-dashed rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -72,6 +72,7 @@ const RoundParticipationDetails = () => {
                 duration={singleRound.duration}
                 is_participate={singleRound.is_participated}
                 next_round_qualifier={singleRound.next_round_qualifier}
+                disable="true"
               />
             </div>
 
