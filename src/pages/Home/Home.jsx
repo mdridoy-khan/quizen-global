@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import HeaderTop from "../../components/HeaderTop";
-import Hero from "../../components/hero/Hero";
+import Hero from "../../components/Hero/Hero";
 import AnnouncementSection from "./AnnouncementSection";
 import Faq from "./Faq";
 import Feedback from "./Feedback";
