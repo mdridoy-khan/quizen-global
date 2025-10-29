@@ -1,6 +1,6 @@
 import { FaPlay } from "react-icons/fa";
 import Singnal from "../../assets/images/banner-images/singnal.svg";
-import icon from "../../assets/images/banner-images/steps-icons/icon.svg";
+import icon0 from "../../assets/images/banner-images/steps-icons/icon.svg";
 import icon1 from "../../assets/images/banner-images/steps-icons/icon1.svg";
 import icon2 from "../../assets/images/banner-images/steps-icons/icon2.svg";
 import icon3 from "../../assets/images/banner-images/steps-icons/icon3.svg";
@@ -11,7 +11,7 @@ import TicTokImg from "../../assets/images/banner-images/tictok.png";
 const ParticipateGuide = () => {
   const features = [
     {
-      icon: icon,
+      icon: icon0,
       title: "Create Account",
       desc: "Sign up quickly with email or social media to get started",
       bg: "bg-purple-200",
