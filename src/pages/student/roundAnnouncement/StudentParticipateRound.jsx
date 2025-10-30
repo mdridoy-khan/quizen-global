@@ -139,7 +139,7 @@ const StudentParticipateRound = ({
               </button>
             )}
 
-            {disable === "true" ? (
+            {/* {disable === "true" ? (
               <button
                 disabled
                 className="bg-secondary w-full rounded-full text-base font-semibold text-white py-[6px] opacity-50 cursor-not-allowed"
@@ -156,16 +156,16 @@ const StudentParticipateRound = ({
                   PARTICIPATE
                 </button>
               )
-            )}
+            )} */}
 
-            {/* {round_status === "active" && !is_participated &&  (
+            {round_status === "active" && !is_participated && (
               <button
                 className="bg-secondary w-full rounded-full text-base font-semibold text-white py-[6px] transition hover:text-white hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={() => setShowParticipateModal(true)}
               >
                 PARTICIPATE
               </button>
-            )} */}
+            )}
 
             {round_status === "completed" && !is_participated && (
               <button
