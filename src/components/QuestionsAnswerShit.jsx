@@ -39,7 +39,10 @@ const QuestionsAnswerShit = () => {
       setCurrentPage(Math.floor(offsetValue / limit) + 1);
     } catch (err) {
       console.error("Error fetching:", err);
-      setError("Failed to load data. Please try again.");
+      const apiError =
+        err.response?.data?.error || "Failed to load data. Please try again.";
+
+      setError(apiError);
       setQuizAnswer(null);
     } finally {
       setLoading(false);
