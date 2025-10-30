@@ -247,6 +247,12 @@ const QuestionMaker = () => {
 
     if (announcementId) getNotice();
   }, [announcementId]);
+
+  // hanle notice popup
+  const handleNotice = () => {
+    setShowNotice(false);
+  };
+
   return (
     <div className="min-h-screen mt-10">
       {/* bg-gradient-to-br from-indigo-50 to-blue-100 py-8 px-4 sm:px-6 */}
@@ -319,54 +325,52 @@ const QuestionMaker = () => {
 
           {/* Notice message */}
           {showNotice && (
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-xl p-5 mb-4 xl:mb-8 text-left shadow-sm">
-              <div className="flex items-start justify-between">
-                <div className="flex items-start">
-                  <TbExclamationCircle
-                    size={24}
-                    className="text-amber-500 mt-1 mr-3 flex-shrink-0"
-                  />
-                  <div>
-                    <h3 className="font-bold text-amber-800 mb-1">
-                      Notice for “Math Quiz 2025”
-                    </h3>
-                    <div className="space-y-3">
-                      {loading ? (
-                        // Loading state
-                        <div className="flex items-center justify-center py-6">
-                          <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
-                          <span className="ml-2 text-gray-600 font-medium">
-                            Loading notices...
-                          </span>
-                        </div>
-                      ) : noticeData.length > 0 ? (
-                        // Data found
-                        noticeData.map((item) => (
-                          <div key={item.id}>
-                            <p className="text-gray-800 font-medium">
-                              {item.notice_text}
-                            </p>
-                            <p className="text-sm text-gray-500">
-                              Created:{" "}
-                              {new Date(item.created_at).toLocaleString()}
-                            </p>
-                          </div>
-                        ))
-                      ) : (
-                        // No data
-                        <p className="text-gray-500 text-center py-4">
-                          No announcement notices found.
-                        </p>
-                      )}
+            <div className="bg-orange200 p-4 rounded-xl mb-4">
+              <div className="text-sm font-medium">
+                <div className="space-y-3">
+                  {loading ? (
+                    // Loading state
+                    <div className="flex items-center justify-center py-6">
+                      <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                      <span className="ml-2 text-gray-600 font-medium">
+                        Loading notices...
+                      </span>
                     </div>
-                  </div>
+                  ) : noticeData.length > 0 ? (
+                    // Data found
+                    noticeData.map((item) => (
+                      <div key={item.id}>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-base font-medium mb-1 flex items-center gap-2">
+                            <TbExclamationCircle
+                              size={24}
+                              style={{ color: "primary" }}
+                            />
+                            Last Update:{" "}
+                            {new Date(item.updated_at).toLocaleDateString()}
+                          </span>
+                          <button onClick={handleNotice}>
+                            <RxCross2 size={20} />
+                          </button>
+                        </div>
+                        <div className="text-left">
+                          <p className="text-gray-800 font-medium">
+                            {item.notice_text}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            Created:{" "}
+                            {new Date(item.created_at).toLocaleString()}
+                          </p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    // No data
+                    <p className="text-gray-500 text-center py-4">
+                      No announcement notices found.
+                    </p>
+                  )}
                 </div>
-                <button
-                  className="text-amber-500 hover:text-amber-700"
-                  onClick={() => setShowNotice(false)}
-                >
-                  <RxCross2 size={20} />
-                </button>
               </div>
             </div>
           )}

@@ -167,15 +167,6 @@ const RoundAnnouncement = () => {
       {/* Notice message */}
       {notice && (
         <div className="bg-orange200 p-4 rounded-xl">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-base font-medium mb-1 flex items-center gap-2">
-              <TbExclamationCircle size={24} style={{ color: "primary" }} />
-              Notice
-            </span>
-            <button onClick={handleNotice}>
-              <RxCross2 size={20} />
-            </button>
-          </div>
           <div className="text-sm font-medium">
             <div className="space-y-3">
               {loading ? (
@@ -190,12 +181,27 @@ const RoundAnnouncement = () => {
                 // Data found
                 noticeData.map((item) => (
                   <div key={item.id}>
-                    <p className="text-gray-800 font-medium">
-                      {item.notice_text}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Created: {new Date(item.created_at).toLocaleString()}
-                    </p>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-base font-medium mb-1 flex items-center gap-2">
+                        <TbExclamationCircle
+                          size={24}
+                          style={{ color: "primary" }}
+                        />
+                        Last Update:{" "}
+                        {new Date(item.updated_at).toLocaleDateString()}
+                      </span>
+                      <button onClick={handleNotice}>
+                        <RxCross2 size={20} />
+                      </button>
+                    </div>
+                    <div>
+                      <p className="text-gray-800 font-medium">
+                        {item.notice_text}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Created: {new Date(item.created_at).toLocaleString()}
+                      </p>
+                    </div>
                   </div>
                 ))
               ) : (

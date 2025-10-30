@@ -125,13 +125,13 @@ const Header = () => {
         </div>
 
         {/* Desktop Header (visible 2xl and above) */}
-        <nav className="hidden lg:flex items-center justify-between py-2">
+        <nav className="hidden lg:flex items-center justify-between">
           <div>
             <Link to="/" className="inline-block">
               <img
                 src={Logo}
                 alt="Site Logo"
-                className="w-28 lg:w-32 xl:w-[160px] transition-all duration-300"
+                className="w-28 lg:w-32 xl:w-[140px] transition-all duration-300"
               />
             </Link>
           </div>
