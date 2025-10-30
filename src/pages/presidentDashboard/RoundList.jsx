@@ -201,11 +201,11 @@ const RoundList = () => {
                       }
                       disabled={round.is_created_quiz}
                       className={`self-start flex items-center justify-center gap-2 transition rounded-lg py-2 px-2 xl:px-3 text-white text-[12px] font-semibold 
-      ${
-        round.is_created_quiz
-          ? "bg-gray-400 cursor-not-allowed"
-          : "bg-secondary hover:bg-primary"
-      }`}
+                      ${
+                        round.is_created_quiz
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-secondary hover:bg-primary"
+                      }`}
                     >
                       CREATE QUIZ{" "}
                       <LuCirclePlus className="text-base xl:text-lg 2xl:text-xl" />
