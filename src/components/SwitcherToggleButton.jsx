@@ -6,11 +6,11 @@ import { API_ENDPOINS } from "../api/ApiEndpoints";
 
 const SwitcherToggleButton = ({ id, isActive: initialIsActive }) => {
   const [isActive, setIsActive] = useState(initialIsActive);
-  const [userToggled, setUserToggled] = useState(false); // track user interaction
+  const [userToggled, setUserToggled] = useState(false);
 
   const handleToggle = () => {
     setIsActive((prev) => !prev);
-    setUserToggled(true); // mark that user changed the switch
+    setUserToggled(true);
   };
 
   useEffect(() => {

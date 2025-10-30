@@ -7,7 +7,7 @@ import API from "../../api/API";
 import { formatDateTime } from "../../utils/FormateDateTime";
 import formatTime from "../../utils/FormateTime";
 
-const SingleRoundDetails = ({ onClose, roundID }) => {
+const SingleRoundDetails = ({ onClose, roundID, isCreatedQuiz }) => {
   const [rounds, setRounds] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -394,6 +394,14 @@ const SingleRoundDetails = ({ onClose, roundID }) => {
                       </span>{" "}
                       Starts: {formatDateTime(rounds.quiz_start_date)} | Ends:{" "}
                       {formatDateTime(rounds.quiz_end_date)}
+                    </p>
+                  </div>
+                  <div className="text-sm text-gray-600 mt-3">
+                    <p className="font-semibold text-black">
+                      Quiz Created:{" "}
+                      <span className="text-gray-600">
+                        {isCreatedQuiz ? "1 Question set submitted" : "No"}
+                      </span>
                     </p>
                   </div>
                 </div>

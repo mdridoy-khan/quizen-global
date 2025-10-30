@@ -184,9 +184,9 @@ const RoundList = () => {
                     Subject: {round.topic_subject}
                   </li>
                 </ul>
-                <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="flex items-center justify-center gap-2 mt-4">
                   <button
-                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px]  font-semibold"
+                    className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-2 xl:px-3 text-white text-[12px]  font-semibold"
                     onClick={() =>
                       handleParticipate(round.id, round.next_round_qualifier)
                     }
@@ -194,15 +194,40 @@ const RoundList = () => {
                     VIEW PARTICIPANT{" "}
                     <TbListDetails className="text-base xl:text-lg 2xl:text-xl" />
                   </button>
-                  <button
+                  <div className="relative group">
+                    <button
+                      onClick={() =>
+                        openModal(round.id, id || round.announcement)
+                      }
+                      disabled={round.is_created_quiz}
+                      className={`self-start flex items-center justify-center gap-2 transition rounded-lg py-2 px-2 xl:px-3 text-white text-[12px] font-semibold 
+      ${
+        round.is_created_quiz
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-secondary hover:bg-primary"
+      }`}
+                    >
+                      CREATE QUIZ{" "}
+                      <LuCirclePlus className="text-base xl:text-lg 2xl:text-xl" />
+                    </button>
+
+                    {round.is_created_quiz && (
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-[11px] font-medium bg-black text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        1 Question set submitted
+                      </span>
+                    )}
+                  </div>
+
+                  {/* <button
                     onClick={() =>
                       openModal(round.id, id || round.announcement)
                     }
+                    disabled={!round.is_created_quiz}
                     className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-1 text-white text-[12px]  font-semibold"
                   >
                     CREATE QUIZ{" "}
                     <LuCirclePlus className="text-base xl:text-lg 2xl:text-xl" />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -225,6 +250,9 @@ const RoundList = () => {
               onClose={handleCloseModal}
               roundID={modalRoundId}
               id={id}
+              isCreatedQuiz={
+                rounds.find((r) => r.id === modalRoundId)?.is_created_quiz
+              }
             />
           </div>
         </div>
