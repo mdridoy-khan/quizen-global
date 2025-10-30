@@ -6,7 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { MdLogout, MdNewspaper } from "react-icons/md";
 import { TbRosetteDiscountCheck } from "react-icons/tb";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/logo/logo-blue.svg";
+import Logo from "../assets/logo/logo.png";
 
 const Sidebar = ({ role, isSidebarOpen, toggleSidebar, handleLogout }) => {
   // menu configuration based on role
@@ -80,7 +80,7 @@ const Sidebar = ({ role, isSidebarOpen, toggleSidebar, handleLogout }) => {
             <img
               src={Logo}
               alt="Site Logo"
-              className="w-28 lg:w-32 transition-all duration-300"
+              className="w-28 lg:w-32 transition-all duration-300 relative -top-4 2xl:-top-2"
             />
           </Link>
         </div>
