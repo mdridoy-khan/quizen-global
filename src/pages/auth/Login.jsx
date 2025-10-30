@@ -191,15 +191,15 @@ const Login = () => {
               {messages.map((message, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between rounded py-1 px-2 mb-4 ${
+                  className={`max-w-[320px] flex items-center justify-between rounded py-1 px-2 mb-4 ${
                     message.type === "error" ? "bg-pink200" : "bg-green100"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     {message.type === "error" && (
-                      <HiMiniExclamationCircle size={20} color="#681923" />
+                      <HiMiniExclamationCircle className="text-xl w-10" />
                     )}
-                    <span className="block">{message.text}</span>
+                    <span className="flex-1">{message.text}</span>
                   </div>
                   <button onClick={() => removeMessage(index)}>
                     <IoCloseOutline size={20} />
