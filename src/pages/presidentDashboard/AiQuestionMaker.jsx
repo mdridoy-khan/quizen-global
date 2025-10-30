@@ -7,6 +7,7 @@ import { TbExclamationCircle } from "react-icons/tb";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import API from "../../api/API";
+import { formatDateTime } from "../../utils/FormateDateTime";
 
 const AiQuestionMaker = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -353,8 +354,7 @@ const AiQuestionMaker = () => {
                               size={24}
                               style={{ color: "primary" }}
                             />
-                            Last Update:{" "}
-                            {new Date(item.updated_at).toLocaleDateString()}
+                            Notice:
                           </span>
                           <button onClick={handleNotice}>
                             <RxCross2 size={20} />
@@ -365,8 +365,7 @@ const AiQuestionMaker = () => {
                             {item.notice_text}
                           </p>
                           <p className="text-sm text-gray-500">
-                            Created:{" "}
-                            {new Date(item.created_at).toLocaleString()}
+                            Last Update: {formatDateTime(item.updated_at)}
                           </p>
                         </div>
                       </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import { TbExclamationCircle } from "react-icons/tb";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -140,7 +139,7 @@ const TutorProfile = () => {
           )}
 
           {/* notice message */}
-          {messageClose.noticeMessage && (
+          {/* {messageClose.noticeMessage && (
             <div className="bg-orange-100 p-4 rounded-xl mb-8 shadow">
               <div className="flex items-center justify-between border-b border-orange-50">
                 <span className="text-base font-medium mb-1 flex items-center gap-2">
@@ -158,7 +157,7 @@ const TutorProfile = () => {
                 heartfeltwelcome — we’re excited for what lies ahead!
               </p>
             </div>
-          )}
+          )} */}
         </div>
 
         <div className="mt-8 flex gap-4 flex-wrap">

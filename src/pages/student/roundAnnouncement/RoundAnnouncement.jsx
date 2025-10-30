@@ -4,6 +4,7 @@ import { TbExclamationCircle } from "react-icons/tb";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../../../api/API";
 import CountdownTimer from "../../../components/CountdownTimer";
+import { formatDateTime } from "../../../utils/FormateDateTime";
 import ParticipateModal from "./ParticipateModal";
 import QuizParticipateAlert from "./QuizParticipateAlert";
 import StudentParticipateRound from "./StudentParticipateRound";
@@ -187,8 +188,7 @@ const RoundAnnouncement = () => {
                           size={24}
                           style={{ color: "primary" }}
                         />
-                        Last Update:{" "}
-                        {new Date(item.updated_at).toLocaleDateString()}
+                        Notice:
                       </span>
                       <button onClick={handleNotice}>
                         <RxCross2 size={20} />
@@ -199,7 +199,7 @@ const RoundAnnouncement = () => {
                         {item.notice_text}
                       </p>
                       <p className="text-sm text-gray-500">
-                        Created: {new Date(item.created_at).toLocaleString()}
+                        Last Update: {formatDateTime(item.updated_at)}
                       </p>
                     </div>
                   </div>

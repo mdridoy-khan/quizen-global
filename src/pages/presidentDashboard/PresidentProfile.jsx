@@ -1,6 +1,5 @@
 import { FaSpinner } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import { TbExclamationCircle } from "react-icons/tb";
 
 import { useEffect, useState } from "react";
 import API from "../../api/API";
@@ -81,7 +80,7 @@ const PresidentProfile = () => {
         )}
 
         {/* notice message */}
-        {messageClose.noticeMessage && (
+        {/* {messageClose.noticeMessage && (
           <div className="bg-orange200 p-4 rounded-xl mb-8 shadow">
             <div className="flex items-center justify-between">
               <span className="text-base font-medium mb-1 flex items-center gap-2">
@@ -102,7 +101,7 @@ const PresidentProfile = () => {
               heartfeltwelcome — we’re excited for what lies ahead!
             </p>
           </div>
-        )}
+        )} */}
 
         <div className="flex gap-4 flex-wrap">
           {/* question box */}

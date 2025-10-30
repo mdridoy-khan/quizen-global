@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { TbExclamationCircle } from "react-icons/tb";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -113,7 +112,7 @@ const StudentDashboard = () => {
             )}
 
             {/* notice message */}
-            {messageClose.noticeMessage && (
+            {/* {messageClose.noticeMessage && (
               <div className="bg-orange-50 p-4 rounded-xl mb-8 shadow">
                 <div className="flex items-center justify-between py-2 border-b border-gray-200">
                   <span className="text-base font-medium mb-1 flex items-center gap-2">
@@ -134,7 +133,7 @@ const StudentDashboard = () => {
                   a heartfeltwelcome — we’re excited for what lies ahead!
                 </p>
               </div>
-            )}
+            )} */}
           </div>
 
           {loading ? (
@@ -146,14 +145,6 @@ const StudentDashboard = () => {
           ) : stats ? (
             <div className="mt-8 flex gap-4 flex-wrap">
               {/* question box */}
-              <div className="bg-[#74b9ff] bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
-                <span className="text-[15px] font-semibold mb-3 block">
-                  Average Score
-                </span>
-                <h3 className="text-2xl font-semibold">
-                  {stats.average_score}
-                </h3>
-              </div>
               <div className="bg-[#74b9ff] bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
                 <span className="text-[15px] font-semibold mb-3 block">
                   Highest Score
