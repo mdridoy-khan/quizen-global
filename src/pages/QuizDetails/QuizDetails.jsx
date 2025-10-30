@@ -187,6 +187,24 @@ const QuizDetails = () => {
                 Certificate: <b>{announcement.is_certificate ? "Yes" : "No"}</b>
               </span>
             </li>
+            <li className="flex gap-2">
+              <FaCertificate className="text-blue-500 mt-1" />
+              <div>
+                Exciting Price:{" "}
+                <b>
+                  {announcement?.exciting_prizes?.length ? (
+                    announcement.exciting_prizes.map((item) => (
+                      <p key={item.id} className="flex flex-col">
+                        <span>Price Name: {item.item_name}</span>
+                        <span>Quantity: {item.quantity}</span>
+                      </p>
+                    ))
+                  ) : (
+                    <p>No Exciting Prize</p>
+                  )}
+                </b>
+              </div>
+            </li>
           </ul>
         </div>
 
