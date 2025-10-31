@@ -4,6 +4,7 @@ import { IoMdRefresh } from "react-icons/io";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { Link } from "react-router-dom";
+import SocialShare from "./SocialShare";
 import SwitcherToggleButton from "./SwitcherToggleButton";
 
 const QuizCard = ({
@@ -35,6 +36,8 @@ const QuizCard = ({
 
   console.log("lp_status", lp_status);
   console.log("endDate", endDate);
+
+  const domain = window.location.origin;
 
   // Check if endDate has passed
   const isExpired = useMemo(() => {
@@ -224,6 +227,11 @@ const QuizCard = ({
               </div>
             </div>
           )}
+
+          <SocialShare
+            url={`${domain}/quiz-details/${quizId}`}
+            title="Quiz Test"
+          />
 
           {/* Certificate Link - Bottom */}
           <div className="flex items-center justify-between pt-2">
