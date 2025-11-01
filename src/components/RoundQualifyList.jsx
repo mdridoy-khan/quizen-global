@@ -3,7 +3,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import API from "../api/API";
 import { formatDateTime } from "../utils/FormateDateTime";
 
-const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
+const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
   const [participate, setParticipate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -22,6 +22,8 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
 
   // search state
   const [searchTerm, setSearchTerm] = useState("");
+
+  console.log("topicSubject", topicSubject);
 
   // fetch participate data (default load)
   useEffect(() => {
@@ -85,7 +87,9 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
       setConfirmResult(response.data);
       setConfirmStage(false);
     } catch (err) {
-      setConfirmError("Something went wrong! Please try again.");
+      setConfirmError(
+        err?.response?.data?.error || "Something went wrong! Please try again."
+      );
       setConfirmStage(false);
     } finally {
       setConfirmLoading(false);
@@ -96,7 +100,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
   const handleShowConfirmModal = () => {
     setConfirmResult(null);
     setConfirmError(null);
-    setConfirmStage(true); // show confirm modal first
+    setConfirmStage(true);
     setShowModal(true);
   };
 
@@ -134,6 +138,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
           <HiOutlineExclamationCircle size={20} />
           NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
         </button>
+        <h3>{topicSubject}</h3>
 
         <div className="flex items-center gap-2">
           <form action="#" onSubmit={(e) => e.preventDefault()}>
@@ -145,13 +150,22 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
               className="border border-secondary rounded-lg py-1 px-2 shadow-none outline-none transition"
             />
           </form>
-          <button
-            onClick={handleShowConfirmModal}
-            disabled={confirmLoading}
-            className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
-          >
-            {confirmLoading ? "Processing..." : "CONFIRM NEXT ROUND"}
-          </button>
+          {participate.is_next_round_confirmed ? (
+            <button
+              disabled
+              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
+            >
+              Already Confirm Next Round
+            </button>
+          ) : (
+            <button
+              onClick={handleShowConfirmModal}
+              disabled={confirmLoading}
+              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
+            >
+              {confirmLoading ? "Processing..." : "CONFIRM NEXT ROUND"}
+            </button>
+          )}
         </div>
       </div>
 
@@ -284,7 +298,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier }) => {
                   confirmResult && (
                     <>
                       <h2 className="text-green600 font-bold text-lg">
-                        Success 🎉
+                        Success
                       </h2>
                       <p>{confirmResult.message}</p>
                       <div className="flex justify-between text-sm font-medium">

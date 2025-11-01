@@ -1,11 +1,13 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { GrCertificate } from "react-icons/gr";
 import { IoMdRefresh } from "react-icons/io";
+import { IoShareSocialSharp } from "react-icons/io5";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SocialShare from "./SocialShare";
 import SwitcherToggleButton from "./SwitcherToggleButton";
+import ToggleQuizOpenCloseModal from "./ToggleQuizOpenCloseModal";
 
 const QuizCard = ({
   id,
@@ -28,10 +30,12 @@ const QuizCard = ({
   termsLink = "/",
   organizer = "Fleek Bangladesh Bd",
   showSwitcher = false,
+  annOpenClose = false,
   winnerList = [],
   subject,
   department_name,
 }) => {
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const isHorizontal = layout === "horizontal";
 
   console.log("lp_status", lp_status);
@@ -129,6 +133,11 @@ const QuizCard = ({
                 <SwitcherToggleButton id={id} isActive={isActive} />
               </div>
             )}
+            {annOpenClose && (
+              <div className="absolute top-3 left-3">
+                <ToggleQuizOpenCloseModal id={id} isActive={isActive} />
+              </div>
+            )}
           </div>
 
           {/* Rounds & Duration Info */}
@@ -139,22 +148,39 @@ const QuizCard = ({
               </div>
             </div> */}
             <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <IoMdRefresh className="text-black" size={20} />
+              <button
+                onClick={() => setIsShareOpen(true)}
+                className="text-black hover:text-primary"
+              >
+                <IoShareSocialSharp className="text-xl" />
+              </button>
+              <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                  <p className="text-lg font-bold text-gray-800">{rounds}</p>
-                  <p className="text-sm text-gray-500">Rounds</p>
+                  <IoMdRefresh className="text-black" size={20} />
+                  <div className="flex items-center gap-2">
+                    <p className="text-lg font-bold text-gray-800">{rounds}</p>
+                    <p className="text-sm text-gray-500">Rounds</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <MdOutlineAccessTimeFilled className="text-black" size={24} />
-                <div className="flex items-center gap-2">
-                  <p className="text-lg font-bold text-gray-800">{duration}</p>
-                  <p className="text-sm text-gray-500">Days</p>
+                <div className="flex items-center gap-3">
+                  <MdOutlineAccessTimeFilled className="text-black" size={24} />
+                  <div className="flex items-center gap-2">
+                    <p className="text-lg font-bold text-gray-800">
+                      {duration}
+                    </p>
+                    <p className="text-sm text-gray-500">Days</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <SocialShare
+            url={`${domain}/quiz-details/${quizId}`}
+            title=""
+            isOpen={isShareOpen}
+            onClose={() => setIsShareOpen(false)}
+          />
 
           {/* Action Button */}
           <div className="px-6 my-4 border-b border-gray-200">
@@ -227,11 +253,6 @@ const QuizCard = ({
               </div>
             </div>
           )}
-
-          <SocialShare
-            url={`${domain}/quiz-details/${quizId}`}
-            title="Quiz Test"
-          />
 
           {/* Certificate Link - Bottom */}
           <div className="flex items-center justify-between pt-2">

@@ -196,6 +196,7 @@ const PresidentAnnouncementList = () => {
               termsLink="/terms-and-conditions"
               organizer={ann.organizer_name}
               showSwitcher={true}
+              annOpenClose={true}
               closedQuiz={true}
               subject={ann.subject}
               department_name={ann.department_name}
