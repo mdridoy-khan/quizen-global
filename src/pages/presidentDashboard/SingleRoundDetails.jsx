@@ -342,10 +342,19 @@ const SingleRoundDetails = ({ onClose, roundID, isCreatedQuiz }) => {
                   </div>
                   <div className="flex flex-col items-start">
                     <span className="text-sm text-gray-500">
-                      Marks / Question
+                      Marks Per Question
                     </span>
                     <span className="font-medium text-gray-900">
                       {rounds.marks_per_question} (+),{" "}
+                      {/* {rounds.negative_marks_per_question} (-) */}
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm text-gray-500">
+                      Negative Per Question
+                    </span>
+                    <span className="font-medium text-gray-900">
+                      {/* {rounds.marks_per_question} (+),{" "} */}
                       {rounds.negative_marks_per_question} (-)
                     </span>
                   </div>
