@@ -14,7 +14,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
   const [confirmError, setConfirmError] = useState(null);
   const [confirmResult, setConfirmResult] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [confirmStage, setConfirmStage] = useState(false); // new state to track "confirmation stage"
+  const [confirmStage, setConfirmStage] = useState(false);
 
   // pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -128,17 +128,21 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4  bg-white shadow p-4 rounded-lg">
       {error && (
         <div className="bg-red100 text-red700 px-4 py-2 rounded">{error}</div>
       )}
 
       <div className="flex flex-col md:flex-row items-center justify-between">
-        <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 ">
-          <HiOutlineExclamationCircle size={20} />
-          NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
-        </button>
-        <h3>{topicSubject}</h3>
+        <div>
+          <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 ">
+            <HiOutlineExclamationCircle size={20} />
+            NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
+          </button>
+          <h3 className="text-base font-semibold text-secondary mt-2">
+            Subject: {topicSubject}
+          </h3>
+        </div>
 
         <div className="flex items-center gap-2">
           <form action="#" onSubmit={(e) => e.preventDefault()}>

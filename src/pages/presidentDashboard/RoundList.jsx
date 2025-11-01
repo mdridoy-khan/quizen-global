@@ -23,9 +23,12 @@ const RoundList = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [selectedRoundId, setSelectedRoundId] = useState(null);
+  const [topicSubject, setTopicSubject] = useState(null);
   const [modalRoundId, setModalRoundId] = useState(null);
   const [quizCreationData, setQuizCreationData] = useState(null);
   const [selectedNextRound, setSelectedNextRound] = useState(null);
+
+  console.log("rounds", rounds);
 
   // Fetch announcement details
   useEffect(() => {
@@ -73,9 +76,10 @@ const RoundList = () => {
     setModalRoundId(null);
   };
 
-  const handleParticipate = (roundId, nextRoundQualifier) => {
+  const handleParticipate = (roundId, nextRoundQualifier, topicSubject) => {
     setSelectedRoundId((prev) => (prev === roundId ? null : roundId));
     setSelectedNextRound(nextRoundQualifier);
+    setTopicSubject((prev) => (prev === topicSubject ? null : topicSubject));
   };
 
   const openModal = (roundId, annId) => {
@@ -147,7 +151,7 @@ const RoundList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 relative">
           {rounds.map((round, index) => (
             <div key={round.id}>
-              <div className="bg-white shadow rounded-xl p-4">
+              <div className="bg-[#E5F0FF] shadow rounded-xl p-4">
                 <button
                   onClick={() => handleOpenModal(round.id)}
                   className="w-full flex justify-end mb-4"
@@ -188,7 +192,11 @@ const RoundList = () => {
                   <button
                     className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-2 xl:px-3 text-white text-[12px]  font-semibold"
                     onClick={() =>
-                      handleParticipate(round.id, round.next_round_qualifier)
+                      handleParticipate(
+                        round.id,
+                        round.next_round_qualifier,
+                        round.topic_subject
+                      )
                     }
                   >
                     VIEW PARTICIPANT{" "}
@@ -233,11 +241,12 @@ const RoundList = () => {
             </div>
           ))}
         </div>
-        {selectedRoundId && selectedNextRound && (
+        {selectedRoundId && selectedNextRound && topicSubject && (
           <div className="mt-10">
             <RoundQualifyList
               roundId={selectedRoundId}
               nextRoundQualifier={selectedNextRound}
+              topicSubject={topicSubject}
             />
           </div>
         )}
