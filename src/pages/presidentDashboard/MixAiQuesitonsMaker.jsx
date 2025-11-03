@@ -98,9 +98,13 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
       toast.success("Quiz created and saved successfully!");
     } catch (err) {
       console.error("Error saving quiz:", err);
-      setSaveError("Failed to save quiz. Please try again.");
+      setSaveError(
+        err.response.data.error || "Failed to save quiz. Please try again."
+      );
       setSuccessMessage("");
-      toast.error("Failed to save quiz. Please try again.");
+      toast.error(
+        err.response.data.error || "Failed to save quiz. Please try again."
+      );
     } finally {
       setIsSaving(false);
       navigate("/president/dashboard");
@@ -410,7 +414,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 </label>
                 <input
                   type="number"
-                  value={numberOfQuestions}
+                  value={numberOfQuestions + questionsIds.length}
                   min={1}
                   onChange={handleNumberChange}
                   disabled={!!announcement?.tutor_share_qes_number}
