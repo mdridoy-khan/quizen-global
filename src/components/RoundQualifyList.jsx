@@ -3,7 +3,12 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import API from "../api/API";
 import { formatDateTime } from "../utils/FormateDateTime";
 
-const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
+const RoundQualifyList = ({
+  roundId,
+  nextRoundQualifier,
+  topicSubject,
+  confirmNextRound,
+}) => {
   const [participate, setParticipate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -23,7 +28,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
   // search state
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("topicSubject", topicSubject);
+  console.log("confirmNextRound", confirmNextRound);
 
   // fetch participate data (default load)
   useEffect(() => {
@@ -154,7 +159,7 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
               className="border border-secondary rounded-lg py-1 px-2 shadow-none outline-none transition"
             />
           </form>
-          {participate.is_next_round_confirmed ? (
+          {confirmNextRound ? (
             <button
               disabled
               className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
@@ -170,6 +175,22 @@ const RoundQualifyList = ({ roundId, nextRoundQualifier, topicSubject }) => {
               {confirmLoading ? "Processing..." : "CONFIRM NEXT ROUND"}
             </button>
           )}
+          {/* {participate.is_next_round_confirmed ? (
+            <button
+              disabled
+              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
+            >
+              Already Confirm Next Round
+            </button>
+          ) : (
+            <button
+              onClick={handleShowConfirmModal}
+              disabled={confirmLoading}
+              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
+            >
+              {confirmLoading ? "Processing..." : "CONFIRM NEXT ROUND"}
+            </button>
+          )} */}
         </div>
       </div>
 

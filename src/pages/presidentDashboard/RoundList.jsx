@@ -24,6 +24,7 @@ const RoundList = () => {
   const [error, setError] = useState();
   const [selectedRoundId, setSelectedRoundId] = useState(null);
   const [topicSubject, setTopicSubject] = useState(null);
+  const [confirmNextRound, setConfirmNextRound] = useState(null);
   const [modalRoundId, setModalRoundId] = useState(null);
   const [quizCreationData, setQuizCreationData] = useState(null);
   const [selectedNextRound, setSelectedNextRound] = useState(null);
@@ -76,10 +77,18 @@ const RoundList = () => {
     setModalRoundId(null);
   };
 
-  const handleParticipate = (roundId, nextRoundQualifier, topicSubject) => {
+  const handleParticipate = (
+    roundId,
+    nextRoundQualifier,
+    topicSubject,
+    confirmNextRound
+  ) => {
     setSelectedRoundId((prev) => (prev === roundId ? null : roundId));
     setSelectedNextRound(nextRoundQualifier);
     setTopicSubject((prev) => (prev === topicSubject ? null : topicSubject));
+    setConfirmNextRound((prev) =>
+      prev === confirmNextRound ? null : confirmNextRound
+    );
   };
 
   const openModal = (roundId, annId) => {
@@ -188,14 +197,15 @@ const RoundList = () => {
                     Subject: {round.topic_subject}
                   </li>
                 </ul>
-                <div className="flex items-center justify-center gap-2 mt-4">
+                <div className="flex items-center justify-between gap-2 mt-4">
                   <button
                     className="self-start flex items-center justify-center gap-2 transition bg-secondary hover:bg-primary rounded-lg py-2 px-2 xl:px-3 text-white text-[12px]  font-semibold"
                     onClick={() =>
                       handleParticipate(
                         round.id,
                         round.next_round_qualifier,
-                        round.topic_subject
+                        round.topic_subject,
+                        round.is_next_round_confirmed
                       )
                     }
                   >
@@ -247,6 +257,7 @@ const RoundList = () => {
               roundId={selectedRoundId}
               nextRoundQualifier={selectedNextRound}
               topicSubject={topicSubject}
+              confirmNextRound={confirmNextRound}
             />
           </div>
         )}

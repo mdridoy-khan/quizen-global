@@ -414,7 +414,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 </label>
                 <input
                   type="number"
-                  value={numberOfQuestions + questionsIds.length}
+                  value={numberOfQuestions + questionsIds?.length || 0}
                   min={1}
                   onChange={handleNumberChange}
                   disabled={!!announcement?.tutor_share_qes_number}

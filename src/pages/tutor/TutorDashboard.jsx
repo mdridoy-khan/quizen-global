@@ -175,6 +175,8 @@ const TutorDashboard = () => {
                   showCertificate={quiz.is_certificate}
                   termsLink={`/terms/${quiz.id}`}
                   organizer={quiz.organizer_name}
+                  subject={quiz.subject}
+                  department_name={quiz.department_name}
                 />
               ))
             ) : (
