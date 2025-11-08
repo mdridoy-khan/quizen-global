@@ -8,6 +8,7 @@ import {
   FaMapMarkerAlt,
   FaMoneyBillWave,
   FaRegCalendarAlt,
+  FaSpinner,
 } from "react-icons/fa";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import API from "../../api/API";
@@ -46,6 +47,11 @@ const QuizDetails = () => {
     getAnnouncement();
   }, [quizId]);
 
+  // get user type
+  const userDataInfo = JSON.parse(localStorage.getItem("UserData"));
+  const userType = userDataInfo?.user_type;
+  console.log("userType:", userType);
+
   useEffect(() => {
     if (!announcement) return;
     if (
@@ -67,8 +73,8 @@ const QuizDetails = () => {
 
   if (loading) {
     return (
-      <div className="text-center py-20 text-lg font-medium">
-        Loading announcement details...
+      <div className="flex justify-center items-center w-screen h-screen">
+        <FaSpinner className="animate-spin text-3xl xl:text-4xl text-primary" />
       </div>
     );
   }
@@ -97,12 +103,16 @@ const QuizDetails = () => {
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 md:mb-0">
               Quiz Details
             </h2>
-            <button
-              onClick={handleQuickRegistration}
-              className="bg-pink-500 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-pink-600 transition"
-            >
-              Register Now
-            </button>
+            {userType === "president" ? (
+              ""
+            ) : (
+              <button
+                onClick={handleQuickRegistration}
+                className="bg-pink-500 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-pink-600 transition"
+              >
+                Register Now
+              </button>
+            )}
           </div>
 
           {/* Quiz Info Grid */}

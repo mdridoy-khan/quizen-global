@@ -322,7 +322,7 @@ const SharedQuestionsPresident = () => {
                 YOU ARE MAKING QUESTIONS FOR
                 {rounds?.announcement && (
                   <Link
-                    to={`/quiz-details/${rounds.announcement}`}
+                    to={`/announcement-details/${rounds.announcement}`}
                     className="text-primary hover:text-primary font-medium underline"
                     target="_blank"
                   >
@@ -1021,7 +1021,7 @@ export default SharedQuestionsPresident;
 //                 YOU ARE MAKING QUESTIONS FOR
 //                 {rounds?.announcement && (
 //                   <Link
-//                     to={`/quiz-details/${rounds.announcement}`}
+//                     to={`/announcement-details/${rounds.announcement}`}
 //                     className="text-primary hover:text-primary font-medium underline"
 //                     target="_blank"
 //                   >

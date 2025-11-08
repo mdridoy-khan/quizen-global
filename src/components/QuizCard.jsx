@@ -77,7 +77,7 @@ const QuizCard = ({
           {/* subject and Department name */}
           <div className="px-6 pb-4 flex items-center flex-wrap gap-2">
             <Link
-              to={`/quiz-details/${quizId}`}
+              to={`/announcement-details/${quizId}`}
               state={{ scrollTo: "gratifications" }}
               className="text-sm text-gray-600 border border-gray-300 py-1 px-2 rounded-full"
             >
@@ -85,7 +85,7 @@ const QuizCard = ({
               <span className="font-semibold text-gray-800">{subject}</span>
             </Link>
             <Link
-              to={`/quiz-details/${quizId}`}
+              to={`/announcement-details/${quizId}`}
               state={{ scrollTo: "gratifications" }}
               className="flex items-center gap-1 border border-gray-300 py-1 px-2 rounded-full bg-pink-50"
             >
@@ -100,7 +100,7 @@ const QuizCard = ({
           {/* Organizer and Prize Info */}
           <div className="px-6 pb-4 flex items-center gap-2">
             <Link
-              to={`/quiz-details/${quizId}`}
+              to={`/announcement-details/${quizId}`}
               state={{ scrollTo: "gratifications" }}
               className="text-sm text-gray-600 border border-gray-300 py-1 px-2 rounded-full"
             >
@@ -109,7 +109,7 @@ const QuizCard = ({
             </Link>
             {showCashPrize && (
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "gratifications" }}
                 className="flex items-center gap-1 border border-gray-300 py-1 px-2 rounded-full bg-pink-50"
               >
@@ -176,7 +176,7 @@ const QuizCard = ({
           </div>
 
           <SocialShare
-            url={`${domain}/quiz-details/${quizId}`}
+            url={`${domain}/announcement-details/${quizId}`}
             title=""
             isOpen={isShareOpen}
             onClose={() => setIsShareOpen(false)}
@@ -195,7 +195,7 @@ const QuizCard = ({
 
             {!closedQuiz && lp_status === "open" && (
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Register Now
@@ -259,7 +259,7 @@ const QuizCard = ({
             {showCertificate && (
               <div className="px-6 pb-4">
                 <Link
-                  to={`/quiz-details/${quizId}`}
+                  to={`/announcement-details/${quizId}`}
                   state={{ scrollTo: "gratifications" }}
                   className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors underline"
                 >
@@ -272,7 +272,7 @@ const QuizCard = ({
             {/* Terms Link */}
             <div className="px-6 pb-4">
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "terms" }}
                 className="block text-center text-xs text-gray-500 hover:text-primary hover:underline transition underline"
               >
@@ -346,7 +346,7 @@ const QuizCard = ({
 
               {!closedQuiz && lp_status === "open" && (
                 <Link
-                  to={`/quiz-details/${quizId}`}
+                  to={`/announcement-details/${quizId}`}
                   className="text-sm font-semibold border border-red-600 text-red-600 py-1.5 px-4 rounded-lg transition-all duration-300 hover:bg-red-600 hover:text-white hover:shadow-md"
                 >
                   Register Now
@@ -416,7 +416,7 @@ const QuizCard = ({
               <div className="flex items-center gap-3">
                 {showCashPrize && (
                   <Link
-                    to={`/quiz-details/${quizId}`}
+                    to={`/announcement-details/${quizId}`}
                     state={{ scrollTo: "gratifications" }}
                     className="flex items-center gap-1 group"
                   >
@@ -431,7 +431,7 @@ const QuizCard = ({
                 )}
                 {showCertificate && (
                   <Link
-                    to={`/quiz-details/${quizId}`}
+                    to={`/announcement-details/${quizId}`}
                     state={{ scrollTo: "gratifications" }}
                     className="flex items-center gap-1 group"
                   >
@@ -446,7 +446,7 @@ const QuizCard = ({
                 )}
               </div>
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "terms" }}
                 className="text-sm text-gray-500 hover:text-red-600 hover:underline transition"
               >
@@ -578,7 +578,7 @@ export default QuizCard;
 
 //           {!closedQuiz && lp_status === "open" && (
 //             <Link
-//               to={`/quiz-details/${quizId}`}
+//               to={`/announcement-details/${quizId}`}
 //               className="text-sm font-semibold border border-red600 text-red600 py-1.5 px-4 rounded-lg transition-all duration-300 hover:bg-red600 hover:text-white hover:shadow-md"
 //             >
 //               Register Now
@@ -640,7 +640,7 @@ export default QuizCard;
 //           <div className="flex items-center gap-3">
 //             {showCashPrize && (
 //               <Link
-//                 to={`/quiz-details/${quizId}`}
+//                 to={`/announcement-details/${quizId}`}
 //                 state={{ scrollTo: "gratifications" }}
 //                 className="flex items-center gap-1 group"
 //               >
@@ -655,7 +655,7 @@ export default QuizCard;
 //             )}
 //             {showCertificate && (
 //               <Link
-//                 to={`/quiz-details/${quizId}`}
+//                 to={`/announcement-details/${quizId}`}
 //                 state={{ scrollTo: "gratifications" }}
 //                 className="flex items-center gap-1 group"
 //               >
@@ -670,7 +670,7 @@ export default QuizCard;
 //             )}
 //           </div>
 //           <Link
-//             to={`/quiz-details/${quizId}`}
+//             to={`/announcement-details/${quizId}`}
 //             state={{ scrollTo: "terms" }}
 //             className="text-sm text-gray500 hover:text-red600 hover:underline transition"
 //           >

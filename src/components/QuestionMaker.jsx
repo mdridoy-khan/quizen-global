@@ -383,7 +383,7 @@ const QuestionMaker = () => {
                   YOU ARE MAKING QUESTIONS FOR
                   {rounds?.announcement ? (
                     <Link
-                      to={`/quiz-details/${rounds.announcement}`}
+                      to={`/announcement-details/${rounds.announcement}`}
                       className="text-primary hover:text-primary text-sm xl:text-base font-medium underline"
                       target="_blank"
                     >
@@ -391,7 +391,7 @@ const QuestionMaker = () => {
                     </Link>
                   ) : announcement?.id ? (
                     <Link
-                      to={`/quiz-details/${announcement.id}`}
+                      to={`/announcement-details/${announcement.id}`}
                       className="text-primary hover:text-primary font-medium underline"
                       target="_blank"
                     >
@@ -1218,7 +1218,7 @@ export default QuestionMaker;
 //               YOU ARE MAKING QUESTION FOR{" "}
 //               {rounds?.announcement ? (
 //                 <Link
-//                   to={`/quiz-details/${rounds.announcement}`}
+//                   to={`/announcement-details/${rounds.announcement}`}
 //                   className="text-[var(--blue-slate-500)] hover:underline"
 //                   target="_blank"
 //                 >
@@ -1226,7 +1226,7 @@ export default QuestionMaker;
 //                 </Link>
 //               ) : announcement?.id ? (
 //                 <Link
-//                   to={`/quiz-details/${announcement.id}`}
+//                   to={`/announcement-details/${announcement.id}`}
 //                   className="text-[var(--blue-slate-500)] hover:underline"
 //                   target="_blank"
 //                 >

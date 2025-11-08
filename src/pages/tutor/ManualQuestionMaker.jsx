@@ -261,7 +261,7 @@ const ManualQuestionMaker = () => {
               <FaExclamationCircle className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>YOU ARE MAKING QUESTION FOR</span>
               <Link
-                to={`/quiz-details/${announcement?.id}`}
+                to={`/announcement-details/${announcement?.id}`}
                 className="text-sm sm:text-base underline hover:text-amber-900 transition-colors"
               >
                 {announcement?.announcement_name}

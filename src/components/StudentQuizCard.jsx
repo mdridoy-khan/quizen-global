@@ -52,7 +52,7 @@ const StudentQuizCard = ({
       {/* subject and Department name */}
       <div className="px-6 pb-4 flex items-center flex-wrap gap-2">
         <Link
-          to={`/quiz-details/${quizId}`}
+          to={`/announcement-details/${quizId}`}
           state={{ scrollTo: "gratifications" }}
           className="text-sm text-gray-600 border border-gray-300 py-1 px-2 rounded-full"
         >
@@ -60,7 +60,7 @@ const StudentQuizCard = ({
           <span className="font-semibold text-gray-800">{subject}</span>
         </Link>
         <Link
-          to={`/quiz-details/${quizId}`}
+          to={`/announcement-details/${quizId}`}
           state={{ scrollTo: "gratifications" }}
           className="flex items-center gap-1 border border-gray-300 py-1 px-2 rounded-full bg-pink-50"
         >
@@ -76,7 +76,7 @@ const StudentQuizCard = ({
       {/* Organizer and Prize Info */}
       <div className="px-6 pb-4 flex items-center gap-2">
         <Link
-          to={`/quiz-details/${quizId}`}
+          to={`/announcement-details/${quizId}`}
           state={{ scrollTo: "gratifications" }}
           className="text-sm text-gray-600 border border-gray-300 py-1 px-2 rounded-full"
         >
@@ -85,7 +85,7 @@ const StudentQuizCard = ({
         </Link>
         {showCashPrize && (
           <Link
-            to={`/quiz-details/${quizId}`}
+            to={`/announcement-details/${quizId}`}
             state={{ scrollTo: "gratifications" }}
             className="flex items-center gap-1 border border-gray-300 py-1 px-2 rounded-full bg-pink-50"
           >
@@ -212,7 +212,7 @@ const StudentQuizCard = ({
           {showCertificate && (
             <div className=" pb-4">
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "gratifications" }}
                 className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors underline"
               >
@@ -225,7 +225,7 @@ const StudentQuizCard = ({
           {/* Terms Link */}
           <div className=" pb-4">
             <Link
-              to={`/quiz-details/${quizId}`}
+              to={`/announcement-details/${quizId}`}
               state={{ scrollTo: "terms" }}
               className="block text-center text-xs text-gray-500 hover:text-primary hover:underline transition underline"
             >
@@ -239,7 +239,7 @@ const StudentQuizCard = ({
           <div className="flex items-center gap-3">
             {showCashPrize && (
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "gratifications" }}
                 className="flex items-center gap-1 group"
               >
@@ -254,7 +254,7 @@ const StudentQuizCard = ({
             )}
             {showCertificate && (
               <Link
-                to={`/quiz-details/${quizId}`}
+                to={`/announcement-details/${quizId}`}
                 state={{ scrollTo: "gratifications" }}
                 className="flex items-center gap-1 group"
               >
@@ -269,7 +269,7 @@ const StudentQuizCard = ({
             )}
           </div>
           <Link
-            to={`/quiz-details/${quizId}`}
+            to={`/announcement-details/${quizId}`}
             className="text-sm text-gray-500 hover:text-primary hover:underline transition"
           >
             View T&C
@@ -463,7 +463,7 @@ export default StudentQuizCard;
 //             )}
 //           </div>
 //           <Link
-//             to={`/quiz-details/${quizId}`}
+//             to={`/announcement-details/${quizId}`}
 //             className="text-sm text-gray500 hover:text-red600 hover:underline transition"
 //           >
 //             View T&C
@@ -667,7 +667,7 @@ export default StudentQuizCard;
 //             )}
 //           </div>
 //           <Link
-//             to={`/quiz-details/${quizId}`}
+//             to={`/announcement-details/${quizId}`}
 //             className="text-sm text-[var(gray500)] transition hover:underline"
 //           >
 //             View T&C

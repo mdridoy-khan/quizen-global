@@ -138,7 +138,7 @@ const PresidentAnnouncementList = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[70vh]">
-        <FaSpinner className="animate-spin text-4xl text-primary" />
+        <FaSpinner className="animate-spin text-3xl xl:text-4xl text-primary" />
       </div>
     );
   }

@@ -390,7 +390,7 @@ const AiQuestionMaker = () => {
                   YOU ARE MAKING QUESTIONS FOR
                   {rounds?.announcement ? (
                     <Link
-                      to={`/quiz-details/${rounds.announcement}`}
+                      to={`/announcement-details/${rounds.announcement}`}
                       className="text-primary hover:text-primary font-medium underline"
                       target="_blank"
                     >
@@ -398,7 +398,7 @@ const AiQuestionMaker = () => {
                     </Link>
                   ) : announcement?.id ? (
                     <Link
-                      to={`/quiz-details/${announcement.id}`}
+                      to={`/announcement-details/${announcement.id}`}
                       className="text-primary hover:text-primary font-medium underline"
                       target="_blank"
                     >
