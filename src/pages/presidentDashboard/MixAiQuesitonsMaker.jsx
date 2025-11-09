@@ -99,11 +99,11 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
     } catch (err) {
       console.error("Error saving quiz:", err);
       setSaveError(
-        err.response.data.error || "Failed to save quiz. Please try again."
+        err?.response?.data?.error || "Failed to save quiz. Please try again."
       );
       setSuccessMessage("");
       toast.error(
-        err.response.data.error || "Failed to save quiz. Please try again."
+        err?.response?.data?.error || "Failed to save quiz. Please try again."
       );
     } finally {
       setIsSaving(false);

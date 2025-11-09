@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { GrCertificate } from "react-icons/gr";
 import { IoMdRefresh } from "react-icons/io";
+import { IoShareSocialSharp } from "react-icons/io5";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { Link } from "react-router-dom";
+import SocialShare from "./SocialShare";
 import SwitcherToggleButton from "./SwitcherToggleButton";
 
 const StudentQuizCard = ({
@@ -30,6 +33,8 @@ const StudentQuizCard = ({
   subject,
 }) => {
   const isHorizontal = layout === "horizontal";
+  const [isShareOpen, setIsShareOpen] = useState(false);
+  const domain = window.location.origin;
 
   return (
     <div
@@ -130,13 +135,14 @@ const StudentQuizCard = ({
         )} */}
 
         {/* Rounds & Duration */}
-        <div className="py-3 flex items-center justify-between">
-          {/* <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full border-2 border-dashed border-black flex items-center justify-center">
-              <FiPlusCircle className="text-black" size={24} />
-            </div>
-          </div> */}
-          <div className="flex items-center gap-4">
+        <div className="py-3 flex items-center justify-between gap-4">
+          <button
+            onClick={() => setIsShareOpen(true)}
+            className="text-black hover:text-primary"
+          >
+            <IoShareSocialSharp className="text-xl" />
+          </button>
+          <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
               <IoMdRefresh className="text-black" size={20} />
               <div className="flex items-center gap-2">
@@ -153,6 +159,35 @@ const StudentQuizCard = ({
             </div>
           </div>
         </div>
+        <SocialShare
+          url={`${domain}/announcement-details/${quizId}`}
+          title=""
+          isOpen={isShareOpen}
+          onClose={() => setIsShareOpen(false)}
+        />
+        {/* <div className="py-3 flex items-center justify-between"> */}
+        {/* <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full border-2 border-dashed border-black flex items-center justify-center">
+              <FiPlusCircle className="text-black" size={24} />
+            </div>
+          </div> */}
+        {/* <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <IoMdRefresh className="text-black" size={20} />
+              <div className="flex items-center gap-2">
+                <p className="text-lg font-bold text-gray-800">{rounds}</p>
+                <p className="text-sm text-gray-500">Rounds</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <MdOutlineAccessTimeFilled className="text-black" size={24} />
+              <div className="flex items-center gap-2">
+                <p className="text-lg font-bold text-gray-800">{duration}</p>
+                <p className="text-sm text-gray-500">Days</p>
+              </div>
+            </div>
+          </div> */}
+        {/* </div> */}
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 mb-1">
@@ -173,7 +208,7 @@ const StudentQuizCard = ({
           {lp_status === "upcoming" && (
             <button
               disabled
-              className="w-full text-base font-bold py-2 rounded-lg bg-gray-200 text-gray-500 cursor-not-allowed"
+              className="w-full text-base font-bold py-2 rounded-lg bg-gradient-to-r from-yellow-200 to-orange-200 text-gray-500 cursor-not-allowed"
             >
               Upcoming
             </button>

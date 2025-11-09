@@ -93,6 +93,9 @@ export default {
         heading: ["DM Sans", "sans-serif"],
         body: ["DM Sans", "sans-serif"],
       },
+      screens: {
+        "3xl": "1800px",
+      },
     },
   },
   plugins: [],

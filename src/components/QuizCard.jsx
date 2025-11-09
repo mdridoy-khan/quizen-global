@@ -34,6 +34,7 @@ const QuizCard = ({
   winnerList = [],
   subject,
   department_name,
+  activeAnn,
 }) => {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const isHorizontal = layout === "horizontal";
@@ -201,11 +202,19 @@ const QuizCard = ({
                 Register Now
               </Link>
             )}
+            {activeAnn === "true" && lp_status === "open" && (
+              <button
+                disabled
+                className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg ursor-not-allowed"
+              >
+                Active
+              </button>
+            )}
 
             {lp_status === "upcoming" && (
               <button
                 disabled
-                className="w-full text-base font-bold rounded-lg leading-10  bg-gray-200 text-gray-500 cursor-not-allowed"
+                className="w-full text-base mb-4 font-bold rounded-lg leading-10  bg-gradient-to-r from-yellow-200 to-orange-200 text-gray-500 cursor-not-allowed"
               >
                 Upcoming
               </button>

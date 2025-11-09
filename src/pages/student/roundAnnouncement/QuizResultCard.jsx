@@ -59,15 +59,15 @@ const QuizResultCard = ({
         <div className="flex justify-around mt-4 text-sm">
           <span className="flex items-center text-sm font-medium">
             <span className="w-3 h-3 bg-purple-700 rounded-full mr-1"></span>{" "}
-            Correct - {correct}
+            Correct : {correct}
           </span>
           <span className="flex items-center text-sm font-medium">
             <span className="w-3 h-3 bg-orange-500 rounded-full mr-1"></span>{" "}
-            Wrong - {wrong}
+            Wrong : {wrong}
           </span>
           <span className="flex items-center text-sm font-medium">
             <span className="w-3 h-3 bg-red-600 rounded-full mr-1"></span>{" "}
-            Skipped - {skipped}
+            Skipped : {skipped}
           </span>
         </div>
         <div className="mt-6 space-y-2">

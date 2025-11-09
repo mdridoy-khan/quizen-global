@@ -112,8 +112,8 @@ const QuestionMaker = () => {
     } catch (err) {
       console.error("Error saving quiz:", err);
       setSaveError("Failed to save quiz. Please try again.");
-      setSuccessMessage("");
-      toast.error("Failed to save quiz. Please try again.");
+      const errorMessage = err?.response?.data?.error;
+      toast.error(errorMessage || "Failed to save quiz. Please try again.");
     } finally {
       setIsSaving(false);
       navigate("/president/dashboard");

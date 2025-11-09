@@ -38,8 +38,8 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
         <div
           className={`w-5 h-5 rounded-full flex items-center justify-center transform transition-transform duration-300 shadow-md ${
             isActive
-              ? "bg-gradient-to-r from-green-400 to-emerald-600 translate-x-10"
-              : "bg-gradient-to-r from-red-400 to-rose-600 translate-x-0"
+              ? "bg-gradient-to-r from-green-400 to-emerald-600 translate-x-10 relative z-40"
+              : "bg-gradient-to-r from-red-400 to-rose-600 translate-x-0 relative z-40"
           }`}
         >
           {isActive ? (
@@ -48,6 +48,10 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
             <AiOutlineClose className="text-white text-base" />
           )}
         </div>
+        {/* Text Label */}
+        <span className="absolute left-0 right-0 top-1/2 -translate-y-1/2 leading-none block w-full text-center text-xs font-semibold text-white opacity-70 select-none">
+          {isActive ? "Open" : "Closed"}
+        </span>
       </div>
       <QuizOpenCloseModal
         isOpen={isModalOpen}

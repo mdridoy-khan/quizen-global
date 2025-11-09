@@ -8,6 +8,7 @@ const RoundQualifyList = ({
   nextRoundQualifier,
   topicSubject,
   confirmNextRound,
+  roundName,
 }) => {
   const [participate, setParticipate] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ const RoundQualifyList = ({
   // search state
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("confirmNextRound", confirmNextRound);
+  console.log("roundName", roundName);
 
   // fetch participate data (default load)
   useEffect(() => {
@@ -131,7 +132,7 @@ const RoundQualifyList = ({
       </div>
     );
   }
-
+  console.log("participate list", participate);
   return (
     <div className="space-y-4  bg-white shadow p-4 rounded-lg">
       {error && (
@@ -144,6 +145,9 @@ const RoundQualifyList = ({
             <HiOutlineExclamationCircle size={20} />
             NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
           </button>
+          <h3 className="text-base font-semibold text-secondary mt-2">
+            Round Name: {roundName}
+          </h3>
           <h3 className="text-base font-semibold text-secondary mt-2">
             Subject: {topicSubject}
           </h3>
@@ -159,22 +163,24 @@ const RoundQualifyList = ({
               className="border border-secondary rounded-lg py-1 px-2 shadow-none outline-none transition"
             />
           </form>
-          {confirmNextRound ? (
-            <button
-              disabled
-              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
-            >
-              Already Confirm Next Round
-            </button>
-          ) : (
-            <button
-              onClick={handleShowConfirmModal}
-              disabled={confirmLoading}
-              className="bg-green500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50"
-            >
-              {confirmLoading ? "Processing..." : "CONFIRM NEXT ROUND"}
-            </button>
-          )}
+          <button
+            onClick={
+              !confirmNextRound && participate?.length > 0
+                ? handleShowConfirmModal
+                : undefined
+            }
+            disabled={
+              confirmNextRound || participate?.length === 0 || confirmLoading
+            }
+            className="bg-green-500 p-2 rounded-md text-[12px] text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {confirmNextRound
+              ? "Already Confirm Next Round"
+              : confirmLoading
+              ? "Processing..."
+              : "CONFIRM NEXT ROUND"}
+          </button>
+
           {/* {participate.is_next_round_confirmed ? (
             <button
               disabled

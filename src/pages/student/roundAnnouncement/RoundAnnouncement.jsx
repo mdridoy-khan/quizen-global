@@ -224,7 +224,7 @@ const RoundAnnouncement = () => {
 
       {/* Error message */}
       {error && (
-        <div className="bg-red-100 text-red-700 p-3 mt-4 rounded-lg">
+        <div className="bg-red-100 text-red-700 p-3 mt-4 rounded-lg text-center">
           {error}
         </div>
       )}
@@ -267,7 +267,7 @@ const RoundAnnouncement = () => {
                         />
                       ) : (
                         <p className="bg-primary text-white py-[2px] px-2 text-base font-semibold rounded-md ">
-                          Started
+                          {round.round_status}
                         </p>
                       )}
                       {/* <CountdownTimer
@@ -302,7 +302,7 @@ const RoundAnnouncement = () => {
               </div>
             ))
           ) : (
-            <p>No Round Available Now</p>
+            <p className="text-center text-red-500">No Round Available Now</p>
           )}
         </div>
       )}

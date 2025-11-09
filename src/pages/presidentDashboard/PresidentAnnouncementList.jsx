@@ -176,7 +176,7 @@ const PresidentAnnouncementList = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4 gap-5">
         {announcements.map((ann, index) => (
           <div key={ann.id || index}>
             <QuizCard
@@ -200,6 +200,7 @@ const PresidentAnnouncementList = () => {
               closedQuiz={true}
               subject={ann.subject}
               department_name={ann.department_name}
+              activeAnn="true"
             />
             <div className="flex items-center gap-2 mt-2">
               <Link

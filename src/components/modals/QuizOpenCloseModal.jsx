@@ -37,7 +37,7 @@ const QuizOpenCloseModal = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-md relative">
+      <div className="bg-white rounded-2xl p-6 w-full max-w-md relative mx-2">
         {/* Close Icon */}
         <button
           onClick={onClose}
@@ -46,8 +46,10 @@ const QuizOpenCloseModal = ({
           <AiOutlineClose size={20} />
         </button>
         {/* Modal Content */}
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">{message}</h3>
-        <div className="flex justify-end gap-3">
+        <h3 className="text-lg text-center font-semibold text-gray-800 mb-4">
+          {message}
+        </h3>
+        <div className="flex justify-center gap-3">
           <button
             onClick={onClose}
             className="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300"

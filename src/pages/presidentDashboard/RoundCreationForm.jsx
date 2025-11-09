@@ -1,8 +1,8 @@
 import { format, parseISO } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt, FaSpinner } from "react-icons/fa";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import API from "../../api/API";
 import UploadIcon from "../../assets/icons/upload.svg";
@@ -20,6 +20,8 @@ const RoundCreationForm = () => {
   const [loading, setLoading] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  const datePickerRef = useRef(null);
+  const datePickerRefEnd = useRef(null);
 
   const navigate = useNavigate();
 
@@ -201,14 +203,10 @@ const RoundCreationForm = () => {
 
       navigate(`/president/rounds/${id}/`);
     } catch (err) {
-      const errorMessage = err.response?.data?.message || err.message;
-      if (errorMessage.includes("Disk quota exceeded")) {
-        setSubmitError(
-          "Cannot save the file due to insufficient server storage. Please try a smaller file or contact the administrator."
-        );
-      } else {
-        setSubmitError("Failed to save round details. Please try again.");
-      }
+      const errorMessage = err.response?.data?.error;
+      setSubmitError(
+        errorMessage || "Failed to save round details. Please try again."
+      );
     } finally {
       setSubmitLoading(false);
     }
@@ -224,7 +222,7 @@ const RoundCreationForm = () => {
         <div className="flex items-center justify-center pt-6 md:pt-0">
           {loading ? (
             <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-14 w-14 border-t-3 border-b-3 border-[#FF2474]"></div>
+              <FaSpinner className="animate-spin text-3xl xl:text-4xl text-primary" />
             </div>
           ) : error ? (
             <div className="p-6 bg-red-50 text-red-700 rounded-xl border-l-4 border-red-500 flex items-center">
@@ -408,6 +406,7 @@ const RoundCreationForm = () => {
                   </label>
                   <div className="relative date_time">
                     <DatePicker
+                      ref={datePickerRef}
                       selected={formData.quiz_start_date}
                       onChange={handleStartDateChange}
                       onKeyDown={FormHandleEnterKey}
@@ -418,7 +417,10 @@ const RoundCreationForm = () => {
                       className="w-full border border-gray-300 rounded-md p-2.5 focus:border-primary focus:ring-primary outline-none bg-gray-50"
                       disabled={loading}
                     />
-                    <FaRegCalendarAlt className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl" />
+                    <FaRegCalendarAlt
+                      onClick={() => datePickerRef.current?.setFocus()}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"
+                    />
                   </div>
                 </div>
                 <div className="input-wrapper datepicker relative">
@@ -431,6 +433,7 @@ const RoundCreationForm = () => {
                   </label>
                   <div className="relative date_time">
                     <DatePicker
+                      ref={datePickerRefEnd}
                       selected={formData.quiz_end_date}
                       onChange={handleEndDateChange}
                       onKeyDown={FormHandleEnterKey}
@@ -441,7 +444,10 @@ const RoundCreationForm = () => {
                       className="w-full border border-gray-300 rounded-md p-2.5 focus:border-primary focus:ring-primary outline-none bg-gray-50"
                       disabled={loading}
                     />
-                    <FaRegCalendarAlt className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl" />
+                    <FaRegCalendarAlt
+                      onClick={() => datePickerRefEnd.current?.setFocus()}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"
+                    />
                   </div>
                 </div>
                 <div className="input-wrapper">

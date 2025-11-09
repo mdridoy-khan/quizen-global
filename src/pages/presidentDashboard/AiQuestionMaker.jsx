@@ -17,6 +17,7 @@ const AiQuestionMaker = () => {
   const [rounds, setRounds] = useState(null);
   const [announcement, setAnnouncement] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingNoticeMessage, setLoadingNoticeMessage] = useState(false);
   const [error, setError] = useState(null);
   const [numberOfQuestions, setNumberOfQuestions] = useState(1);
   const [language, setLanguage] = useState("english");
@@ -105,8 +106,9 @@ const AiQuestionMaker = () => {
     } catch (err) {
       console.error("Error saving quiz:", err);
       setSaveError("Failed to save quiz. Please try again.");
+      const errorMessage = err?.response?.data?.error;
       setSuccessMessage("");
-      toast.error("Failed to save quiz. Please try again.");
+      toast.error(errorMessage || "Failed to save quiz. Please try again.");
     } finally {
       setIsSaving(false);
       navigate("/president/dashboard");
@@ -237,7 +239,7 @@ const AiQuestionMaker = () => {
   // fetch notice data
   useEffect(() => {
     const getNotice = async () => {
-      setLoading(true);
+      setLoadingNoticeMessage(true);
       try {
         const response = await API.get(
           `/anc/view-announcement-notice-anc/${annId}/`
@@ -250,7 +252,7 @@ const AiQuestionMaker = () => {
       } catch (err) {
         console.error("Error fetching notice:", err);
       } finally {
-        setLoading(false);
+        setLoadingNoticeMessage(false);
       }
     };
 
@@ -336,7 +338,7 @@ const AiQuestionMaker = () => {
             <div className="bg-orange200 p-4 rounded-xl mb-4">
               <div className="text-sm font-medium">
                 <div className="space-y-3">
-                  {loading ? (
+                  {loadingNoticeMessage ? (
                     // Loading state
                     <div className="flex items-center justify-center py-6">
                       <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
