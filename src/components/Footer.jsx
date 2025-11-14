@@ -16,10 +16,10 @@ import wiseCorporation from "../assets/logo/wise-corporation2.jpg";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="mt-10">
       {/* main footer */}
       <div className="container mx-auto px-4 mb-6">
-        <div className="pt-20 lg:pt-32 pb-10 min-h-[455px] rounded-xl xl:rounded-2xl bg-secondary">
+        <div className="pt-10 lg:pt-32 pb-10 min-h-[455px] rounded-xl xl:rounded-2xl bg-secondary">
           {/* Top Section */}
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10 items-start justify-between">
             {/* Logo Section */}
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/"
-                    className="text-gray-200 transition hover:text-primary"
+                    className="text-gray-200 text-sm xl:text-base transition hover:text-primary"
                   >
                     Home
                   </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/winners"
-                    className="text-gray-200 transition hover:text-primary"
+                    className="text-gray-200 transition text-sm xl:text-base  hover:text-primary"
                   >
                     Winner Announcement
                   </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/closed-quiz"
-                    className="text-gray-200 transition hover:text-primary"
+                    className="text-gray-200 transition text-sm xl:text-base  hover:text-primary"
                   >
                     Closed Quiz
                   </Link>
@@ -70,15 +70,19 @@ const Footer = () => {
               <ul className="space-y-2 text-gray-200 text-sm">
                 <li className="flex items-center gap-2">
                   <FiPhone className="text-white w-5 text-lg" />
-                  <span className="flex-1 text-base">+880 1897-621279</span>
+                  <span className="flex-1 text-sm xl:text-base">
+                    +880 1897-621279
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <FiMail className="text-white w-5 text-lg" />
-                  <span className="flex-1 text-base">support@fleekbd.com</span>
+                  <span className="flex-1 text-sm xl:text-base">
+                    support@fleekbd.com
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <FiMapPin className="text-white mt-[2px] w-5 text-lg" />
-                  <span className="flex-1 text-base">
+                  <span className="flex-1 text-sm xl:text-base">
                     H:417, R:7 Baridhara DOHS, Dhaka–1206
                   </span>
                 </li>

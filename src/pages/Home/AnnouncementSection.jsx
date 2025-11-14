@@ -139,11 +139,11 @@ const AnnouncementSection = forwardRef((props, ref) => {
             ) : (
               <>
                 {/* Participants */}
-                <div className="bg-white shadow-sm rounded-2xl p-6 flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-14 h-14 bg-[#ECF1FC] rounded-xl">
+                <div className="bg-white shadow-sm rounded-2xl p-6 flex flex-col lg:flex-row items-center lg:space-x-4">
+                  <div className="flex items-center justify-center mb-3 lg:mb-0 w-14 h-14 bg-[#ECF1FC] rounded-xl">
                     <img src={UserPlus} alt="User Icon" className="max-w-6" />
                   </div>
-                  <div>
+                  <div className="text-center lg:text-left">
                     <h3 className="text-2xl font-bold text-gray-900">
                       <CountUp
                         end={totalA?.total_participants || 0}
@@ -156,11 +156,11 @@ const AnnouncementSection = forwardRef((props, ref) => {
                 </div>
 
                 {/* Winners */}
-                <div className="bg-white shadow-sm rounded-2xl p-6 flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-14 h-14 bg-[#ECF1FC] rounded-xl">
+                <div className="bg-white shadow-sm rounded-2xl p-6 flex flex-col lg:flex-row items-center lg:space-x-4">
+                  <div className="flex items-center justify-center mb-3 lg:mb-0 w-14 h-14 bg-[#ECF1FC] rounded-xl">
                     <img src={Trophy} alt="Trophy image" className="max-w-6" />
                   </div>
-                  <div>
+                  <div className="text-center lg:text-left">
                     <h3 className="text-2xl font-bold text-gray-900">
                       <CountUp end={totalA?.total_winner || 0} duration={5} />+
                     </h3>
@@ -169,11 +169,11 @@ const AnnouncementSection = forwardRef((props, ref) => {
                 </div>
 
                 {/* Lacs Prize Money */}
-                <div className="bg-white shadow-sm rounded-2xl p-6 flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-14 h-14 bg-[#ECF1FC] rounded-xl">
+                <div className="bg-white shadow-sm rounded-2xl p-6 flex flex-col lg:flex-row items-center lg:space-x-4">
+                  <div className="flex items-center justify-center mb-3 lg:mb-0 w-14 h-14 bg-[#ECF1FC] rounded-xl">
                     <img src={Dollar} alt="dollar image" className="max-w-6" />
                   </div>
-                  <div>
+                  <div className="text-center lg:text-left">
                     <h3 className="text-2xl font-bold text-gray-900">
                       <CountUp end={totalA?.total_quizzes || 0} duration={5} />+
                     </h3>
