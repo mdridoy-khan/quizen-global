@@ -207,7 +207,7 @@ const QuizCard = ({
                 disabled
                 className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg ursor-not-allowed"
               >
-                Active
+                Registration Now
               </button>
             )}
 
