@@ -258,6 +258,7 @@ const AiQuestionMaker = () => {
 
     if (annId) getNotice();
   }, [annId]);
+
   // hanle notice popup
   const handleNotice = () => {
     setShowNotice(false);
@@ -387,7 +388,7 @@ const AiQuestionMaker = () => {
           <div className="bg-white rounded-xl shadow-md p-6 mb-8 text-left">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
               <div className="text-sm">
-                <div className="bg-blue50 text-primary px-3 py-1 rounded-full flex items-center gap-2 text-sm font-medium mb-2 sm:mb-0">
+                <div className="bg-blue50 text-primary px-3 py-3 md:py-1 rounded-full flex flex-col md:flex-row items-center gap-2 text-sm font-medium mb-2 sm:mb-0">
                   <FaExclamationCircle className="h-4 w-4" />
                   YOU ARE MAKING QUESTIONS FOR
                   {rounds?.announcement ? (

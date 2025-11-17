@@ -47,39 +47,36 @@ const QuizQuestionPaper = () => {
         const fullDurationSec = (res?.data?.results?.duration || 0) * 60;
         setTotalDurationSeconds(fullDurationSec);
 
-        // Calculate remaining time
-        let remainingSec = fullDurationSec; // Fallback to full duration
-        const quizStartTimeStr = res?.data?.results?.start_time; // Expecting ISO string, e.g., "2025-11-09T17:00:00"
-        const serverTimeStr = res?.data?.server_time; // Optional: server time for sync
+        let remainingSec = fullDurationSec;
+        const quizStartDateStr = res?.data?.results?.quiz_start_date;
+        const quizEndDateStr = res?.data?.results?.quiz_end_date;
+        const serverTimeStr = res?.data?.server_time;
 
-        if (quizStartTimeStr) {
-          const quizStartTime = new Date(quizStartTimeStr); // Parse as UTC
-          const quizEndTime = new Date(
-            quizStartTime.getTime() + fullDurationSec * 1000
-          );
+        if (quizEndDateStr) {
+          const quizEndDate = new Date(quizEndDateStr);
           const currentTime = serverTimeStr
             ? new Date(serverTimeStr)
-            : new Date(); // Prefer server time
+            : new Date();
           remainingSec = Math.max(
             0,
-            Math.floor((quizEndTime - currentTime) / 1000)
+            Math.floor((quizEndDate - currentTime) / 1000)
           );
 
           console.log(
             "Quiz Start:",
-            quizStartTime,
+            quizStartDateStr,
             "End:",
-            quizEndTime,
+            quizEndDateStr,
             "Current:",
             currentTime,
             "Remaining (sec):",
             remainingSec
-          ); // Debugging
+          );
         } else {
           console.warn(
-            "No start_time in API response, using full duration:",
+            "No quiz_end_date in API response, using full duration:",
             fullDurationSec
-          ); // Debugging
+          );
         }
 
         if (remainingSec <= 0) {
@@ -89,7 +86,7 @@ const QuizQuestionPaper = () => {
         }
 
         setTimeLeft(remainingSec);
-        setInitialTimeLeft(remainingSec); // Store for spentTime calc
+        setInitialTimeLeft(remainingSec);
       }
       setHasStarted(true);
     } catch (err) {
@@ -98,7 +95,7 @@ const QuizQuestionPaper = () => {
           err.message ||
           "Failed to load questions."
       );
-      console.error("Fetch error:", err); // Debugging
+      console.error("Fetch error:", err);
     } finally {
       setLoading(false);
     }
@@ -108,20 +105,99 @@ const QuizQuestionPaper = () => {
     fetchQuestions(0);
   }, [quizId, round]);
 
+  /** ------------------ BROWSER PROTECTIONS ------------------ **/
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    window.history.pushState(null, "", window.location.href);
+
+    const showViolation = (msg) => {
+      setViolation(msg);
+      setShowModal(true);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden")
+        showViolation("switching tabs or minimizing browser");
+    };
+    const handlePopState = () => showViolation("using browser back button");
+
+    const handleBeforeUnload = (e) => {
+      if (!showModal) {
+        e.preventDefault();
+        showViolation("reload or close the page");
+        return (e.returnValue = "");
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === "PrintScreen" || e.keyCode === 44)
+        showViolation("taking screenshot");
+    };
+
+    const handlePaste = (e) => {
+      for (let item of e.clipboardData.items) {
+        if (item.type.includes("image")) showViolation("pasting screenshot");
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("popstate", handlePopState);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("paste", handlePaste);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("paste", handlePaste);
+    };
+  }, [hasStarted, showModal]);
+
+  /** ------------------ TIMER ------------------ **/
+  // useEffect(() => {
+  //   if (!hasStarted || timeLeft <= 0) return;
+  //   const interval = setInterval(() => {
+  //     setTimeLeft((prev) => {
+  //       if (prev <= 1) {
+  //         clearInterval(interval);
+  //         setViolation("time expiration");
+  //         setShowModal(true);
+  //         return 0;
+  //       }
+  //       return prev - 1;
+  //     });
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [timeLeft, hasStarted]);
+
   /** ------------------ TIMER ------------------ **/
   useEffect(() => {
     if (!hasStarted || timeLeft <= 0) return;
+    let hasAutoSubmitted = false;
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
+        if (prev === 15 && !hasAutoSubmitted) {
+          hasAutoSubmitted = true;
+          console.log("Auto submitting at 20 seconds to avoid server timeout");
+          handleSubmit(false);
+          return 0;
+        }
+
         if (prev <= 1) {
           clearInterval(interval);
-          setViolation("time expiration");
-          setShowModal(true);
+          if (!hasAutoSubmitted) {
+            setViolation("time expiration");
+            setShowModal(true);
+          }
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
+
     return () => clearInterval(interval);
   }, [timeLeft, hasStarted]);
 
@@ -174,10 +250,61 @@ const QuizQuestionPaper = () => {
   };
 
   /** ------------------ SUBMISSION ------------------ **/
+  // const handleSubmit = async (isViolation = false) => {
+  //   if (window.isSubmitting) return;
+  //   window.isSubmitting = true;
+
+  //   try {
+  //     setLoading(true);
+
+  //     const spentTime = Math.max(1, initialTimeLeft - timeLeft);
+  //     const completed_time = formatTimeHHMMSS(spentTime);
+
+  //     const answers = {};
+  //     allQuestions.forEach((q) => {
+  //       const idx = selectedAnswers[q.question_no];
+  //       if (idx !== undefined) answers[q.question_no] = q.options[idx];
+  //     });
+
+  //     const payload = { answers, completed_time };
+  //     console.log("Submitting payload:", payload);
+
+  //     const res = await API.post(
+  //       `/qzz/quiz/${quizData?.results?.quiz_id}/round/${round}/participate/`,
+  //       payload
+  //     );
+  //     setResultData(res.data);
+  //     setShowResults(true);
+  //   } catch (err) {
+  //     console.error("Submit error:", err.response?.data);
+
+  //     const errorMsg =
+  //       err.response?.data?.error || err.response?.data?.message || "";
+  //     if (
+  //       errorMsg.includes("Quiz ended") ||
+  //       errorMsg.includes("expired") ||
+  //       errorMsg.includes("time")
+  //     ) {
+  //       alert("Quiz time ended. Your answers have been saved automatically.");
+  //       navigate("/student/participation-list");
+  //       return;
+  //     }
+  //     if (isViolation) {
+  //       navigate("/student/participation-list");
+  //     } else {
+  //       setApiError("Submission failed. Redirecting to list...");
+  //       setTimeout(() => navigate("/student/participation-list"), 2000);
+  //     }
+  //   } finally {
+  //     setLoading(false);
+  //     window.isSubmitting = false;
+  //   }
+  // };
+
   const handleSubmit = async (isViolation = false) => {
     try {
       setLoading(true);
-      const spentTime = initialTimeLeft - timeLeft; // Actual time spent by user
+      const spentTime = initialTimeLeft - timeLeft;
       const completed_time = formatTimeHHMMSS(spentTime);
       const answers = {};
       allQuestions.forEach((q) => {
@@ -185,7 +312,7 @@ const QuizQuestionPaper = () => {
         if (idx !== undefined) answers[q.question_no] = q.options[idx];
       });
       const payload = { answers, completed_time };
-      console.log("Submitting:", payload); // Debugging
+      console.log("Submitting:", payload);
       const res = await API.post(
         `/qzz/quiz/${quizData?.results?.quiz_id}/round/${round}/participate/`,
         payload
@@ -198,7 +325,7 @@ const QuizQuestionPaper = () => {
     } catch (err) {
       if (isViolation) navigate("/student/participation-list");
       else setApiError(err?.response?.data?.message || "Submit failed.");
-      console.error("Submit error:", err); // Debugging
+      console.error("Submit error:", err);
     } finally {
       setLoading(false);
     }
@@ -256,11 +383,11 @@ const QuizQuestionPaper = () => {
         {!loading && quizData ? (
           <>
             {/* Header */}
-            <div className="bg-gray-100 px-4 sm:px-8 py-6 text-center space-y-2 rounded-t-xl sticky top-0 z-10 flex-shrink-0">
-              <h2 className="text-xl sm:text-2xl font-semibold break-words">
+            <div className="bg-gray-100 px-4 sm:px-8 py-3 text-center space-y-.5 rounded-t-xl sticky top-0 z-10 flex-shrink-0">
+              <h2 className="text-xl font-semibold break-words">
                 {quizData?.results?.announcement_name}
               </h2>
-              <h3 className="text-base sm:text-lg font-semibold">
+              <h3 className="text-base font-semibold">
                 {quizData?.results?.round_name} -{" "}
                 {quizData?.results?.department}
               </h3>
@@ -273,7 +400,13 @@ const QuizQuestionPaper = () => {
               </h4>
               <div className="mt-2 text-sm sm:text-base">
                 Time Left:{" "}
-                <span className="bg-black600 text-white px-2 py-1 rounded">
+                <span
+                  className={`px-4 py-1 rounded font-medium text-sm transition-all ${
+                    timeLeft <= 30
+                      ? "bg-red-600 text-white animate-pulse shadow-lg"
+                      : "bg-black600 text-white"
+                  }`}
+                >
                   {formatTimeLabel(timeLeft)}
                 </span>
               </div>
@@ -293,7 +426,7 @@ const QuizQuestionPaper = () => {
                     {q.options.map((opt, idx) => (
                       <label
                         key={idx}
-                        className={`flex items-start sm:items-center gap-2 p-2 rounded-md cursor-pointer border transition-all duration-150 ${
+                        className={`flex items-start sm:items-center gap-2 px-2 py-1 rounded-md cursor-pointer border transition-all duration-150 ${
                           selectedAnswers[q.question_no] === idx
                             ? "bg-green-50"
                             : "border-gray-200 hover:bg-gray-50"
@@ -306,10 +439,10 @@ const QuizQuestionPaper = () => {
                             onChange={() =>
                               handleAnswerChange(q.question_no, idx)
                             }
-                            className="appearance-none w-5 h-5 min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] rounded-full border border-gray-400 checked:border-green-500 checked:bg-green-500 transition-colors duration-150"
+                            className="appearance-none w-4 h-4 min-w-[16px] min-h-[16px] max-w-[16px] max-h-[16px] rounded-full border border-gray-400 checked:border-green-500 checked:bg-green-500 transition-colors duration-150"
                           />
                         </span>
-                        <span className="text-sm sm:text-base break-words leading-snug">
+                        <span className="text-sm break-words leading-snug">
                           {opt}
                         </span>
                       </label>
@@ -319,12 +452,12 @@ const QuizQuestionPaper = () => {
               ))}
             </div>
             {/* Pagination */}
-            <div className="px-4 sm:px-8 py-6 border-t border-gray-100 flex-shrink-0">
-              <div className="flex justify-between gap-2 sm:gap-4 flex-wrap">
+            <div className="px-4 sm:px-8 py-4 border-t border-gray-100 flex-shrink-0">
+              <div className="flex justify-between items-center gap-2 sm:gap-4 flex-wrap">
                 <button
                   disabled={currentPageIndex === 0}
                   onClick={handlePrevious}
-                  className={`py-2 px-4 rounded text-sm sm:text-base font-medium transition ${
+                  className={`py-1.5 px-3 rounded text-sm font-medium transition ${
                     currentPageIndex === 0
                       ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                       : "bg-gray-400 hover:bg-primary hover:text-white"
@@ -332,9 +465,28 @@ const QuizQuestionPaper = () => {
                 >
                   Previous
                 </button>
+                <div className="flex justify-center gap-2 flex-wrap">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => fetchQuestions(i)}
+                      className={`py-1 px-2 text-sm rounded transition-all duration-150 ${
+                        currentPageIndex === i
+                          ? "ring-2 ring-primary"
+                          : getPageStatus(i) === "completed"
+                          ? "bg-green-500 text-white"
+                          : getPageStatus(i) === "partial"
+                          ? "bg-red-500 text-white"
+                          : "bg-gray-400 hover:bg-primary hover:text-white"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </div>
                 <button
                   onClick={handleNext}
-                  className={`py-2 px-4 rounded text-sm sm:text-base font-medium transition ${
+                  className={`py-1.5 px-3 rounded text-sm font-medium transition ${
                     currentPageIndex < totalPages - 1
                       ? "bg-primary text-white hover:bg-primary/90"
                       : "bg-green-500 text-white hover:bg-green-600"
@@ -342,25 +494,6 @@ const QuizQuestionPaper = () => {
                 >
                   {currentPageIndex < totalPages - 1 ? "Next" : "Submit"}
                 </button>
-              </div>
-              <div className="flex justify-center gap-2 mt-5 flex-wrap">
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => fetchQuestions(i)}
-                    className={`py-2 px-3 text-sm rounded transition-all duration-150 ${
-                      currentPageIndex === i
-                        ? "ring-2 ring-primary"
-                        : getPageStatus(i) === "completed"
-                        ? "bg-green-500 text-white"
-                        : getPageStatus(i) === "partial"
-                        ? "bg-red-500 text-white"
-                        : "bg-gray-400 hover:bg-primary hover:text-white"
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
               </div>
             </div>
           </>

@@ -161,7 +161,106 @@ const YourParticipationTable = () => {
 
       {/* Pagination */}
       {!searchTerm && totalPages > 1 && (
-        <div className="flex justify-end items-center mt-6 gap-2 flex-wrap">
+        <div className="flex justify-center items-center mt-6 gap-2 flex-wrap">
+          {(() => {
+            const pageBlockSize = 3;
+
+            const currentBlock = Math.floor((currentPage - 1) / pageBlockSize);
+            const startPage = currentBlock * pageBlockSize + 1;
+            const endPage = Math.min(startPage + pageBlockSize - 1, totalPages);
+
+            const visiblePages = [];
+            for (let i = startPage; i <= endPage; i++) {
+              visiblePages.push(i);
+            }
+
+            return (
+              <>
+                {/* Prev */}
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm transition-all ${
+                    currentPage === 1
+                      ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                      : "bg-primary text-white border hover:bg-gray-100"
+                  }`}
+                >
+                  Prev
+                </button>
+
+                {/* Show First Page if hidden */}
+                {startPage > 1 && (
+                  <>
+                    <button
+                      onClick={() => handlePageChange(1)}
+                      className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold transition-all ${
+                        currentPage === 1
+                          ? "bg-primary text-white"
+                          : "bg-white border text-gray-600 hover:bg-blue-50"
+                      }`}
+                    >
+                      1
+                    </button>
+
+                    {/* Dots */}
+                    <span className="px-2 text-gray-500">...</span>
+                  </>
+                )}
+
+                {/* Visible Page Buttons */}
+                {visiblePages.map((pageNum) => (
+                  <button
+                    key={pageNum}
+                    onClick={() => handlePageChange(pageNum)}
+                    className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold transition-all duration-300 ${
+                      currentPage === pageNum
+                        ? "bg-primary text-white shadow-md scale-105"
+                        : "bg-white border text-gray-600 hover:bg-blue-50"
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                ))}
+
+                {/* Show Dots + Last Page if endPage < totalPages */}
+                {endPage < totalPages && (
+                  <>
+                    <span className="px-2 text-gray-500">...</span>
+
+                    <button
+                      onClick={() => handlePageChange(totalPages)}
+                      className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold transition-all ${
+                        currentPage === totalPages
+                          ? "bg-primary text-white"
+                          : "bg-white border text-gray-600 hover:bg-blue-50"
+                      }`}
+                    >
+                      {totalPages}
+                    </button>
+                  </>
+                )}
+
+                {/* Next */}
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm transition-all ${
+                    currentPage === totalPages
+                      ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                      : "bg-primary border text-white hover:bg-gray-100"
+                  }`}
+                >
+                  Next
+                </button>
+              </>
+            );
+          })()}
+        </div>
+      )}
+
+      {/* {!searchTerm && totalPages > 1 && (
+        <div className="flex justify-center items-center mt-6 gap-2 flex-wrap">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -203,7 +302,7 @@ const YourParticipationTable = () => {
             Next
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

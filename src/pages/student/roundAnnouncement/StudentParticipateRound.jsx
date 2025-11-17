@@ -91,7 +91,7 @@ const StudentParticipateRound = ({
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 items-stretch justify-center mx-auto my-12 max-w-6xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 items-stretch justify-center mx-auto my-6 max-w-6xl">
             {/* Next Round Qualifier */}
             <div className="flex items-center justify-center flex-col">
               <div className="relative bg-[#F5F3FF] flex flex-col items-center justify-center rounded-xl p-6 sm:p-5 xs:p-4 w-full h-full min-h-[150px]">

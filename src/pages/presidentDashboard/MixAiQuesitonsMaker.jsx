@@ -7,6 +7,7 @@ import { TbExclamationCircle } from "react-icons/tb";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import API from "../../api/API";
+import { formatDateTime } from "../../utils/FormateDateTime";
 
 const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -30,6 +31,8 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [saveError, setSaveError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [loadingNoticeMessage, setLoadingNoticeMessage] = useState(false);
+  const [noticeData, setNoticeData] = useState([]);
   const { roundId, annId } = useParams();
   const { announcementId } = useParams();
   const navigate = useNavigate();
@@ -201,15 +204,43 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
     }
   };
 
+  // fetch notice data
+  useEffect(() => {
+    const getNotice = async () => {
+      setLoadingNoticeMessage(true);
+      try {
+        const response = await API.get(
+          `/anc/view-announcement-notice-anc/${annId}/`
+        );
+        console.log("get notice response:", response.data);
+
+        if (response.data.status) {
+          setNoticeData(response.data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching notice:", err);
+      } finally {
+        setLoadingNoticeMessage(false);
+      }
+    };
+
+    if (annId) getNotice();
+  }, [annId]);
+
+  // hanle notice popup
+  const handleNotice = () => {
+    setShowNotice(false);
+  };
+
   return (
     <div className="min-h-screen">
       {/* bg-gradient-to-br from-indigo-50 to-blue-100 py-8 px-4 sm:px-6 */}
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 mb-4">
             <span>Quiz Maker That's</span>
-            <span className="">Delightfully Easy</span>
+            <span className="text-primary">Delightfully Easy</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 128"
@@ -272,7 +303,57 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
           </h2>
 
           {/* Notice message */}
+          {/* Notice message */}
           {showNotice && (
+            <div className="bg-orange200 p-4 rounded-xl mb-4">
+              <div className="text-sm font-medium">
+                <div className="space-y-3">
+                  {loadingNoticeMessage ? (
+                    // Loading state
+                    <div className="flex items-center justify-center py-6">
+                      <div className="w-6 h-6 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                      <span className="ml-2 text-gray-600 font-medium">
+                        Loading notices...
+                      </span>
+                    </div>
+                  ) : noticeData.length > 0 ? (
+                    // Data found
+                    noticeData.map((item) => (
+                      <div key={item.id}>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-base font-medium mb-1 flex items-center gap-2">
+                            <TbExclamationCircle
+                              size={24}
+                              style={{ color: "primary" }}
+                            />
+                            Notice:
+                          </span>
+                          <button onClick={handleNotice}>
+                            <RxCross2 size={20} />
+                          </button>
+                        </div>
+                        <div className="text-left">
+                          <p className="text-gray-800 font-medium">
+                            {item.notice_text}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            Last Update: {formatDateTime(item.updated_at)}
+                          </p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    // No data
+                    <p className="text-gray-500 text-center py-4">
+                      No announcement notices found.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* {showNotice && (
             <div className="bg-gradient-to-r from-amber50 to-orange50 border-l-4 border-amber500 rounded-xl p-5 mb-8 text-left shadow-sm">
               <div className="flex items-start justify-between">
                 <div className="flex items-start">
@@ -299,13 +380,13 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Announcement info */}
           <div className="bg-white rounded-xl shadow-md p-6 mb-8 text-left">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
               <div className="text-sm">
-                <div className="bg-blue50 text-primary px-3 py-1 rounded-full flex items-center gap-2 text-sm font-medium mb-2 sm:mb-0">
+                <div className="bg-blue50 text-primary px-3 py-3 md:py-1 rounded-full flex flex-col md:flex-row items-center gap-2 text-sm font-medium mb-2 sm:mb-0">
                   <FaExclamationCircle className="h-4 w-4" />
                   YOU ARE MAKING QUESTIONS FOR
                   {rounds?.announcement ? (

@@ -59,7 +59,7 @@ const ResultTable = ({ roundId, next_round_qualifier }) => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center flex-col md:flex-row gap-2 justify-between mb-4">
         <button className="bg-yellow500 flex items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 cursor-auto">
           NEXT ROUND QUALIFY {next_round_qualifier} PARTICIPANT
         </button>

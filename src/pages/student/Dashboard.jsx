@@ -102,11 +102,11 @@ const Dashboard = () => {
   return (
     <section>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl md:text-2xl 2xl:text-3xl text-black font-semibold">
             Dashboard
           </h2>
-          <div className="flex items-center justify-center mb-8">
+          <div className="flex items-center justify-center">
             <Link
               to="/student/all-announcement"
               className="text-white bg-gradient-to-r from-primary to-secondary py-[6px] px-6 inline-block rounded-lg font-medium text-base"

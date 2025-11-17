@@ -183,7 +183,7 @@ const QuestionsAnswerShit = () => {
             </div>
 
             {/* Pagination */}
-            <div className="p-8 border-t border-gray50">
+            <div className="px-8 py-4 border-t border-gray50">
               <div className="flex items-center justify-between">
                 <button
                   className="py-2 px-3 leading-none rounded bg-gray400 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
@@ -192,6 +192,25 @@ const QuestionsAnswerShit = () => {
                 >
                   Previous
                 </button>
+                <div className="flex items-center justify-center flex-wrap gap-1">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <button
+                        key={page}
+                        className={`py-2 px-3 leading-none rounded inline-block transition ${
+                          currentPage === page
+                            ? "bg-primary text-white"
+                            : "bg-gray400 hover:bg-primary hover:text-white"
+                        }`}
+                        onClick={() =>
+                          fetchAnswerPaper((page - 1) * limit, filter)
+                        }
+                      >
+                        {page}
+                      </button>
+                    )
+                  )}
+                </div>
                 <button
                   className="py-2 px-3 leading-none rounded bg-gray400 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
                   onClick={() => fetchAnswerPaper(offset + limit, filter)}
@@ -199,26 +218,6 @@ const QuestionsAnswerShit = () => {
                 >
                   Next
                 </button>
-              </div>
-
-              <div className="flex items-center justify-center flex-wrap gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                  (page) => (
-                    <button
-                      key={page}
-                      className={`py-2 px-3 leading-none rounded inline-block transition ${
-                        currentPage === page
-                          ? "bg-primary text-white"
-                          : "bg-gray400 hover:bg-primary hover:text-white"
-                      }`}
-                      onClick={() =>
-                        fetchAnswerPaper((page - 1) * limit, filter)
-                      }
-                    >
-                      {page}
-                    </button>
-                  )
-                )}
               </div>
             </div>
           </>

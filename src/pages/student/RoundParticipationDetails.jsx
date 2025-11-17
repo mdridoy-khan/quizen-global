@@ -57,7 +57,7 @@ const RoundParticipationDetails = () => {
         {/* round step list */}
         {!loading && !errorMsg && singleRound && (
           <>
-            <div className="w-full sm:max-w-5xl mb-20">
+            <div className="w-full sm:max-w-5xl mb-8 xl:mb-16">
               <StudentParticipateRound
                 layout="horizontal"
                 round={singleRound.round_name}
