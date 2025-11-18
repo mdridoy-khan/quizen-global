@@ -29,7 +29,7 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
     <>
       <div
         onClick={handleToggle}
-        className={`w-16 h-6 flex items-center rounded-full cursor-pointer px-1 transition-colors duration-300 ${
+        className={`w-20 h-6 flex items-center rounded-full cursor-pointer px-1 transition-colors duration-300 ${
           isActive
             ? "bg-gradient-to-r from-green-400 to-emerald-600"
             : "bg-gradient-to-r from-red-400 to-rose-600"
@@ -38,7 +38,7 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
         <div
           className={`w-5 h-5 rounded-full flex items-center justify-center transform transition-transform duration-300 shadow-md ${
             isActive
-              ? "bg-gradient-to-r from-green-400 to-emerald-600 translate-x-10 relative z-40"
+              ? "bg-gradient-to-r from-green-400 to-emerald-600 translate-x-[54px] relative z-40"
               : "bg-gradient-to-r from-red-400 to-rose-600 translate-x-0 relative z-40"
           }`}
         >
