@@ -25,6 +25,7 @@ const RoundCreationForm = () => {
 
   const navigate = useNavigate();
 
+  // form initial value assign
   const [formData, setFormData] = useState({
     round_name: "",
     department: "",
@@ -136,6 +137,7 @@ const RoundCreationForm = () => {
     });
   };
 
+  // handle end date change
   const handleEndDateChange = (date) => {
     setFormData((prev) => {
       const newData = { ...prev, quiz_end_date: date };
@@ -149,6 +151,7 @@ const RoundCreationForm = () => {
     });
   };
 
+  // duration time
   const getDurationText = (minutes) => {
     if (!minutes) return "";
     return minutes >= 60
@@ -186,7 +189,6 @@ const RoundCreationForm = () => {
       }
 
       if (roundID) {
-        // Update existing round (PUT)
         await API.put(
           `/anc/announcement/${id}/round/${roundID}/edit/`,
           payload,
@@ -195,7 +197,6 @@ const RoundCreationForm = () => {
           }
         );
       } else {
-        // Create new round (POST)
         await API.post(`/anc/create-round/${id}/`, payload, {
           headers: { "Content-Type": "multipart/form-data" },
         });

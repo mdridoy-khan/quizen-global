@@ -36,6 +36,7 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
       .finally(() => setLoading(false));
   }, []);
 
+  // form validation
   const validationSchema = Yup.object({
     fullName: Yup.string().min(3, "At least 3 characters").required("Required"),
     phoneNumber: Yup.string()
@@ -48,6 +49,7 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
     address: Yup.string().required("Required"),
   });
 
+  // handle form
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -81,7 +83,7 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
         });
 
         const updatedData = res.data;
-        onProfileUpdated(updatedData); // instantly updates parent
+        onProfileUpdated(updatedData);
         setSuccessMessage("Profile updated successfully!");
 
         setTimeout(() => {
@@ -99,6 +101,7 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
     },
   });
 
+  // upazilla list
   useEffect(() => {
     if (formik.values.upazila_id) {
       const selectedCity = cities.find(
@@ -110,6 +113,7 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
     }
   }, [formik.values.upazila_id, cities]);
 
+  // handle city change
   const handleCityChange = (e) => {
     const value = e.target.value;
     setCityInput(value);
@@ -123,11 +127,12 @@ const UserProfileEdit = ({ userData, onCancelModal, onProfileUpdated }) => {
     }
   };
 
+  // handle image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setProfileFile(file);
-      setPreviewImage(URL.createObjectURL(file)); // instant preview
+      setPreviewImage(URL.createObjectURL(file));
     }
   };
 

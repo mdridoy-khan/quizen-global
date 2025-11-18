@@ -14,6 +14,7 @@ const PresidentProfile = () => {
     noticeMessage: true,
   });
 
+  // fetch president dashboard info
   useEffect(() => {
     const presidentData = async () => {
       setLoading(true);
@@ -23,7 +24,7 @@ const PresidentProfile = () => {
         setData(response?.data?.data);
       } catch (err) {
         setError("Failed to load data. Please try again.");
-        console.error(err);
+        // console.error(err);
       } finally {
         setLoading(false);
       }
@@ -63,7 +64,7 @@ const PresidentProfile = () => {
       <div className="w-full lg:max-w-[400px] xl:max-w-2xl 2xl:max-w-4xl">
         {/* welcome message */}
         {messageClose.welcomeMessage && (
-          <div className="bg-blue300 bg-opacity-30 p-4 rounded-xl mb-4 shadow">
+          <div className="bg-blue-300 bg-opacity-30 p-4 rounded-xl mb-4 shadow">
             <div className="text-end">
               <button onClick={() => handleMessageClose("welcomeMessage")}>
                 <RxCross2 size={20} />
@@ -81,7 +82,7 @@ const PresidentProfile = () => {
 
         {/* notice message */}
         {/* {messageClose.noticeMessage && (
-          <div className="bg-orange200 p-4 rounded-xl mb-8 shadow">
+          <div className="bg-orange-50 p-4 rounded-xl mb-8 shadow">
             <div className="flex items-center justify-between">
               <span className="text-base font-medium mb-1 flex items-center gap-2">
                 <TbExclamationCircle
@@ -105,7 +106,7 @@ const PresidentProfile = () => {
 
         <div className="flex gap-4 flex-wrap">
           {/* question box */}
-          <div className="bg-blue300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
+          <div className="bg-blue-300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
             <span className="text-[15px] font-semibold mb-3 block">
               Total Announcement Create
             </span>
@@ -114,14 +115,14 @@ const PresidentProfile = () => {
             </h3>
           </div>
           {/* question box */}
-          <div className="bg-blue300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
+          <div className="bg-blue-300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
             <span className="text-[15px] font-semibold mb-3 block">
               Total Round Create
             </span>
             <h3 className="text-2xl font-semibold">{data?.round_create}</h3>
           </div>
           {/* question box */}
-          <div className="bg-blue300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
+          <div className="bg-blue-300 bg-opacity-30 py-8 px-6 w-full xl:max-w-52 rounded-xl text-center transition hover:bg-cyan350 shadow">
             <span className="text-[15px] font-semibold mb-3 block">
               Total Price Money
             </span>
@@ -189,7 +190,7 @@ export default PresidentProfile;
 //           </div>
 
 //           {/* notice message */}
-//           <div className="bg-orange200 p-4 rounded-xl">
+//           <div className="bg-orange-50 p-4 rounded-xl">
 //             <div className="flex items-center justify-between mb-2">
 //               <span className="text-base font-medium mb-1 flex items-center gap-2">
 //                 <TbExclamationCircle

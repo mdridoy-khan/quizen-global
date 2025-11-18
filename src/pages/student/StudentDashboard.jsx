@@ -17,6 +17,7 @@ const StudentDashboard = () => {
     noticeMessage: true,
   });
 
+  // get dashboard data
   useEffect(() => {
     const studentInfo = async () => {
       setLoading(true);
@@ -51,7 +52,7 @@ const StudentDashboard = () => {
       try {
         setLoading(true);
         const response = await API.get("/setting/slider-image/");
-        console.log("Fetch slider:", response.data);
+        // console.log("Fetch slider:", response.data);
         setSliderImages(response.data);
       } catch (err) {
         console.error("API fetch error:", err);

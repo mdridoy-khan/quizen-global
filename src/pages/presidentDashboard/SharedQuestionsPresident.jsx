@@ -58,7 +58,7 @@ const SharedQuestionsPresident = () => {
         const response = await API.get(
           `/anc/view-announcement-notice-anc/${annId}/`
         );
-        console.log("get notice response:", response.data);
+        // console.log("get notice response:", response.data);
 
         if (response.data.status) {
           setNoticeData(response.data.data);
@@ -104,6 +104,7 @@ const SharedQuestionsPresident = () => {
     fetchTutorQuestions();
   }, [fetchTutorQuestions]);
 
+  // handle question view
   const handleQuestionView = async (tutorId) => {
     setLoading(true);
     setError(null);
@@ -120,12 +121,14 @@ const SharedQuestionsPresident = () => {
     }
   };
 
+  // handle close modal
   const closeModal = () => {
     setQuestionView(false);
     setSelectedTutorData(null);
     fetchTutorQuestions(pagination.current);
   };
 
+  // handle question select change
   const handleQuestionSelectChange = (tutorId, selectedQuestions) => {
     setTutorSelections((prev) => ({
       ...prev,
@@ -272,7 +275,7 @@ const SharedQuestionsPresident = () => {
 
       {/* Loading Spinner */}
       {loading && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-30 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
@@ -347,7 +350,7 @@ const SharedQuestionsPresident = () => {
 
         {/* Notice */}
         {showNotice && (
-          <div className="bg-orange200 p-4 rounded-xl mb-4">
+          <div className="bg-orange-50 p-4 rounded-xl mb-4">
             <div className="text-sm font-medium">
               <div className="space-y-3">
                 {loadingNoticeMessage ? (
@@ -491,7 +494,7 @@ const SharedQuestionsPresident = () => {
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Shared Tutor List
             </span>
-            <span className="ml-3 bg-indigo100 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">
+            <span className="ml-3 bg-indigo-100 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">
               {pagination.total} tutors
             </span>
           </h2>
@@ -678,7 +681,7 @@ const SharedQuestionsPresident = () => {
 
       {/* Confirm Modal - Generate AI Questions */}
       {showConfirmModal && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
@@ -716,7 +719,7 @@ const SharedQuestionsPresident = () => {
 
       {/* Save Confirm Modal - Save AI Questions */}
       {showSaveConfirmModal && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">Save Quiz</h3>
@@ -1017,7 +1020,7 @@ export default SharedQuestionsPresident;
 
 //       {/* Loading Spinner */}
 //       {loading && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-30 z-50 flex items-center justify-center">
+//         <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center">
 //           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
 //         </div>
 //       )}
@@ -1457,7 +1460,7 @@ export default SharedQuestionsPresident;
 
 //       {/* Confirmation Modal */}
 //       {showConfirmModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
 //           <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
 //             <div className="flex justify-between items-center mb-4">
 //               <h3 className="text-lg font-semibold text-gray-900">
@@ -1523,7 +1526,7 @@ export default SharedQuestionsPresident;
 
 //       {/* Existing Loading Spinner */}
 //       {loading && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-30 z-50 flex items-center justify-center">
+//         <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center">
 //           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
 //         </div>
 //       )}
@@ -1532,7 +1535,7 @@ export default SharedQuestionsPresident;
 
 //       {/* Save Confirmation Modal */}
 //       {showSaveConfirmModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
 //           <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
 //             <div className="flex justify-between items-center mb-4">
 //               <h3 className="text-lg font-semibold text-gray-900">

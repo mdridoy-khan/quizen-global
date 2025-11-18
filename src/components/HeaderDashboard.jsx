@@ -77,10 +77,10 @@ const menuItems = {
 const HeaderDashboard = ({ userRole }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const [language, setLanguage] = useState("En");
+  // const [language, setLanguage] = useState("En");
   const [notification, setNotification] = useState([]);
   const [notificationData, setNotificationData] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();

@@ -58,7 +58,7 @@ const CategorySelection = () => {
   // Handle submit: Navigate back to Registration with selected categories
   const handleSubmit = () => {
     const selectedCategories = selected.map(capitalize);
-    navigate(PATH.registration, { state: { categories: selectedCategories } }); // Navigate back to registration
+    navigate(PATH.registration, { state: { categories: selectedCategories } });
   };
 
   // Loading UI

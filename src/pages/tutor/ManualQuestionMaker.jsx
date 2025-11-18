@@ -35,6 +35,7 @@ const ManualQuestionMaker = () => {
     }
   }, [message]);
 
+  // fetch single announcement details
   useEffect(() => {
     const fetchDetails = async () => {
       if (!announcementId) return;

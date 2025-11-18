@@ -46,8 +46,8 @@ const Hero = ({ onParticipateClick }) => {
               </span>
             </a> */}
       {/* </div> */}
-      {/* <div className="lg:pl-7 lg:border-l-[1px] lg:border-[var(--black600)]">
-                        <h2 className="text-[var(--black600)] text-xl font-bold uppercase mb-2 text-center md:text-left">Participate in MyGov Quiz and Earn Loyalty Points</h2>
+      {/* <div className="lg:pl-7 lg:border-l-[1px] lg:border-[var(--black)]">
+                        <h2 className="text-[var(--black)] text-xl font-bold uppercase mb-2 text-center md:text-left">Participate in MyGov Quiz and Earn Loyalty Points</h2>
                         <div className="flex flex-wrap items-center md:items-start justify-center md:justify-start gap-4">
                             <div className="bg-[var(red700)] p-4 flex flex-col justify-center gap-0">
                                 <h4 className="text-white font-bold text-sm">HOW DO THE POINTS</h4>

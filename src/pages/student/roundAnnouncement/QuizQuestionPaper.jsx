@@ -404,7 +404,7 @@ const QuizQuestionPaper = () => {
                   className={`px-4 py-1 rounded font-medium text-sm transition-all ${
                     timeLeft <= 30
                       ? "bg-red-600 text-white animate-pulse shadow-lg"
-                      : "bg-black600 text-white"
+                      : "bg-black text-white"
                   }`}
                 >
                   {formatTimeLabel(timeLeft)}
@@ -513,7 +513,7 @@ const QuizQuestionPaper = () => {
           )
         )}
         {showModal && (
-          <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50 px-4">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
               <h3 className="text-lg font-semibold text-red-600 mb-2 text-center">
                 Warning: Violation Detected
@@ -847,7 +847,7 @@ export default QuizQuestionPaper;
 
 //               <div className="mt-2 text-sm sm:text-base">
 //                 Time Left:{" "}
-//                 <span className="bg-black600 text-white px-2 py-1 rounded">
+//                 <span className="bg-black text-white px-2 py-1 rounded">
 //                   {formatTimeLabel(timeLeft)}
 //                 </span>
 //               </div>
@@ -963,7 +963,7 @@ export default QuizQuestionPaper;
 
 //         {/* Violation Modal */}
 //         {showModal && (
-//           <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50 px-4">
+//           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
 //             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
 //               <h3 className="text-lg font-semibold text-red-600 mb-2 text-center">
 //                 Warning: Violation Detected
@@ -1292,7 +1292,7 @@ export default QuizQuestionPaper;
 //             </h4>
 //             <div className="mt-2">
 //               Time Left:{" "}
-//               <span className="bg-black600 text-white px-2 py-1 rounded">
+//               <span className="bg-black text-white px-2 py-1 rounded">
 //                 {formatTimeLabel(timeLeft)}
 //               </span>
 //             </div>
@@ -1385,7 +1385,7 @@ export default QuizQuestionPaper;
 
 //       {/* Violation Modal */}
 //       {showModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 //           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
 //             <h3 className="text-lg font-semibold text-red-600 mb-2">
 //               Warning: Violation Detected
@@ -1700,7 +1700,7 @@ export default QuizQuestionPaper;
 //             </h4>
 //             <div className="mt-2">
 //               Time Left:{" "}
-//               <span className="bg-black600 text-white px-2 py-1 rounded">
+//               <span className="bg-black text-white px-2 py-1 rounded">
 //                 {formatTimeLabel(timeLeft)}
 //               </span>
 //             </div>
@@ -1789,7 +1789,7 @@ export default QuizQuestionPaper;
 
 //       {/* Violation Modal */}
 //       {showModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 //           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
 //             <h3 className="text-lg font-semibold text-red-600 mb-2">
 //               Warning: Violation Detected

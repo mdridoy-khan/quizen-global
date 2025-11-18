@@ -11,7 +11,7 @@ const Faq = () => {
     const fetchFaqData = async () => {
       try {
         const response = await API.get("/setting/faq/");
-        console.log("faq response:", response.data);
+        // console.log("faq response:", response.data);
         setFaqData(response.data);
       } catch (err) {
         console.error(err);

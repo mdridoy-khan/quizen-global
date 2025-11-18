@@ -14,6 +14,7 @@ import API from "../../api/API";
 import { API_ENDPOINS } from "../../api/ApiEndpoints";
 import FormImage from "../../assets/auth/authBg.jpg";
 import { PATH } from "../../routes/PATH";
+
 const Registration = () => {
   const navigate = useNavigate();
   const [userType, setUserType] = useState("student");

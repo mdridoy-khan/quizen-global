@@ -24,6 +24,7 @@ const MyAnnouncement = () => {
     { value: "next_7", label: "Registration Will Close Next 7 Days" },
   ];
 
+  // fetch quiz data
   const fetchQuizData = async (page = 1) => {
     try {
       setLoading(true);
@@ -65,6 +66,7 @@ const MyAnnouncement = () => {
     }
   };
 
+  // search handler
   useEffect(() => {
     if (searchQuery.trim() === "") {
       fetchQuizData(currentPage);

@@ -29,7 +29,7 @@ const RoundQualifyList = ({
   // search state
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("roundName", roundName);
+  // console.log("roundName", roundName);
 
   // fetch participate data (default load)
   useEffect(() => {
@@ -132,7 +132,7 @@ const RoundQualifyList = ({
       </div>
     );
   }
-  console.log("participate list", participate);
+  // console.log("participate list", participate);
   return (
     <div className="space-y-4  bg-white shadow p-4 rounded-lg">
       {error && (
@@ -141,7 +141,7 @@ const RoundQualifyList = ({
 
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div>
-          <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 ">
+          <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black ">
             <HiOutlineExclamationCircle size={20} />
             NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
           </button>
@@ -220,7 +220,7 @@ const RoundQualifyList = ({
           <tbody>
             {searchLoading ? (
               <tr>
-                <td colSpan="10" className="text-center py-4 text-blue500">
+                <td colSpan="10" className="text-center py-4 text-blue-500">
                   Searching...
                 </td>
               </tr>
@@ -482,7 +482,7 @@ export default RoundQualifyList;
 //       )}
 
 //       <div className="flex flex-col md:flex-row items-center justify-between">
-//         <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 ">
+//         <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black ">
 //           <HiOutlineExclamationCircle size={20} />
 //           NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
 //         </button>
@@ -527,7 +527,7 @@ export default RoundQualifyList;
 //           <tbody>
 //             {searchLoading ? (
 //               <tr>
-//                 <td colSpan="10" className="text-center py-4 text-blue500">
+//                 <td colSpan="10" className="text-center py-4 text-blue-500">
 //                   Searching...
 //                 </td>
 //               </tr>
@@ -595,7 +595,7 @@ export default RoundQualifyList;
 
 //       {/* Modal */}
 //       {showModal && (
-//         <div className="fixed inset-0 flex items-center justify-center bg-black600/40 z-50">
+//         <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
 //           <div className="bg-white rounded-lg shadow-lg w-[400px] p-6 text-center space-y-4">
 //             {confirmError ? (
 //               <>
@@ -742,7 +742,7 @@ export default RoundQualifyList;
 //   return (
 //     <div className="space-y-4">
 //       <div className="flex items-center justify-between">
-//         <button className="bg-yellow500 flex items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black600 ">
+//         <button className="bg-yellow500 flex items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black ">
 //           <HiOutlineExclamationCircle size={20} />
 //           NEXT ROUND QUALIFY {participate[0]?.next_round_qualifier} PARTICIPANT
 //         </button>
@@ -787,7 +787,7 @@ export default RoundQualifyList;
 //           <tbody>
 //             {searchLoading ? (
 //               <tr>
-//                 <td colSpan="10" className="text-center py-4 text-blue500">
+//                 <td colSpan="10" className="text-center py-4 text-blue-500">
 //                   Searching...
 //                 </td>
 //               </tr>
@@ -855,7 +855,7 @@ export default RoundQualifyList;
 
 //       {/* Modal (unchanged) */}
 //       {showModal && (
-//         <div className="fixed inset-0 flex items-center justify-center bg-black600/40 z-50">
+//         <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
 //           <div className="bg-white rounded-lg shadow-lg w-[400px] p-6 text-center space-y-4">
 //             {confirmError ? (
 //               <>

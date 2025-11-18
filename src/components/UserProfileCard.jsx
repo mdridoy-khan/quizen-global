@@ -21,6 +21,7 @@ const UserProfileCard = () => {
     fetchUserData();
   }, []);
 
+  // fetch user data
   const fetchUserData = async () => {
     try {
       setLoading(true);
@@ -35,10 +36,12 @@ const UserProfileCard = () => {
     }
   };
 
+  // handle edit modal
   const handleEditProfile = () => {
     setShowEditModal(true);
   };
 
+  // handle close modal
   const handleCancelModal = () => {
     setShowEditModal(false);
   };
@@ -57,7 +60,7 @@ const UserProfileCard = () => {
       const response = await API.get("/auth/personal-info/");
       setProfileData(response.data);
     } catch (error) {
-      console.error("Failed to refresh profile after update:", error);
+      // console.error("Failed to refresh profile after update:", error);
       setError("Failed to refresh profile after update. Please try again.");
     } finally {
       setShowEditModal(false);
@@ -233,7 +236,7 @@ export default UserProfileCard;
 //     <div className="bg-white bg-opacity-30 shadow rounded-2xl p-6 transition hover:shadow">
 //       {loading ? (
 //         <div className="flex justify-center items-center h-64">
-//           <div className="w-12 h-12 border-4 border-blue500 border-t-transparent border-solid rounded-full animate-spin"></div>
+//           <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
 //         </div>
 //       ) : error ? (
 //         <div className="flex justify-center items-center h-64 text-red500">
@@ -301,7 +304,7 @@ export default UserProfileCard;
 //       ) : null}
 
 //       {showEditModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex justify-center items-center z-50 px-4">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
 //           <div className="bg-white rounded-lg shadow-lg w-full max-w-lg relative p-6 overflow-y-auto max-h-[80vh]">
 //             <UserProfileEdit
 //               userData={profileData}
@@ -433,7 +436,7 @@ export default UserProfileCard;
 //       ) : null}
 
 //       {showEditModal && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex justify-center items-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
 //           <div className="bg-white rounded-lg shadow-lg w-full max-w-lg relative p-6 overflow-y-auto max-h-[80vh]">
 //             <UserProfileEdit
 //               userData={profileData}

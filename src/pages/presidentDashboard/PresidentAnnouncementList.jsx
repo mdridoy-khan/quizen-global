@@ -40,6 +40,7 @@ const PresidentAnnouncementList = () => {
     );
   }, []);
 
+  // fetch announcement list
   const fetchAnnouncements = async (url) => {
     try {
       setLoading(true);
@@ -68,6 +69,7 @@ const PresidentAnnouncementList = () => {
     }
   };
 
+  // formate date time
   const formatDate = (dateString) => {
     try {
       return dateString ? format(parseISO(dateString), "MMM dd, yyyy") : "";
@@ -84,13 +86,14 @@ const PresidentAnnouncementList = () => {
     fetchNoticeList(announcementId);
   };
 
+  // fetch notice list
   const fetchNoticeList = async (announcementId) => {
     try {
       setNoticeError(null);
       const response = await API.get(
         `/anc/view-announcement-notice-anc/${announcementId}/`
       );
-      console.log("notices:", response.data.data);
+      // console.log("notices:", response.data.data);
       setNoticeList(response?.data?.data);
     } catch (err) {
       console.error(err);
@@ -98,6 +101,7 @@ const PresidentAnnouncementList = () => {
     }
   };
 
+  // handle create notice
   const handleCreateNotice = async () => {
     if (!noticeText.trim()) return;
     setNoticeLoading(true);

@@ -14,7 +14,6 @@ import { UserLogout } from "../utils/UserLogout";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const [language, setLanguage] = useState("En");
   const [notification, setNotification] = useState([]);
   const [notificationData, setNotificationData] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

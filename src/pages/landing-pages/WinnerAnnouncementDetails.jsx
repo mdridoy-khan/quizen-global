@@ -24,7 +24,7 @@ const WinnerAnnouncementDetails = () => {
           <div className="flex items-center justify-end">
             <Link
               to="/winners"
-              className="flex items-center gap-1.5 bg-cyan600 py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-sm sm:text-base font-semibold text-white transition-all hover:bg-blue700 focus:ring-2 focus:ring-blue500 focus:ring-offset-2"
+              className="flex items-center gap-1.5 bg-cyan600 py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg text-sm sm:text-base font-semibold text-white transition-all hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               <BiLogOutCircle size={18} className="sm:w-5 sm:h-5" />
               Back

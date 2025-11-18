@@ -30,7 +30,7 @@ const SortDropdown = ({ options = [], selected, onChange }) => {
                   id={inputId}
                   name="sortOption"
                   value={opt.value}
-                  className="w-4 h-4 text-blue600 bg-white border-2 border-gray300 rounded-full checked:bg-blue600 checked:border-blue600 transition duration-200"
+                  className="w-4 h-4 text-blue-600 bg-white border-2 border-gray300 rounded-full checked:bg-blue-600 checked:border-blue-600 transition duration-200"
                   checked={selected === opt.value}
                   onChange={() => {
                     onChange(opt.value);

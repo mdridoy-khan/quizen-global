@@ -36,7 +36,7 @@ const AiQuestionMaker = () => {
   const { announcementId } = useParams();
   const [isSaving, setIsSaving] = useState(false);
   //   const [notice, setNotice] = useState(true);
-  console.log("Received roundId:", roundId, "announcementId:", annId);
+  // console.log("Received roundId:", roundId, "announcementId:", annId);
 
   const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ const AiQuestionMaker = () => {
             `/anc/single-announcement-details/${announcementId}/`
           );
         }
-        console.log("Details:", response.data.data);
+        // console.log("Details:", response.data.data);
         setRounds(response.data.data);
         setAnnouncement(response.data.data);
       } catch (err) {
@@ -98,7 +98,7 @@ const AiQuestionMaker = () => {
         payload
       );
 
-      console.log("Quiz saved successfully:", response.data);
+      // console.log("Quiz saved successfully:", response.data);
       setSuccessMessage("Quiz saved successfully!");
       setShowModal(false);
       setSaveError("");
@@ -185,6 +185,7 @@ const AiQuestionMaker = () => {
     }
   };
 
+  // valid link check
   const validateLink = (value) => {
     setLink(value);
     const urlPattern = new RegExp(
@@ -198,6 +199,7 @@ const AiQuestionMaker = () => {
     );
   };
 
+  // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -222,7 +224,7 @@ const AiQuestionMaker = () => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      console.log("Quiz Response:", response.data);
+      // console.log("Quiz Response:", response.data);
       setQuizResponse(response.data);
       setShowModal(true);
       if (response.data?.quiz) {
@@ -244,7 +246,7 @@ const AiQuestionMaker = () => {
         const response = await API.get(
           `/anc/view-announcement-notice-anc/${annId}/`
         );
-        console.log("get notice response:", response.data);
+        // console.log("get notice response:", response.data);
 
         if (response.data.status) {
           setNoticeData(response.data.data);
@@ -336,7 +338,7 @@ const AiQuestionMaker = () => {
 
           {/* Notice message */}
           {showNotice && (
-            <div className="bg-orange200 p-4 rounded-xl mb-4">
+            <div className="bg-orange-50 p-4 rounded-xl mb-4">
               <div className="text-sm font-medium">
                 <div className="space-y-3">
                   {loadingNoticeMessage ? (
@@ -725,7 +727,7 @@ const AiQuestionMaker = () => {
 
       {/* Quiz Question save modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
             {/* Modal Header */}
             <div className="bg-gradient-to-r from-primary to-secondary p-6 text-white">

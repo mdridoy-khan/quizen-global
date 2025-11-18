@@ -16,7 +16,7 @@ const WinnerAnnouncement = () => {
       const response = await API.get(
         `/anc/winner-anc-list-lp/${keyword ? `?keyword=${keyword}` : ""}`
       );
-      console.log("fetchWinners", response.data);
+      // console.log("fetchWinners", response.data);
       setWinners(response.data);
     } catch (err) {
       console.log(err);
@@ -60,7 +60,7 @@ const WinnerAnnouncement = () => {
           </div>
         </div>
 
-        {/* loader show korte chaile */}
+        {/* loader */}
         {loading ? (
           <p className="text-center text-lg font-medium">Loading...</p>
         ) : (

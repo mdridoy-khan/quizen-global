@@ -79,10 +79,10 @@ const Chatbot = () => {
           )}
           <div className="fixed bottom-[72px] lg:bottom-24 right-5 flex flex-col items-center space-y-2">
             <div className="relative">
-              <span className="custom-ping absolute z-10 inline-flex h-full w-full rounded-full bg-blue600 opacity-75"></span>
-              <span className="custom-ping delay-200 absolute z-10 inline-flex h-full w-full rounded-full bg-blue600 opacity-50"></span>
+              <span className="custom-ping absolute z-10 inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+              <span className="custom-ping delay-200 absolute z-10 inline-flex h-full w-full rounded-full bg-blue-600 opacity-50"></span>
               <button
-                className="z-20 relative w-[44px] lg:w-[55px] h-[44px] lg:h-[55px] flex items-center justify-center bg-blue600 text-white p-3 rounded-full shadow-lg"
+                className="z-20 relative w-[44px] lg:w-[55px] h-[44px] lg:h-[55px] flex items-center justify-center bg-blue-600 text-white p-3 rounded-full shadow-lg"
                 onClick={() => setIsOpen(true)}
               >
                 <FaComments size={24} />
@@ -96,7 +96,7 @@ const Chatbot = () => {
       {isOpen && (
         <div className="fixed bottom-24 right-5 w-80 bg-white shadow-lg rounded-xl overflow-hidden border border-gray300 z-50">
           {/* Header */}
-          <div className="bg-blue600 text-white flex justify-between items-center p-3">
+          <div className="bg-blue-600 text-white flex justify-between items-center p-3">
             <span className="font-semibold">Chatbot</span>
             <button onClick={() => setIsOpen(false)}>
               <FaTimes />
@@ -160,12 +160,12 @@ const Chatbot = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="flex-1 border p-2 text-sm rounded mr-2 shadow-none outline-none focus:border focus:border-blue600"
+                className="flex-1 border p-2 text-sm rounded mr-2 shadow-none outline-none focus:border focus:border-blue-600"
                 placeholder="Type a message..."
               />
               <button
                 onClick={handleSend}
-                className="bg-blue600 text-white px-3 py-1 rounded text-sm"
+                className="bg-blue-600 text-white px-3 py-1 rounded text-sm"
               >
                 Send
               </button>

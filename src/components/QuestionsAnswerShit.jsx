@@ -77,7 +77,7 @@ const QuestionsAnswerShit = () => {
             <div className="bg-gray-100 p-6 rounded-tl-xl rounded-tr-xl flex-shrink-0 sticky top-0 z-10 shadow-sm">
               <div className="flex justify-start mb-2">
                 <Link
-                  className="py-1.5 px-3 rounded bg-gray200 text-black600 font-semibold text-sm transition hover:bg-primary hover:text-white"
+                  className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
                   to="/student/dashboard"
                 >
                   Back to Quiz Table
@@ -85,22 +85,22 @@ const QuestionsAnswerShit = () => {
               </div>
 
               <div className="text-center space-y-1">
-                <h2 className="text-xl font-semibold text-black600">
+                <h2 className="text-xl font-semibold text-black">
                   {quizAnswer?.quiz_details?.announcement_name}
                 </h2>
-                <h3 className="text-md font-semibold text-black600">
+                <h3 className="text-md font-semibold text-black">
                   Round: {quizAnswer?.quiz_details?.round_name}
                 </h3>
-                <h4 className="text-sm font-medium text-black600">
+                <h4 className="text-sm font-medium text-black">
                   Subject: {quizAnswer?.quiz_details?.topic_subject}
                 </h4>
-                <h4 className="text-sm font-medium text-black600">
+                <h4 className="text-sm font-medium text-black">
                   EXAM DATE:{" "}
                   {formatDateTime(quizAnswer?.quiz_details?.completed_at)}
                 </h4>
               </div>
 
-              <div className="flex items-center justify-between mt-4 text-sm font-medium text-black600">
+              <div className="flex items-center justify-between mt-4 text-sm font-medium text-black">
                 <span>Subject: {quizAnswer?.quiz_details?.topic_subject}</span>
                 <span>
                   Total Questions: {quizAnswer?.quiz_details?.total_question}
@@ -134,7 +134,7 @@ const QuestionsAnswerShit = () => {
               {quizAnswer?.questions?.length > 0 ? (
                 quizAnswer.questions.map((item) => (
                   <div key={item.question_no} className="border rounded-lg p-4">
-                    <h3 className="text-md font-semibold text-black600 mb-2">
+                    <h3 className="text-md font-semibold text-black mb-2">
                       {item.question_no}. {item.question_text}
                     </h3>
                     <div className="space-y-1">
@@ -160,7 +160,7 @@ const QuestionsAnswerShit = () => {
                               className="form-radio h-5 w-5 min-w-5 min-h-5 text-green500"
                               disabled
                             />
-                            <span className="text-black600">{answer}</span>
+                            <span className="text-black">{answer}</span>
 
                             {isSelected && (
                               <span
@@ -325,7 +325,7 @@ export default QuestionsAnswerShit;
 //             {/* Back Button */}
 //             <div className="flex justify-start mb-2">
 //               <Link
-//                 className="py-1.5 px-3 rounded bg-gray200 text-black600 font-semibold text-sm transition hover:bg-primary hover:text-white"
+//                 className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
 //                 to="/student/dashboard"
 //               >
 //                 Back to Quiz Table
@@ -334,23 +334,23 @@ export default QuestionsAnswerShit;
 
 //             {/* Quiz Info */}
 //             <div className="text-center space-y-1">
-//               <h2 className="text-xl font-semibold text-black600">
+//               <h2 className="text-xl font-semibold text-black">
 //                 {quizAnswer?.quiz_details?.announcement_name}
 //               </h2>
-//               <h3 className="text-md font-semibold text-black600">
+//               <h3 className="text-md font-semibold text-black">
 //                 Round: {quizAnswer?.quiz_details?.round_name}
 //               </h3>
-//               <h4 className="text-sm font-medium text-black600">
+//               <h4 className="text-sm font-medium text-black">
 //                 Subject: {quizAnswer?.quiz_details?.topic_subject}
 //               </h4>
-//               <h4 className="text-sm font-medium text-black600">
+//               <h4 className="text-sm font-medium text-black">
 //                 EXAM DATE:{" "}
 //                 {formatDateTime(quizAnswer?.quiz_details?.completed_at)}
 //               </h4>
 //             </div>
 
 //             {/* Subject & Total Questions */}
-//             <div className="flex items-center justify-between mt-4 text-sm font-medium text-black600">
+//             <div className="flex items-center justify-between mt-4 text-sm font-medium text-black">
 //               <span>Subject: {quizAnswer?.quiz_details?.topic_subject}</span>
 //               <span>
 //                 Total Questions: {quizAnswer?.quiz_details?.total_question}
@@ -380,7 +380,7 @@ export default QuestionsAnswerShit;
 //             {filteredQuestions.length > 0 ? (
 //               filteredQuestions.map((item) => (
 //                 <div key={item.question_no} className="border rounded-lg p-4">
-//                   <h3 className="text-md font-semibold text-black600 mb-2">
+//                   <h3 className="text-md font-semibold text-black mb-2">
 //                     {item.question_no}. {item.question_text}
 //                   </h3>
 //                   <div className="space-y-1">
@@ -406,7 +406,7 @@ export default QuestionsAnswerShit;
 //                             className="form-radio h-5 w-5 text-green500"
 //                             disabled
 //                           />
-//                           <span className="text-black600">{answer}</span>
+//                           <span className="text-black">{answer}</span>
 
 //                           {isSelected && filter !== "skipped" && (
 //                             <span
@@ -555,7 +555,7 @@ export default QuestionsAnswerShit;
 //             {/* Back Button */}
 //             <div className="flex justify-start mb-2">
 //               <Link
-//                 className="py-1.5 px-3 rounded bg-gray200 text-black600 font-semibold text-sm transition hover:bg-primary hover:text-white"
+//                 className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
 //                 to="/student/dashboard"
 //               >
 //                 Back to Quiz Table
@@ -564,23 +564,23 @@ export default QuestionsAnswerShit;
 
 //             {/* Quiz Info */}
 //             <div className="text-center space-y-1">
-//               <h2 className="text-xl font-semibold text-black600">
+//               <h2 className="text-xl font-semibold text-black">
 //                 {quizAnswer?.quiz_details?.announcement_name}
 //               </h2>
-//               <h3 className="text-md font-semibold text-black600">
+//               <h3 className="text-md font-semibold text-black">
 //                 Round: {quizAnswer?.quiz_details?.round_name}
 //               </h3>
-//               <h4 className="text-sm font-medium text-black600">
+//               <h4 className="text-sm font-medium text-black">
 //                 Subject: {quizAnswer?.quiz_details?.topic_subject}
 //               </h4>
-//               <h4 className="text-sm font-medium text-black600">
+//               <h4 className="text-sm font-medium text-black">
 //                 EXAM DATE:{" "}
 //                 {formatDateTime(quizAnswer?.quiz_details?.completed_at)}
 //               </h4>
 //             </div>
 
 //             {/* Subject & Total Questions */}
-//             <div className="flex items-center justify-between mt-4 text-sm font-medium text-black600">
+//             <div className="flex items-center justify-between mt-4 text-sm font-medium text-black">
 //               <span>Subject: {quizAnswer?.quiz_details?.topic_subject}</span>
 //               <span>
 //                 Total Questions: {quizAnswer?.quiz_details?.total_question}
@@ -610,7 +610,7 @@ export default QuestionsAnswerShit;
 //             {filteredQuestions.length > 0 ? (
 //               filteredQuestions.map((item) => (
 //                 <div key={item.question_no} className="border rounded-lg p-4">
-//                   <h3 className="text-md font-semibold text-black600 mb-2">
+//                   <h3 className="text-md font-semibold text-black mb-2">
 //                     {item.question_no}. {item.question_text}
 //                   </h3>
 //                   <div className="space-y-1">
@@ -636,7 +636,7 @@ export default QuestionsAnswerShit;
 //                             className="form-radio h-5 w-5 text-green500"
 //                             disabled
 //                           />
-//                           <span className="text-black600">{answer}</span>
+//                           <span className="text-black">{answer}</span>
 
 //                           {isSelected && filter !== "skipped" && (
 //                             <span

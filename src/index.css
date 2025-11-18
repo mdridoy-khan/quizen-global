@@ -165,7 +165,7 @@
   content: "";
   width: 16px;
   height: 1px;
-  background: var(--black600-400);
+  background: #222222;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
@@ -175,7 +175,7 @@
   content: "";
   width: 16px;
   height: 1px;
-  background: var(--black600-400);
+  background: #222222;
   right: 16px;
   top: 50%;
   transform: translateY(-50%);

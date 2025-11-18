@@ -51,7 +51,7 @@ const StudentLayout = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header (Same as CommonLayout) */}
+        {/* Header*/}
         <HeaderDashboard userRole="student" />
 
         {/* Page Content */}
@@ -93,7 +93,7 @@ export default StudentLayout;
 //       <div className="flex flex-1 pt-[64px]">
 //         {/* Sidebar */}
 //         {/* <div
-//           className={`fixed top-[68px] md:top-[68px] left-0 h-[calc(100%-68px)] md:h-[calc(100%-68px)] bg-black600 w-64 flex flex-col justify-between py-8 px-4 transform transition-transform duration-300 z-50
+//           className={`fixed top-[68px] md:top-[68px] left-0 h-[calc(100%-68px)] md:h-[calc(100%-68px)] bg-black w-64 flex flex-col justify-between py-8 px-4 transform transition-transform duration-300 z-50
 //             lg:translate-x-0
 //             ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
 //         >
@@ -202,7 +202,7 @@ export default StudentLayout;
 //         <main className="flex-1 lg:ml-44 mt-10 ">
 //           {/* Mobile Menu Button */}
 //           <div className="mb-8 lg:hidden">
-//             <button onClick={toggleSidebar} className="text-2xl text-black600">
+//             <button onClick={toggleSidebar} className="text-2xl text-black">
 //               <HiMenu />
 //             </button>
 //           </div>

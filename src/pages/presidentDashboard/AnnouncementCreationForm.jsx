@@ -312,7 +312,7 @@ const AnnouncementCreationForm = () => {
 
       navigate("/president/announcement-list");
     } catch (err) {
-      console.error("API Error:", err.response?.data || err.message);
+      // console.error("API Error:", err.response?.data || err.message);
       toast.error(
         err.response?.data?.message ||
           "Failed to submit form. Please check your inputs and try again."
@@ -436,7 +436,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Announcement Name
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
@@ -455,7 +455,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Organization Name
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
@@ -473,7 +473,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Round Number
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="number"
@@ -494,7 +494,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Registration Start Date
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <div className="relative">
                 <DatePicker
@@ -516,7 +516,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Registration End Date
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <div className="relative">
                 <DatePicker
@@ -538,7 +538,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Total Days
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="number"
@@ -559,7 +559,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Subject
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
@@ -577,7 +577,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Department
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
@@ -595,7 +595,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Tutor Share Question
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="number"
@@ -616,7 +616,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Question Type
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <select
                 id="question_type"
@@ -636,7 +636,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Exam Type
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <select
                 id="exam_type"
@@ -660,14 +660,14 @@ const AnnouncementCreationForm = () => {
                 id="is_pricemoney"
                 checked={formData.is_pricemoney}
                 onChange={handleInputChange}
-                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
               />
               <label
                 htmlFor="is_pricemoney"
                 className="text-sm cursor-pointer font-medium text-gray700"
               >
                 Is Price Money?
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
             </div>
             {/* certificate */}
@@ -677,7 +677,7 @@ const AnnouncementCreationForm = () => {
                 id="is_certificate"
                 checked={formData.is_certificate}
                 onChange={handleInputChange}
-                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
               />
               <label
                 htmlFor="is_certificate"
@@ -693,7 +693,7 @@ const AnnouncementCreationForm = () => {
                 id="is_exciting_price"
                 checked={formData.is_exciting_price}
                 onChange={handleExcitingPrice}
-                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+                className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
               />
               <label
                 htmlFor="is_exciting_price"
@@ -711,7 +711,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Price Money
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <input
                 type="number"
@@ -779,7 +779,7 @@ const AnnouncementCreationForm = () => {
                       <button
                         type="button"
                         onClick={handleAddExcitingPrice}
-                        className="absolute right-2 bottom-2 text-lg bg-blue500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-blue600"
+                        className="absolute right-2 bottom-2 text-lg bg-blue-500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-blue-600"
                         title="Add More"
                       >
                         <FiPlus size={18} />
@@ -793,7 +793,7 @@ const AnnouncementCreationForm = () => {
                           updated.splice(index, 1);
                           setExcitingPrices(updated);
                         }}
-                        className="absolute right-10 bottom-2 text-lg bg-red500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600"
+                        className="absolute right-10 bottom-2 text-lg bg-red-text-red-500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600"
                         title="Remove"
                       >
                         <FiMinus size={18} />
@@ -811,7 +811,7 @@ const AnnouncementCreationForm = () => {
               className="text-sm font-medium text-gray700 mb-1 block"
             >
               Address
-              <span className="text-sm text-red500 ml-1">*</span>
+              <span className="text-sm text-red-500 ml-1">*</span>
             </label>
             <input
               type="text"
@@ -831,7 +831,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Upload Event Image
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <label
                 htmlFor="eventImage"
@@ -876,7 +876,7 @@ const AnnouncementCreationForm = () => {
                 className="text-sm font-medium text-gray700 mb-1 block"
               >
                 Upload Banner Image
-                <span className="text-sm text-red500 ml-1">*</span>
+                <span className="text-sm text-red-500 ml-1">*</span>
               </label>
               <label
                 htmlFor="bannerImage"
@@ -923,7 +923,7 @@ const AnnouncementCreationForm = () => {
               className="text-sm font-medium text-gray700 mb-1 block"
             >
               Terms & Condition
-              <span className="text-sm text-red500 ml-1">*</span>
+              <span className="text-sm text-red-500 ml-1">*</span>
             </label>
             <textarea
               id="terms_condition"
@@ -941,7 +941,7 @@ const AnnouncementCreationForm = () => {
               className="text-sm font-medium text-gray700 mb-1 block"
             >
               Announcement Details
-              <span className="text-sm text-red500 ml-1">*</span>
+              <span className="text-sm text-red-500 ml-1">*</span>
             </label>
             <textarea
               id="announcement_details"
@@ -1320,7 +1320,7 @@ export default AnnouncementCreationForm;
 //               className="text-sm font-medium text-gray700 mb-1 block"
 //             >
 //               Announcement Name
-//               <span className="text-sm text-red500 ml-1">*</span>
+//               <span className="text-sm text-red-500 ml-1">*</span>
 //             </label>
 //             <input
 //               type="text"
@@ -1339,7 +1339,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Upload Event Image
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <label
 //                 htmlFor="eventImage"
@@ -1383,7 +1383,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Upload Banner Image
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <label
 //                 htmlFor="bannerImage"
@@ -1429,7 +1429,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Registration Start Date
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <div className="relative">
 //                 <DatePicker
@@ -1451,7 +1451,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Registration End Date
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <div className="relative">
 //                 <DatePicker
@@ -1475,7 +1475,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Subject
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="text"
@@ -1483,7 +1483,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Subject Name"
 //                 value={formData.subject}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //             <div className="input-wrapper">
@@ -1492,7 +1492,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Department
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="text"
@@ -1500,7 +1500,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Department Name"
 //                 value={formData.department_name}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //           </div>
@@ -1511,7 +1511,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Address
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="text"
@@ -1519,7 +1519,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Address"
 //                 value={formData.address}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //             <div className="input-wrapper">
@@ -1528,7 +1528,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Tutor Share Question
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="number"
@@ -1536,7 +1536,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Share question"
 //                 value={formData.tutor_share_qes_number}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //           </div>
@@ -1547,13 +1547,13 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Question Type
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <select
 //                 id="question_type"
 //                 value={formData.question_type}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               >
 //                 <option value="">Select Question Type</option>
 //                 <option value="multiple">Multiple</option>
@@ -1567,13 +1567,13 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Exam Type
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <select
 //                 id="exam_type"
 //                 value={formData.exam_type}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               >
 //                 <option value="">Select Exam Type</option>
 //                 <option value="online">Online</option>
@@ -1588,7 +1588,7 @@ export default AnnouncementCreationForm;
 //               className="text-sm font-medium text-gray700 mb-1 block"
 //             >
 //               Organization Name
-//               <span className="text-sm text-red500 ml-1">*</span>
+//               <span className="text-sm text-red-500 ml-1">*</span>
 //             </label>
 //             <input
 //               type="text"
@@ -1596,7 +1596,7 @@ export default AnnouncementCreationForm;
 //               placeholder="Enter Organization Name"
 //               value={formData.organizer_name}
 //               onChange={handleInputChange}
-//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //             />
 //           </div>
 //           <div className="input-group grid grid-cols-2 gap-4">
@@ -1606,7 +1606,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Total Days
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="number"
@@ -1614,7 +1614,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Total Days"
 //                 value={formData.total_days}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //             <div className="input-wrapper">
@@ -1623,7 +1623,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Round Number
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="number"
@@ -1631,7 +1631,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Round Number"
 //                 value={formData.round_number}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //           </div>
@@ -1643,14 +1643,14 @@ export default AnnouncementCreationForm;
 //                 id="is_pricemoney"
 //                 checked={formData.is_pricemoney}
 //                 onChange={handleInputChange}
-//                 className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+//                 className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
 //               />
 //               <label
 //                 htmlFor="is_pricemoney"
 //                 className="text-sm cursor-pointer font-medium text-gray700"
 //               >
 //                 Is Price Money?
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //             </div>
 
@@ -1660,7 +1660,7 @@ export default AnnouncementCreationForm;
 //                 id="is_certificate"
 //                 checked={formData.is_certificate}
 //                 onChange={handleInputChange}
-//                 className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+//                 className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
 //               />
 //               <label
 //                 htmlFor="is_certificate"
@@ -1678,7 +1678,7 @@ export default AnnouncementCreationForm;
 //                 className="text-sm font-medium text-gray700 mb-1 block"
 //               >
 //                 Price Money
-//                 <span className="text-sm text-red500 ml-1">*</span>
+//                 <span className="text-sm text-red-500 ml-1">*</span>
 //               </label>
 //               <input
 //                 type="number"
@@ -1686,7 +1686,7 @@ export default AnnouncementCreationForm;
 //                 placeholder="Enter Price Money"
 //                 value={formData.price_money}
 //                 onChange={handleInputChange}
-//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                 className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //               />
 //             </div>
 //           )}
@@ -1697,7 +1697,7 @@ export default AnnouncementCreationForm;
 //               id="is_exciting_price"
 //               checked={formData.is_exciting_price}
 //               onChange={handleExcitingPrice}
-//               className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue500 checked:border-transparent flex items-center justify-center"
+//               className="appearance-none w-4 h-4 border border-gray400 rounded-sm checked:bg-blue-500 checked:border-transparent flex items-center justify-center"
 //             />
 //             <label
 //               htmlFor="is_exciting_price"
@@ -1731,7 +1731,7 @@ export default AnnouncementCreationForm;
 //                             e.target.value
 //                           )
 //                         }
-//                         className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                         className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //                       />
 //                     </div>
 //                     <div className="input-wrapper relative">
@@ -1753,7 +1753,7 @@ export default AnnouncementCreationForm;
 //                             e.target.value
 //                           )
 //                         }
-//                         className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500"
+//                         className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500"
 //                       />
 //                     </div>
 //                   </div>
@@ -1762,7 +1762,7 @@ export default AnnouncementCreationForm;
 //                       <button
 //                         type="button"
 //                         onClick={handleAddExcitingPrice}
-//                         className="absolute right-2 bottom-2 text-lg bg-blue500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-blue600"
+//                         className="absolute right-2 bottom-2 text-lg bg-blue-500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-blue-600"
 //                         title="Add More"
 //                       >
 //                         <FiPlus size={18} />
@@ -1776,7 +1776,7 @@ export default AnnouncementCreationForm;
 //                           updated.splice(index, 1);
 //                           setExcitingPrices(updated);
 //                         }}
-//                         className="absolute right-10 bottom-2 text-lg bg-red500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600"
+//                         className="absolute right-10 bottom-2 text-lg bg-red-text-red-500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600"
 //                         title="Remove"
 //                       >
 //                         <FiMinus size={18} />
@@ -1793,14 +1793,14 @@ export default AnnouncementCreationForm;
 //               className="text-sm font-medium text-gray700 mb-1 block"
 //             >
 //               Terms & Condition
-//               <span className="text-sm text-red500 ml-1">*</span>
+//               <span className="text-sm text-red-500 ml-1">*</span>
 //             </label>
 //             <textarea
 //               id="terms_condition"
 //               placeholder="Enter Terms & Condition"
 //               value={formData.terms_condition}
 //               onChange={handleInputChange}
-//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500 h-32"
+//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500 h-32"
 //             ></textarea>
 //           </div>
 //           <div className="input-wrapper">
@@ -1809,20 +1809,20 @@ export default AnnouncementCreationForm;
 //               className="text-sm font-medium text-gray700 mb-1 block"
 //             >
 //               Announcement Details
-//               <span className="text-sm text-red500 ml-1">*</span>
+//               <span className="text-sm text-red-500 ml-1">*</span>
 //             </label>
 //             <textarea
 //               id="announcement_details"
 //               placeholder="Enter Announcement Details"
 //               value={formData.announcement_details}
 //               onChange={handleInputChange}
-//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue500 h-32"
+//               className="w-full border border-gray300 p-2 rounded-md outline-none shadow-none focus:border-blue-500 h-32"
 //             ></textarea>
 //           </div>
 //           <div className="flex items-center justify-center">
 //             <button
 //               type="submit"
-//               className="bg-blue500 rounded-md text-white py-2 px-6 transition hover:bg-blue600 mt-6"
+//               className="bg-blue-500 rounded-md text-white py-2 px-6 transition hover:bg-blue-600 mt-6"
 //             >
 //               {id ? "Update" : "Save"}
 //             </button>

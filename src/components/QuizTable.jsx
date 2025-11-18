@@ -17,6 +17,7 @@ const QuizTable = () => {
   const limit = 10;
   const totalPages = Math.ceil(count / limit);
 
+  // fetch quiz list
   useEffect(() => {
     const fetchQuizList = async () => {
       setLoading(true);
@@ -39,12 +40,14 @@ const QuizTable = () => {
     fetchQuizList();
   }, [currentPage]);
 
+  // handle page change
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
     }
   };
 
+  // handle click view
   const handleViewClick = async (id) => {
     setLoading(true);
     setError(null);
@@ -60,6 +63,7 @@ const QuizTable = () => {
     }
   };
 
+  // closed modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedQuiz(null);
@@ -275,7 +279,7 @@ const QuizTable = () => {
 
       {/* Modal */}
       {isModalOpen && selectedQuiz && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 max-h-[80vh] overflow-y-auto rounded-lg shadow-lg p-6 relative">
             <button
               onClick={closeModal}
@@ -520,7 +524,7 @@ export default QuizTable;
 
 //       {/* Modal */}
 //       {isModalOpen && selectedQuiz && (
-//         <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+//         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 //           <div className="bg-white w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 max-h-[80vh] overflow-y-auto rounded-lg shadow-lg p-6 relative">
 //             <button
 //               onClick={closeModal}

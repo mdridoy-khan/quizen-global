@@ -16,6 +16,7 @@ const TutorListTable = ({ roundId, annId }) => {
     perPage: 10,
   });
 
+  // fetch tutor questons
   const fetchTutorQuestions = useCallback(
     async (page = 1) => {
       setLoading(true);
@@ -48,6 +49,7 @@ const TutorListTable = ({ roundId, annId }) => {
     fetchTutorQuestions();
   }, [fetchTutorQuestions]);
 
+  // view question
   const handleQuestionView = async (tutorId) => {
     setLoading(true);
     setError(null);
@@ -65,12 +67,14 @@ const TutorListTable = ({ roundId, annId }) => {
     }
   };
 
+  // handle close modal
   const closeModal = () => {
     setQuestionView(false);
     setSelectedTutorData(null);
     fetchTutorQuestions(pagination.current);
   };
 
+  // handle question select
   const handleQuestionSelectChange = (tutorId, selectedQuestions) => {
     setTutorSelections((prev) => ({
       ...prev,
@@ -118,7 +122,7 @@ const TutorListTable = ({ roundId, annId }) => {
           {loading ? (
             <tr>
               <td colSpan={6} className="px-4 py-6 text-center">
-                <div className="inline-block w-6 h-6 border-2 border-blue500 border-t-transparent rounded-full animate-spin"></div>
+                <div className="inline-block w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
               </td>
             </tr>
           ) : tutorQuestions.length === 0 ? (
@@ -137,7 +141,7 @@ const TutorListTable = ({ roundId, annId }) => {
                 <td className="px-4 py-2 border">{tutor.tutor_institution}</td>
                 <td className="px-4 py-2 border">{tutor.tutor_department}</td>
                 <td className="px-4 py-2 border">
-                  <span className="text-blue500 text-lg">
+                  <span className="text-blue-500 text-lg">
                     {tutor.selected_qs_number}
                   </span>
                 </td>
@@ -160,7 +164,7 @@ const TutorListTable = ({ roundId, annId }) => {
               Total
             </td>
             <td className="px-4 py-2 border">
-              <span className="text-blue500 text-lg">{totalSelected}</span>
+              <span className="text-blue-500 text-lg">{totalSelected}</span>
             </td>
             <td className="px-4 py-2 border"></td>
           </tr>
@@ -184,7 +188,7 @@ const TutorListTable = ({ roundId, annId }) => {
               onClick={() => fetchTutorQuestions(page)}
               className={`px-4 py-1 rounded ${
                 pagination.current === page
-                  ? "bg-blue500 text-white"
+                  ? "bg-blue-500 text-white"
                   : "bg-gray200"
               }`}
             >
@@ -333,7 +337,7 @@ export default TutorListTable;
 //           {loading ? (
 //             <tr>
 //               <td colSpan={6} className="px-4 py-6 text-center">
-//                 <div className="inline-block w-6 h-6 border-2 border-blue500 border-t-transparent rounded-full animate-spin"></div>
+//                 <div className="inline-block w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
 //               </td>
 //             </tr>
 //           ) : (
@@ -346,7 +350,7 @@ export default TutorListTable;
 //                 <td className="px-4 py-2 border">{tutor.tutor_institution}</td>
 //                 <td className="px-4 py-2 border">{tutor.tutor_department}</td>
 //                 <td className="px-4 py-2 border">
-//                   <span className="text-blue500 text-lg">
+//                   <span className="text-blue-500 text-lg">
 //                     {tutor.selected_qs_number}
 //                   </span>
 //                 </td>
@@ -371,7 +375,7 @@ export default TutorListTable;
 //             </td>
 //             <td className="px-4 py-2 border">
 //               {" "}
-//               <span className="text-blue500 text-lg">{totalSelected}</span>
+//               <span className="text-blue-500 text-lg">{totalSelected}</span>
 //             </td>
 //             <td className="px-4 py-2 border"></td>
 //           </tr>
@@ -396,7 +400,7 @@ export default TutorListTable;
 //               onClick={() => fetchTutorQuestions(page)}
 //               className={`px-4 py-1 rounded ${
 //                 pagination.current === page
-//                   ? "bg-blue500 text-white"
+//                   ? "bg-blue-500 text-white"
 //                   : "bg-gray200"
 //               }`}
 //             >

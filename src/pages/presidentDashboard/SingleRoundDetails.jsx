@@ -39,7 +39,6 @@ const SingleRoundDetails = ({ onClose, roundID, isCreatedQuiz }) => {
   }, [roundID]);
 
   // File download handler
-
   const handleDownload = (fileUrl) => {
     const link = document.createElement("a");
     link.href = fileUrl;

@@ -37,10 +37,12 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const { announcementId } = useParams();
   const navigate = useNavigate();
   //   const [notice, setNotice] = useState(true);
-  console.log("Received roundId:", roundId, "announcementId:", annId);
+  // console.log("Received roundId:", roundId, "announcementId:", annId);
   // Fetch announcement or round details
 
-  console.log("questions", questions);
+  // console.log("questions", questions);
+
+  // fetch details
   useEffect(() => {
     const fetchDetails = async () => {
       if (!roundId && !announcementId) return;
@@ -57,7 +59,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
             `/anc/single-announcement-details/${announcementId}/`
           );
         }
-        console.log("Details:", response.data.data);
+        // console.log("Details:", response.data.data);
         setRounds(response.data.data);
         setAnnouncement(response.data.data);
       } catch (err) {
@@ -94,7 +96,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
         `/qzz/pre/anc/${annId}/round/${roundId}/save-quiz/`,
         payload
       );
-      console.log("Quiz saved successfully:", response.data);
+      // console.log("Quiz saved successfully:", response.data);
       setSuccessMessage("Quiz saved successfully!");
       setShowModal(false);
       setSaveError("");
@@ -151,6 +153,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
     }
   };
 
+  // valid link check
   const validateLink = (value) => {
     setLink(value);
     const urlPattern = new RegExp(
@@ -164,6 +167,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
     );
   };
 
+  // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -190,7 +194,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      console.log("Quiz Response:", response.data);
+      // console.log("Quiz Response:", response.data);
       setQuizResponse(response.data);
       setShowModal(true);
       if (response.data?.quiz) {
@@ -212,7 +216,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
         const response = await API.get(
           `/anc/view-announcement-notice-anc/${annId}/`
         );
-        console.log("get notice response:", response.data);
+        // console.log("get notice response:", response.data);
 
         if (response.data.status) {
           setNoticeData(response.data.data);
@@ -305,7 +309,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
           {/* Notice message */}
           {/* Notice message */}
           {showNotice && (
-            <div className="bg-orange200 p-4 rounded-xl mb-4">
+            <div className="bg-orange-50 p-4 rounded-xl mb-4">
               <div className="text-sm font-medium">
                 <div className="space-y-3">
                   {loadingNoticeMessage ? (
@@ -723,7 +727,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
 
       {/* Quiz Question save modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
             {/* Modal Header */}
             <div className="bg-gradient-to-r from-primary to-secondary p-6 text-white">

@@ -17,16 +17,17 @@ const TutorProfile = () => {
     welcomeMessage: true,
     noticeMessage: true,
   });
+
   // hero slider images fetch
   useEffect(() => {
     const getSlider = async () => {
       try {
         setLoading(true);
         const response = await API.get("/setting/slider-image/");
-        console.log("Fetch slider:", response.data);
+        // console.log("Fetch slider:", response.data);
         setSliderImages(response.data);
       } catch (err) {
-        console.error("API fetch error:", err);
+        // console.error("API fetch error:", err);
       } finally {
         setLoading(false);
       }
@@ -34,6 +35,7 @@ const TutorProfile = () => {
     getSlider();
   }, []);
 
+  // fetch tutor dashboard info
   useEffect(() => {
     const fetchTutorData = async () => {
       setLoading(true);
@@ -288,7 +290,7 @@ export default TutorProfile;
 //           </div>
 
 //           {/* notice message */}
-//           <div className="bg-orange-200 p-4 rounded-xl">
+//           <div className="bg-orange-50 p-4 rounded-xl">
 //             <div className="flex items-center justify-between mb-2">
 //               <span className="text-base font-medium mb-1 flex items-center gap-2">
 //                 <TbExclamationCircle

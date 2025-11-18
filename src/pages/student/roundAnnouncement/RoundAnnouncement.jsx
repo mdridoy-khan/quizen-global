@@ -150,14 +150,14 @@ const RoundAnnouncement = () => {
     <div className="relative px-2">
       {/* Modal Overlay for ParticipateModal */}
       {isParticipateModalOpen && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 z-40 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-center justify-center">
           <ParticipateModal onConfirm={handleConfirm} onCancel={handleCancel} />
         </div>
       )}
 
       {/* Modal Overlay for QuizParticipateAlert */}
       {isQuizAlertOpen && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 z-40 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-center justify-center">
           <QuizParticipateAlert
             onClose={handleAlertClose}
             onContinue={handleAlertContinue}
@@ -167,7 +167,7 @@ const RoundAnnouncement = () => {
 
       {/* Notice message */}
       {notice && (
-        <div className="bg-orange200 p-4 rounded-xl">
+        <div className="bg-orange-50 p-4 rounded-xl">
           <div className="text-sm font-medium">
             <div className="space-y-3">
               {loading ? (
@@ -239,7 +239,7 @@ const RoundAnnouncement = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-black600 bg-opacity-50"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-4xl font-bold text-center">
               {annRound?.announcement_info?.announcement_name}
@@ -255,7 +255,7 @@ const RoundAnnouncement = () => {
             annRound.data.map((round) => (
               <div key={round.id}>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-xl font-semibold text-black600">
+                  <h3 className="text-xl font-semibold text-black">
                     {round.round_name}
                   </h3>
                   <div className="flex items-center justify-center">

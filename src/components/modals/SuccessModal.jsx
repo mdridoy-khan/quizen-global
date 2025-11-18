@@ -14,11 +14,11 @@ const SuccessModal = () => {
             <img src={Congrass} alt="congratulation icon0" width={50} />
           </div>
         </div>
-        <h3 className="text-[var(--black600)] text-2xl font-semibold">
+        <h3 className="text-[var(--black)] text-2xl font-semibold">
           Your Registration Successful!
         </h3>
         <div>
-          <button className="text-white bg-[var(--black600)] py-2 px-6 text-base font-semibold rounded-lg">
+          <button className="text-white bg-[var(--black)] py-2 px-6 text-base font-semibold rounded-lg">
             Thanks!
           </button>
         </div>

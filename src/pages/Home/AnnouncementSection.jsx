@@ -114,7 +114,7 @@ const AnnouncementSection = forwardRef((props, ref) => {
       try {
         setLoading(true);
         const response = await API.get("/qzz/hero-section");
-        console.log("Fetch data:", response.data);
+        // console.log("Fetch data:", response.data);
         setTotalA(response.data);
       } catch (err) {
         console.error("API fetch error:", err);

@@ -33,7 +33,7 @@ const RoundList = () => {
   const [selectedNextRound, setSelectedNextRound] = useState(null);
   const [roundName, setRoundName] = useState(null);
 
-  // 🔹 All round card refs stored here
+  // All round card refs stored here
   const roundRefs = useRef({});
 
   // Fetch announcement
@@ -72,11 +72,13 @@ const RoundList = () => {
     fetchRounds();
   }, [id]);
 
+  // handle open modal
   const handleOpenModal = (roundID) => {
     setModalRoundId(roundID);
     setIsModalOpen(true);
   };
 
+  // handle close modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalRoundId(null);
@@ -392,7 +394,7 @@ const RoundList = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-scrollbar]:hidden">
             <SingleRoundDetails
               onClose={handleCloseModal}
@@ -408,7 +410,7 @@ const RoundList = () => {
 
       {/* Question making alert modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 p-6 relative">
             <div className="flex items-center justify-end">
               <button
@@ -723,7 +725,7 @@ export default RoundList;
 //       </div>
 
 //       {isModalOpen && (
-//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50">
+//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
 //           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-scrollbar]:hidden">
 //             <SingleRoundDetails
 //               onClose={handleCloseModal}
@@ -739,7 +741,7 @@ export default RoundList;
 
 //       {/* Question making alert modal */}
 //       {isOpen && (
-//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black600 bg-opacity-50">
+//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
 //           <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 p-6 relative">
 //             <div className="flex items-center justify-end">
 //               <button

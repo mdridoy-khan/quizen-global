@@ -23,8 +23,8 @@ const QuizOpenCloseModal = ({
           ? "Announcement opened successfully"
           : "Announcement closed successfully"
       );
-      onConfirm(); // Proceed with state update in parent
-      onClose(); // Close the modal
+      onConfirm();
+      onClose();
     } catch (err) {
       console.error(`Error calling ${endpoint}:`, err);
       toast.error("Something went wrong while updating status!");

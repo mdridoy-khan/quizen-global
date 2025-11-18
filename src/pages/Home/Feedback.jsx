@@ -254,7 +254,7 @@ export default Feedback;
 
 //   return (
 //     <section className="w-full mx-auto py-6 md:py-10 lg:py-12 2xl:py-20 bg-gray100">
-//       <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-black600 mb-6 xl:mb-8 text-center">
+//       <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-black mb-6 xl:mb-8 text-center">
 //         Testimonials
 //       </h2>
 

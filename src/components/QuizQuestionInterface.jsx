@@ -73,11 +73,12 @@ const QuizQuestionInterface = ({
         payload
       );
 
-      console.log("Submit response:", response.data);
+      // console.log("Submit response:", response.data);
       setLoading(false);
       return true;
     } catch (err) {
-      console.error("Failed to submit questions", err);
+      // console.error("Failed to submit questions", err);
+
       setError("Failed to submit questions. Please try again.");
       setLoading(false);
       return false;
@@ -87,7 +88,7 @@ const QuizQuestionInterface = ({
   // Loading Spinner
   if (loading) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center gap-4">
           <FaSpinner className="animate-spin text-3xl text-primary" />
           <span>Loading...</span>
@@ -317,7 +318,7 @@ export default QuizQuestionInterface;
 
 //   if (loading) {
 //     return (
-//       <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+//       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 //         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center gap-4">
 //           <FaSpinner className="animate-spin text-3xl text-primary" />
 //           <span>Loading...</span>
@@ -327,7 +328,7 @@ export default QuizQuestionInterface;
 //   }
 
 //   return (
-//     <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+//     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
 //       <div className="w-full max-w-2xl h-[550px] 2xl:h-[800px] bg-white rounded-lg shadow-2xl flex flex-col">
 //         <div className="bg-primary p-6 rounded-t-lg text-white">
 //           <div className="flex justify-between items-start">
@@ -537,14 +538,14 @@ export default QuizQuestionInterface;
 
 //   if (loading) {
 //     return (
-//       <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+//       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 //         <div className="bg-white p-6 rounded-lg shadow-lg">Loading...</div>
 //       </div>
 //     );
 //   }
 
 //   return (
-//     <div className="fixed inset-0 bg-black600 bg-opacity-50 z-50 flex items-center justify-center">
+//     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
 //       <div className="w-full max-w-2xl h-[800px] bg-white rounded-lg shadow-2xl flex flex-col">
 //         <div className="bg-primary p-6 rounded-t-lg text-white">
 //           <div className="flex justify-between items-start">
@@ -646,7 +647,7 @@ export default QuizQuestionInterface;
 //                 onClose();
 //               }
 //             }}
-//             className="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue600 transition-colors"
+//             className="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-600 transition-colors"
 //           >
 //             Select
 //           </button>

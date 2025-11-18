@@ -25,10 +25,10 @@ const BannerSlider = ({ onScroll }) => {
       try {
         setLoading(true);
         const response = await API.get("/qzz/hero-section");
-        console.log("Fetch data:", response.data);
+        // console.log("Fetch data:", response.data);
         setTotalA(response.data);
       } catch (err) {
-        console.error("API fetch error:", err);
+        // console.error("API fetch error:", err);
         setError("Data Not Found");
       } finally {
         setLoading(false);
@@ -43,10 +43,10 @@ const BannerSlider = ({ onScroll }) => {
       try {
         setLoading(true);
         const response = await API.get("/setting/slider-image/");
-        console.log("Fetch slider:", response.data);
+        // console.log("Fetch slider:", response.data);
         setSliderImages(response.data);
       } catch (err) {
-        console.error("API fetch error:", err);
+        // console.error("API fetch error:", err);
       } finally {
         setLoading(false);
       }

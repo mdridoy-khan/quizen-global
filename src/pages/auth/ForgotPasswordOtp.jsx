@@ -241,7 +241,7 @@ export default ForgotPasswordOtp;
 
 //       <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
 //         <div className="space-y-4 mb-6 lg:mb-0">
-//           <h3 className="text-base lg:text-lg text-black600 font-medium relative">
+//           <h3 className="text-base lg:text-lg text-black font-medium relative">
 //             Login with TutorWise / EduWise / Social Profile
 //           </h3>
 //           <div className="flex items-center gap-1">
@@ -249,14 +249,14 @@ export default ForgotPasswordOtp;
 //               <img
 //                 src={Eduwise}
 //                 alt="eduwise logo"
-//                 className="h-20 border border-black600"
+//                 className="h-20 border border-black"
 //               />
 //             </a>
 //             <a href="#" className="flex">
 //               <img
 //                 src={TutorWise}
 //                 alt="tutorwise logo"
-//                 className="h-20 border border-black600"
+//                 className="h-20 border border-black"
 //               />
 //             </a>
 //           </div>

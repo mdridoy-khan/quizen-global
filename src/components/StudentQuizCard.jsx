@@ -373,7 +373,7 @@ export default StudentQuizCard;
 //             <SwitcherToggleButton id={id} isActive={isActive} />
 //           </div>
 //         )}
-//         <div className="absolute bottom-0 w-full bg-gradient-to-t from-black600/60 to-transparent text-white px-4 py-2">
+//         <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white px-4 py-2">
 //           <h4 className="text-lg font-semibold truncate">{title}</h4>
 //         </div>
 //       </div>
@@ -455,7 +455,7 @@ export default StudentQuizCard;
 //           {cardButtonText && (
 //             <Link
 //               to={`/student/announcement-round/${quizId}`}
-//               className="text-sm font-semibold border border-blue400 text-blue600 py-1.5 px-4 rounded-lg transition-all duration-300 hover:bg-blue600 hover:text-white hover:shadow-md"
+//               className="text-sm font-semibold border border-blue-400 text-blue-600 py-1.5 px-4 rounded-lg transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-md"
 //             >
 //               {cardButtonText}
 //             </Link>

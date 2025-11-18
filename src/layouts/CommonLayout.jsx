@@ -13,7 +13,7 @@ import {
 function CommonLayout() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Dashboard");
-  const [recentOpen, setRecentOpen] = useState({}); // track open/close state per recent section
+  const [recentOpen, setRecentOpen] = useState({});
 
   useEffect(() => {
     const handleResize = () => {

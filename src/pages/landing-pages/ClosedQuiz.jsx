@@ -36,12 +36,12 @@ const ClosedQuiz = () => {
         return;
       }
 
-      console.log("Closed quiz", response.data.id);
+      // console.log("Closed quiz", response.data.id);
 
       setClosedQuiz(response?.data || []);
       setCount(response?.data?.count || 0);
     } catch (err) {
-      console.log("Error fetching closed quizzes:", err);
+      // console.log("Error fetching closed quizzes:", err);
       setClosedQuiz([]);
       setCount(0);
       setErrorMessage("No results found");
@@ -68,7 +68,7 @@ const ClosedQuiz = () => {
 
       <div className="container mx-auto px-4 my-10 lg:my-16 xl:my-20">
         <div className="flex items-center justify-between flex-col md:flex-row mb-4 xl:mb-8 gap-2">
-          <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black600">
+          <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black">
             Closed Quizzes
           </h2>
 
@@ -145,7 +145,7 @@ const ClosedQuiz = () => {
                         className={`px-3 py-1 rounded ${
                           currentPage === i
                             ? "bg-primary text-white"
-                            : "bg-gray100 text-black600"
+                            : "bg-gray100 text-black"
                         }`}
                       >
                         {i}
@@ -259,7 +259,7 @@ export default ClosedQuiz;
 
 //       <div className="container mx-auto px-4 my-10 lg:my-16 xl:my-20">
 //         <div className="flex items-center justify-between flex-col md:flex-row mb-4 xl:mb-8 gap-2">
-//           <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black600">
+//           <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black">
 //             Closed Quizzes
 //           </h2>
 
@@ -339,7 +339,7 @@ export default ClosedQuiz;
 //                         className={`px-3 py-1 rounded ${
 //                           currentPage === i
 //                             ? "bg-primary text-white"
-//                             : "bg-gray100 text-black600"
+//                             : "bg-gray100 text-black"
 //                         }`}
 //                       >
 //                         {i}
@@ -443,7 +443,7 @@ export default ClosedQuiz;
 
 //       <div className="container mx-auto px-4 my-10 lg:my-16 xl:my-20">
 //         <div className="flex items-center justify-center flex-col md:flex-row md:justify-between mb-4 xl:mb-8 gap-2">
-//           <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black600">
+//           <h2 className="text-xl sm:text-2xl xl:text-4xl font-semibold text-black">
 //             Closed Quizzes
 //           </h2>
 
@@ -519,7 +519,7 @@ export default ClosedQuiz;
 //                         className={`px-3 py-1 rounded ${
 //                           currentPage === i
 //                             ? "bg-primary text-white"
-//                             : "bg-gray100 text-black600-400"
+//                             : "bg-gray100 text-black-400"
 //                         }`}
 //                       >
 //                         {i}

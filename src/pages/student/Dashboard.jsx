@@ -16,13 +16,14 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedQuizId, setSelectedQuizId] = useState(null);
 
+  // fetch quiz data
   const fetchQuizData = async () => {
     try {
       setLoading(true);
       setErrorMessage("");
 
       const response = await API.get("/anc/student-dashboard-reg-open-anc/");
-      console.log("fetchQuizData", response.data.data);
+      // console.log("fetchQuizData", response.data.data);
 
       if (!response?.data?.data) {
         setQuizData([]);
@@ -54,6 +55,7 @@ const Dashboard = () => {
     setShowModal(true);
   };
 
+  // handle register
   const handleRegister = async () => {
     try {
       setLoading(true);
@@ -82,6 +84,7 @@ const Dashboard = () => {
     }
   };
 
+  // fetch slider images
   useEffect(() => {
     const getSlider = async () => {
       try {
@@ -333,7 +336,7 @@ export default Dashboard;
 //                         className={`px-3 py-1 rounded ${
 //                           currentPage === i
 //                             ? "bg-primary text-white"
-//                             : "bg-gray-100 text-black600-400"
+//                             : "bg-gray-100 text-black-400"
 //                         }`}
 //                       >
 //                         {i}
@@ -363,7 +366,7 @@ export default Dashboard;
 
 //         {/* Modal */}
 //         {showModal && (
-//           <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+//           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 //             <div className="bg-white rounded-lg shadow-lg p-6 w-[400px]">
 //               <h3 className="text-lg font-bold mb-4 text-center">
 //                 Are you sure to participate this quiz?

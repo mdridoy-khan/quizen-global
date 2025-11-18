@@ -71,7 +71,7 @@ const PresidentLayout = () => {
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col overflow-hidden">
-          {/* Header (Same as CommonLayout) */}
+          {/* Header */}
           <HeaderDashboard userRole="president" />
 
           {/* Page Content */}

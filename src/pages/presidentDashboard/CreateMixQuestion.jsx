@@ -10,7 +10,7 @@ const CreateMixQuestion = () => {
   const { roundId, annId } = useParams();
   const [questionsIds, setQuestionsIds] = useState([]);
 
-  console.log("questionIds", questionsIds);
+  // console.log("questionIds", questionsIds);
 
   return (
     <>

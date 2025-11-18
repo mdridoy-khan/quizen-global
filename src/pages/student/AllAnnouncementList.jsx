@@ -36,6 +36,7 @@ const AllAnnouncementList = () => {
     { value: "next_7", label: "Registration Will Close Next 7 Days" },
   ];
 
+  // fetch announcement list
   const fetchQuizData = async (page = 1, query = "", sort = "") => {
     try {
       setLoading(true);
@@ -57,7 +58,7 @@ const AllAnnouncementList = () => {
       setQuizData(response?.data?.results?.data || []);
       setCount(response?.data?.count || 0);
     } catch (err) {
-      console.log("Error fetching announcements:", err);
+      // console.log("Error fetching announcements:", err);
       setQuizData([]);
       setCount(0);
       setErrorMessage("No active announcements found");
@@ -105,6 +106,7 @@ const AllAnnouncementList = () => {
   //   }
   // };
 
+  // handle registration
   const handleRegister = async () => {
     try {
       setLoading(true);
@@ -273,7 +275,7 @@ const AllAnnouncementList = () => {
 
         {/* Registration Modal */}
         {showModal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black600 bg-opacity-50 z-50">
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-[#FFFDF4] rounded-lg shadow-lg p-6 w-[600px]">
               <div className="flex gap-4 mb-4">
                 <div>

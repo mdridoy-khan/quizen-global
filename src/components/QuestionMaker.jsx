@@ -38,7 +38,7 @@ const QuestionMaker = () => {
   const { roundId } = location.state || {};
   const { announcementId } = useParams();
   const [isSaving, setIsSaving] = useState(false);
-  console.log("tutor announcementId:", announcementId);
+  // console.log("tutor announcementId:", announcementId);
 
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ const QuestionMaker = () => {
           );
         }
 
-        console.log("Details:", response.data.data);
+        // console.log("Details:", response.data.data);
         setRounds(response.data.data);
         setAnnouncement(response.data.data);
       } catch (err) {
@@ -104,13 +104,13 @@ const QuestionMaker = () => {
         payload
       );
 
-      console.log("Quiz saved successfully:", response.data);
+      // console.log("Quiz saved successfully:", response.data);
       setSuccessMessage("Quiz saved successfully!");
       setShowModal(false);
       setSaveError("");
       toast.success("Quiz created and saved successfully!");
     } catch (err) {
-      console.error("Error saving quiz:", err);
+      // console.error("Error saving quiz:", err);
       setSaveError("Failed to save quiz. Please try again.");
       const errorMessage = err?.response?.data?.error;
       toast.error(errorMessage || "Failed to save quiz. Please try again.");
@@ -203,7 +203,7 @@ const QuestionMaker = () => {
         }
       );
 
-      console.log("Quiz Response:", response.data);
+      // console.log("Quiz Response:", response.data);
       setQuizResponse(response.data);
       setShowModal(true);
 
@@ -234,7 +234,7 @@ const QuestionMaker = () => {
         const response = await API.get(
           `/anc/view-announcement-notice-anc/${announcementId}/`
         );
-        console.log("get notice response:", response.data);
+        // console.log("get notice response:", response.data);
 
         if (response.data.status) {
           setNoticeData(response.data.data);
@@ -326,7 +326,7 @@ const QuestionMaker = () => {
 
           {/* Notice message */}
           {showNotice && (
-            <div className="bg-orange200 p-4 rounded-xl mb-4">
+            <div className="bg-orange-50 p-4 rounded-xl mb-4">
               <div className="text-sm font-medium">
                 <div className="space-y-3">
                   {loading ? (

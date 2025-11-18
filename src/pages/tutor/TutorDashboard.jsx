@@ -38,6 +38,7 @@ const TutorDashboard = () => {
     { value: "next_7", label: "Registration Will Close Next 7 Days" },
   ];
 
+  // fetch announcement data
   const fetchAnnouncementData = async (page = 1, query = "", sort = "") => {
     try {
       setLoading(true);
@@ -57,7 +58,7 @@ const TutorDashboard = () => {
       setAnnData(data);
       setCount(response?.data?.count || 0);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setAnnData([]);
       setCount(0);
     } finally {
@@ -71,22 +72,26 @@ const TutorDashboard = () => {
 
   const totalPages = Math.ceil(count / limit);
 
+  // handle alert modal
   const handleAlert = (quizId) => {
     setAnnouncementId(quizId);
     setAlertMessage(true);
   };
 
+  // handle continue modal
   const handleContinueClick = () => {
     setAlertMessage(false);
     setShowQuizTypeModal(true);
   };
 
+  // handle close modal
   const handleCloseModal = () => {
     setAlertMessage(false);
     setShowQuizTypeModal(false);
     setAnnouncementId(null);
   };
 
+  // handle page change
   const handlePageChange = (pageNum) => {
     if (pageNum >= 1 && pageNum <= totalPages) {
       setCurrentPage(pageNum);
@@ -270,7 +275,7 @@ const TutorDashboard = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-black600 text-xl xl:text-2xl font-semibold text-center">
+              <h3 className="text-black text-xl xl:text-2xl font-semibold text-center">
                 Notice for Quiz ID: {announcementId}
               </h3>
 
@@ -303,7 +308,7 @@ const TutorDashboard = () => {
 
       {/* AI / Manual Modal */}
       {showQuizTypeModal && announcementId && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="max-w-2xl mx-4">
             <div className="bg-white shadow-lg rounded-lg max-w-xl p-6">
               <div className="flex items-center justify-end mb-4">
@@ -563,9 +568,9 @@ export default TutorDashboard;
 
 //       {/* Notice Modal */}
 //       {alertMessage && announcementId && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 //           <div className="max-w-2xl mx-4">
-//             <div className="bg-orange200)] p-4 rounded-xl flex">
+//             <div className="bg-orange-50)] p-4 rounded-xl flex">
 //               <span className="w-10">
 //                 <TbExclamationCircle
 //                   size={24}
@@ -603,7 +608,7 @@ export default TutorDashboard;
 
 //       {/* AI / Manual Modal */}
 //       {showQuizTypeModal && announcementId && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 //           <div className="max-w-2xl mx-4">
 //             <div className="bg-white shadow-lg rounded-lg max-w-xl p-6">
 //               <div className="flex items-center justify-end mb-4">
@@ -621,13 +626,13 @@ export default TutorDashboard;
 //               <div className="flex items-center justify-center gap-2 pb-4">
 //                 <Link
 //                   to={`/tutor/question-maker/${announcementId}`}
-//                   className="text-black600)] border border-black600)] bg-transparent py-2 px-6 text-base font-semibold rounded-lg transition hover:bg-black600)] hover:text-white)]"
+//                   className="text-black)] border border-black)] bg-transparent py-2 px-6 text-base font-semibold rounded-lg transition hover:bg-black)] hover:text-white)]"
 //                 >
 //                   AI
 //                 </Link>
 //                 <Link
 //                   to={`/tutor/manual-question-maker/${announcementId}`}
-//                   className="text-black600)] border border-black600)] bg-transparent py-2 px-6 text-base font-semibold rounded-lg transition hover:bg-black600)] hover:text-white)]"
+//                   className="text-black)] border border-black)] bg-transparent py-2 px-6 text-base font-semibold rounded-lg transition hover:bg-black)] hover:text-white)]"
 //                 >
 //                   Manual
 //                 </Link>

@@ -17,7 +17,7 @@ const ParticipateModal = ({ onConfirm, onCancel }) => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-xl xl:text-2xl font-semibold text-black600 mb-1">
+            <h3 className="text-xl xl:text-2xl font-semibold text-black mb-1">
               Are you sure you want to participate in this quiz?
             </h3>
             <p className="text-gray500 text-base">
@@ -26,7 +26,7 @@ const ParticipateModal = ({ onConfirm, onCancel }) => {
             </p>
             {/* <p className="text-gray500 text-base mt-3 flex items-center gap-1">
               More{" "}
-              <Link className="text-black600 font-medium transition hover:text-primary">
+              <Link className="text-black font-medium transition hover:text-primary">
                 T&C
               </Link>
             </p> */}

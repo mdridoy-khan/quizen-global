@@ -30,6 +30,7 @@ const QuizDetails = () => {
   const gratificationsRef = useRef(null);
   const termsRef = useRef(null);
 
+  // fetch announcement details
   useEffect(() => {
     const getAnnouncement = async () => {
       try {
@@ -50,8 +51,9 @@ const QuizDetails = () => {
   // get user type
   const userDataInfo = JSON.parse(localStorage.getItem("UserData"));
   const userType = userDataInfo?.user_type;
-  console.log("userType:", userType);
+  // console.log("userType:", userType);
 
+  // handle reference
   useEffect(() => {
     if (!announcement) return;
     if (
@@ -243,7 +245,7 @@ const QuizDetails = () => {
 
       {/* quick registration modal */}
       {quickRegistration && (
-        <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           {/* Modal Container */}
           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
             {/* Close Button */}
@@ -589,7 +591,7 @@ export default QuizDetails;
 
 //       {/* quick registration modal */}
 //       {quickRegistration && (
-//         <div className="fixed inset-0 bg-black600 bg-opacity-50 flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 //           {/* Modal Container */}
 //           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
 //             {/* Close Button */}

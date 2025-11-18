@@ -7,7 +7,7 @@ const FeedbackCard = ({ title, designation, review, description }) => {
           <img src={FeedbackImage} alt="feedback image" className="w-full" />
         </div>
         <div className="flex-1">
-          <h3 className="text-base xl:text-lg 2xl:text-xl font-semibold text-black600">
+          <h3 className="text-base xl:text-lg 2xl:text-xl font-semibold text-black">
             {title}
           </h3>
           <span className="text-sm lg:text-base font-medium text-gray500 block">

@@ -20,7 +20,7 @@ const QuizParticipateAlert = ({ onClose, onContinue }) => {
             </div>
           </div>
 
-          <h3 className="text-black600 text-xl xl:text-2xl font-semibold text-center">
+          <h3 className="text-black text-xl xl:text-2xl font-semibold text-center">
             Please read the instructions before starting the quiz
           </h3>
 

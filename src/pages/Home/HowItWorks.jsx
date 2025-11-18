@@ -10,10 +10,10 @@ const HowItWorks = () => {
   return (
     <section className="max-w-md mx-auto px-4 py-8 lg:py-20">
       <div className="text-center xl:mb-12 relative">
-        <h2 className="text-xl md:text-2xl xl:text-4xl font-semibold text-black600 mb-1">
+        <h2 className="text-xl md:text-2xl xl:text-4xl font-semibold text-black mb-1">
           How it Works
         </h2>
-        <p className="text-base font-semibold text-black600">
+        <p className="text-base font-semibold text-black">
           lorem ipsume this is main sub heading
         </p>
         <img

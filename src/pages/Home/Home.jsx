@@ -220,7 +220,7 @@ export default Home;
 //                             className={`px-3 py-1 rounded ${
 //                               currentPage === i
 //                                 ? "bg-primary text-white"
-//                                 : "bg-gray100 text-black600"
+//                                 : "bg-gray100 text-black"
 //                             }`}
 //                           >
 //                             {i}

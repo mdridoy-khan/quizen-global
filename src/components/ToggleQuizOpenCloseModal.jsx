@@ -7,8 +7,8 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalConfig, setModalConfig] = useState({ message: "", endpoint: "" });
 
+  // handle toggle
   const handleToggle = () => {
-    // Determine the action (open or close) and set modal config
     const willBeActive = !isActive;
     const message = willBeActive
       ? "Are you sure you want to open this announcement?"
@@ -21,6 +21,7 @@ const ToggleQuizOpenCloseModal = ({ id, isActive: initialIsActive }) => {
     setIsModalOpen(true);
   };
 
+  // handle confirm function
   const handleConfirm = () => {
     setIsActive((prev) => !prev);
   };

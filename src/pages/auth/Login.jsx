@@ -309,7 +309,7 @@ const Login = () => {
                   ? "Logging In..."
                   : "Log In With Password"}
               </button>
-              {/* <h3 className="text-center text-sm text-black600 font-medium relative login-text">
+              {/* <h3 className="text-center text-sm text-black font-medium relative login-text">
                 Login with TutorWise / EduWise / Social Profile
               </h3>
               <div className="flex items-center justify-center gap-4">
@@ -318,14 +318,14 @@ const Login = () => {
                     <img
                       src={Eduwise}
                       alt="eduwise logo"
-                      className="h-10 border border-black600"
+                      className="h-10 border border-black"
                     />
                   </a>
                   <a href="#" className="flex">
                     <img
                       src={TutorWise}
                       alt="tutorwise logo"
-                      className="h-10 border border-black600"
+                      className="h-10 border border-black"
                     />
                   </a>
                 </div>
@@ -345,7 +345,7 @@ const Login = () => {
                   </a>
                 </div>
               </div> */}
-              <p className="text-sm text-black600 font-medium text-center flex flex-col sm:flex-row items-center gap-1 justify-center">
+              <p className="text-sm text-black font-medium text-center flex flex-col sm:flex-row items-center gap-1 justify-center">
                 Not registered with Quiz account?
                 <Link to="/register" className="text-primary">
                   Register Now

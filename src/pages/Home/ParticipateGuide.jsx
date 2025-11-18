@@ -220,19 +220,19 @@ export default ParticipateGuide;
 //         <div className="fixed inset-0 pointer-events-none z-[-1]">
 //           <div className="absolute w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] bg-yellow400 opacity-10 rounded-full top-[10%] left-[5%] animate-float hidden sm:block"></div>
 //           <div className="absolute w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] lg:w-[200px] lg:h-[200px] bg-pink400 opacity-10 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] bottom-[10%] right-[5%] animate-float-reverse hidden md:block"></div>
-//           <div className="absolute w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[150px] lg:h-[150px] bg-blue400 opacity-10 rounded-full top-1/2 right-[10%] animate-float-slow hidden lg:block"></div>
+//           <div className="absolute w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[150px] lg:h-[150px] bg-blue-400 opacity-10 rounded-full top-1/2 right-[10%] animate-float-slow hidden lg:block"></div>
 //         </div>
 
 //         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-20">
 //           <div className="text-center mb-12 sm:mb-16 lg:mb-20 relative">
 //             <h2
-//               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black600 drop-shadow-2xl relative inline-block pb-2 sm:pb-3
+//               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black drop-shadow-2xl relative inline-block pb-2 sm:pb-3
 //                 after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2
 //                 after:w-24 sm:after:w-32 after:h-[4px] sm:after:h-[6px] after:bg-yellow400 after:rounded"
 //             >
 //               How It Works
 //             </h2>
-//             <p className="text-base lg:text-xl text-black600 max-w-md sm:max-w-lg lg:max-w-xl mx-auto mt-4 sm:mt-5 font-normal">
+//             <p className="text-base lg:text-xl text-black max-w-md sm:max-w-lg lg:max-w-xl mx-auto mt-4 sm:mt-5 font-normal">
 //               Discover the simple steps to start your quiz journey and unlock
 //               endless learning possibilities!
 //             </p>
@@ -306,7 +306,7 @@ export default ParticipateGuide;
 //                         "url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')",
 //                     }}
 //                   >
-//                     <div className="absolute inset-0 bg-black600/30 flex items-center justify-center transition-all duration-300">
+//                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300">
 //                       <div
 //                         className="w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 bg-white/90 rounded-full flex items-center justify-center
 //                           cursor-pointer hover:scale-110 hover:bg-white transition-all duration-300 shadow-2xl"

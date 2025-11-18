@@ -39,8 +39,8 @@ const QuizCard = ({
   const [isShareOpen, setIsShareOpen] = useState(false);
   const isHorizontal = layout === "horizontal";
 
-  console.log("lp_status", lp_status);
-  console.log("endDate", endDate);
+  // console.log("lp_status", lp_status);
+  // console.log("endDate", endDate);
 
   const domain = window.location.origin;
 
@@ -51,7 +51,7 @@ const QuizCard = ({
       const now = new Date();
       return now > quizEnd;
     } catch (err) {
-      console.error("Invalid date:", endDate);
+      // console.error("Invalid date:", endDate);
       return false;
     }
   }, [endDate]);
@@ -528,7 +528,7 @@ export default QuizCard;
 //             <SwitcherToggleButton id={id} isActive={isActive} />
 //           </div>
 //         )}
-//         <div className="absolute bottom-0 w-full bg-gradient-to-t from-black600/60 to-transparent text-white px-4 py-2">
+//         <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent text-white px-4 py-2">
 //           <h4 className="text-lg font-semibold truncate">{title}</h4>
 //         </div>
 //       </div>
