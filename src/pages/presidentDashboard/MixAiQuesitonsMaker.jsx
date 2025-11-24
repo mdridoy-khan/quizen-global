@@ -18,7 +18,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const [announcement, setAnnouncement] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [numberOfQuestions, setNumberOfQuestions] = useState(1);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [language, setLanguage] = useState("english");
   const [difficulty, setDifficulty] = useState("easy");
   const [questionType, setQuestionType] = useState("multiple");
@@ -36,6 +36,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const { roundId, annId } = useParams();
   const { announcementId } = useParams();
   const navigate = useNavigate();
+
   //   const [notice, setNotice] = useState(true);
   // console.log("Received roundId:", roundId, "announcementId:", annId);
   // Fetch announcement or round details
@@ -92,7 +93,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
           type: "mcq",
         })),
       };
-      const response = await API.post(
+      await API.post(
         `/qzz/pre/anc/${annId}/round/${roundId}/save-quiz/`,
         payload
       );
@@ -169,6 +170,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
 
   // handle form submit
   const handleSubmit = async (e) => {
+    console.log("clicked");
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -179,13 +181,16 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
         "type",
         questionType === "multiple" ? "mcq" : questionType
       );
-      formData.append("num_questions", numberOfQuestions);
+      formData.append(
+        "num_questions",
+        rounds?.total_questions - numberOfQuestions
+      );
       formData.append("prompt", prompt);
       if (inputMode === "text") formData.append("text", textInput);
       if (inputMode === "file" && selectedFile)
         formData.append("file", selectedFile);
       if (inputMode === "link" && link) formData.append("link", link);
-      if (questionsIds.length > 0)
+      if (questionsIds?.length > 0)
         formData.append("selected_question_ids", `[${questionsIds}]`);
       const response = await API.post(
         "/anc/president-mix-json-response/",
@@ -499,7 +504,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 </label>
                 <input
                   type="number"
-                  value={numberOfQuestions + questionsIds?.length || 0}
+                  value={rounds?.total_questions - numberOfQuestions}
                   min={1}
                   onChange={handleNumberChange}
                   disabled={!!announcement?.tutor_share_qes_number}
@@ -753,7 +758,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 <div className="flex justify-between items-center py-3 border-b border-gray100">
                   <span className="text-gray600">Number of Questions</span>
                   <span className="font-medium">
-                    {numberOfQuestions + questionsIds.length}
+                    {rounds?.total_questions - numberOfQuestions}
                   </span>
                 </div>
 
