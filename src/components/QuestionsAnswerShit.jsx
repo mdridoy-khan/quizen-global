@@ -77,7 +77,7 @@ const QuestionsAnswerShit = () => {
             <div className="bg-gray-100 p-6 rounded-tl-xl rounded-tr-xl flex-shrink-0 sticky top-0 z-10 shadow-sm">
               <div className="flex justify-start mb-2">
                 <Link
-                  className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
+                  className="py-1.5 px-3 rounded bg-gray-200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
                   to="/student/dashboard"
                 >
                   Back to Quiz Table
@@ -114,8 +114,8 @@ const QuestionsAnswerShit = () => {
                     key={btn}
                     className={`py-1 px-2 rounded text-sm font-semibold transition ${
                       filter === btn
-                        ? "bg-green400 text-white"
-                        : "bg-gray400 hover:bg-green400 hover:text-white"
+                        ? "bg-green-400 text-white"
+                        : "bg-gray-200 hover:bg-green-400 hover:text-white"
                     }`}
                     onClick={() => {
                       setFilter(btn);
@@ -147,9 +147,9 @@ const QuestionsAnswerShit = () => {
                             key={aIndex}
                             className={`flex items-start lg:items-center space-x-2 p-1 rounded cursor-pointer ${
                               isCorrect
-                                ? "bg-green100"
+                                ? "bg-green-100"
                                 : isSelected && !isCorrect
-                                ? "bg-red100"
+                                ? "bg-red-100"
                                 : ""
                             }`}
                           >
@@ -183,10 +183,10 @@ const QuestionsAnswerShit = () => {
             </div>
 
             {/* Pagination */}
-            <div className="px-8 py-4 border-t border-gray50">
+            <div className="px-8 py-4 border-t border-gray-50">
               <div className="flex items-center justify-between">
                 <button
-                  className="py-2 px-3 leading-none rounded bg-gray400 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
+                  className="py-2 px-3 leading-none rounded bg-gray-200 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
                   onClick={() => fetchAnswerPaper(offset - limit, filter)}
                   disabled={currentPage === 1}
                 >
@@ -200,7 +200,7 @@ const QuestionsAnswerShit = () => {
                         className={`py-2 px-3 leading-none rounded inline-block transition ${
                           currentPage === page
                             ? "bg-primary text-white"
-                            : "bg-gray400 hover:bg-primary hover:text-white"
+                            : "bg-gray-200 hover:bg-primary hover:text-white"
                         }`}
                         onClick={() =>
                           fetchAnswerPaper((page - 1) * limit, filter)
@@ -212,7 +212,7 @@ const QuestionsAnswerShit = () => {
                   )}
                 </div>
                 <button
-                  className="py-2 px-3 leading-none rounded bg-gray400 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
+                  className="py-2 px-3 leading-none rounded bg-gray-200 inline-block transition hover:bg-primary hover:text-white disabled:opacity-50"
                   onClick={() => fetchAnswerPaper(offset + limit, filter)}
                   disabled={currentPage === totalPages}
                 >
@@ -325,7 +325,7 @@ export default QuestionsAnswerShit;
 //             {/* Back Button */}
 //             <div className="flex justify-start mb-2">
 //               <Link
-//                 className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
+//                 className="py-1.5 px-3 rounded bg-gray-200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
 //                 to="/student/dashboard"
 //               >
 //                 Back to Quiz Table
@@ -393,9 +393,9 @@ export default QuestionsAnswerShit;
 //                           key={aIndex}
 //                           className={`flex items-center space-x-2 p-1 rounded cursor-pointer ${
 //                             filter !== "skipped" && isCorrect
-//                               ? "bg-green100"
+//                               ? "bg-green-100"
 //                               : isSelected && !isCorrect
-//                               ? "bg-red100"
+//                               ? "bg-red-100"
 //                               : ""
 //                           }`}
 //                         >
@@ -555,7 +555,7 @@ export default QuestionsAnswerShit;
 //             {/* Back Button */}
 //             <div className="flex justify-start mb-2">
 //               <Link
-//                 className="py-1.5 px-3 rounded bg-gray200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
+//                 className="py-1.5 px-3 rounded bg-gray-200 text-black font-semibold text-sm transition hover:bg-primary hover:text-white"
 //                 to="/student/dashboard"
 //               >
 //                 Back to Quiz Table
@@ -623,9 +623,9 @@ export default QuestionsAnswerShit;
 //                           key={aIndex}
 //                           className={`flex items-center space-x-2 p-1 rounded cursor-pointer ${
 //                             filter !== "skipped" && isCorrect
-//                               ? "bg-green100"
+//                               ? "bg-green-100"
 //                               : isSelected && !isCorrect
-//                               ? "bg-red100"
+//                               ? "bg-red-100"
 //                               : ""
 //                           }`}
 //                         >

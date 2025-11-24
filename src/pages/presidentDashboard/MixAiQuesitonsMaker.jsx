@@ -24,7 +24,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
   const [questionType, setQuestionType] = useState("multiple");
   const [textInput, setTextInput] = useState("");
   const [prompt, setPrompt] = useState("");
-  const [quizResponse, setQuizResponse] = useState(null);
+  // const [quizResponse, setQuizResponse] = useState(null);
   const [showNotice, setShowNotice] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -200,7 +200,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
         }
       );
       // console.log("Quiz Response:", response.data);
-      setQuizResponse(response.data);
+      // setQuizResponse(response.data);
       setShowModal(true);
       if (response.data?.quiz) {
         setQuestions([...questions, ...response.data.quiz]);
