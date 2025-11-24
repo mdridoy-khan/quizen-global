@@ -88,7 +88,7 @@ const QuizQuestionInterface = ({
   // Loading Spinner
   if (loading) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center gap-4">
           <FaSpinner className="animate-spin text-3xl text-primary" />
           <span>Loading...</span>
@@ -98,7 +98,7 @@ const QuizQuestionInterface = ({
   }
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center m-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center m-6">
       <div className="w-full max-w-2xl h-[450px] sm:h-[500] md:h-[550px] lg:h-[600px] xl:h-[600px] 2xl:h-[800px] bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden">
         {/* Header */}
         <div className="bg-primary p-5 sm:p-6 text-white rounded-t-xl">

@@ -183,7 +183,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
       );
       formData.append(
         "num_questions",
-        rounds?.total_questions - numberOfQuestions
+        rounds?.total_questions - questionsIds?.length || 0
       );
       formData.append("prompt", prompt);
       if (inputMode === "text") formData.append("text", textInput);
@@ -504,7 +504,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
                 </label>
                 <input
                   type="number"
-                  value={rounds?.total_questions - numberOfQuestions}
+                  value={rounds?.total_questions - questionsIds?.length || 0}
                   min={1}
                   onChange={handleNumberChange}
                   disabled={!!announcement?.tutor_share_qes_number}
@@ -757,9 +757,7 @@ const MixAiQuesitonsMaker = ({ questionsIds }) => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray100">
                   <span className="text-gray600">Number of Questions</span>
-                  <span className="font-medium">
-                    {rounds?.total_questions - numberOfQuestions}
-                  </span>
+                  <span className="font-medium">{rounds?.total_questions}</span>
                 </div>
 
                 <div className="flex justify-between items-center py-3 border-b border-gray100">
