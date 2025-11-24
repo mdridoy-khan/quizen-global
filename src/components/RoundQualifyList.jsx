@@ -136,12 +136,12 @@ const RoundQualifyList = ({
   return (
     <div className="space-y-4  bg-white shadow p-4 rounded-lg">
       {error && (
-        <div className="bg-red100 text-red700 px-4 py-2 rounded">{error}</div>
+        <div className="bg-red-100 text-red-700 px-4 py-2 rounded">{error}</div>
       )}
 
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div>
-          <button className="bg-yellow500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black ">
+          <button className="bg-yellow-500 flex mb-4 md:mb-0 items-center gap-1 rounded-lg p-1 text-sm font-semibold text-black ">
             <HiOutlineExclamationCircle size={20} />
             NEXT ROUND QUALIFY {nextRoundQualifier} PARTICIPANT
           </button>
@@ -202,7 +202,7 @@ const RoundQualifyList = ({
 
       {/* Table */}
       <div className="overflow-x-auto shadow-sm">
-        <table className="min-w-[900px] w-full border border-gray300 text-sm">
+        <table className="min-w-[900px] w-full border border-gray-800300 text-sm">
           <thead>
             <tr className="bg-[#E5F0FF]">
               <th className="px-4 py-2 border">SL</th>
@@ -253,7 +253,7 @@ const RoundQualifyList = ({
               <tr>
                 <td
                   colSpan="10"
-                  className="text-center py-4 text-gray500 font-medium"
+                  className="text-center py-4 text-gray-500 font-medium"
                 >
                   No Participants Found
                 </td>
@@ -269,7 +269,7 @@ const RoundQualifyList = ({
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
           >
             Prev
           </button>
@@ -279,7 +279,7 @@ const RoundQualifyList = ({
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
           >
             Next
           </button>
@@ -293,23 +293,23 @@ const RoundQualifyList = ({
             {/* Stage 1: Confirm modal */}
             {confirmStage && !confirmResult && !confirmError && (
               <>
-                <h2 className="text-lg font-semibold text-gray800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   Are you sure?
                 </h2>
-                <p className="text-gray600 text-sm">
+                <p className="text-gray-600 text-sm">
                   This will confirm and select the next round participants.
                 </p>
                 <div className="flex justify-center gap-4 mt-4">
                   <button
                     onClick={() => setShowModal(false)}
-                    className="bg-gray300 px-4 py-2 rounded-lg"
+                    className="bg-gray-300 px-4 py-2 rounded-lg"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleConfirmNextRound}
                     disabled={confirmLoading}
-                    className="bg-green600 text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                    className="bg-green-600 text-white px-4 py-2 rounded-lg disabled:opacity-50"
                   >
                     {confirmLoading ? "Processing..." : "Confirm"}
                   </button>
@@ -322,13 +322,13 @@ const RoundQualifyList = ({
               <>
                 {confirmError ? (
                   <>
-                    <h2 className="text-red600 font-bold text-lg">Error</h2>
+                    <h2 className="text-red-600 font-bold text-lg">Error</h2>
                     <p>{confirmError}</p>
                   </>
                 ) : (
                   confirmResult && (
                     <>
-                      <h2 className="text-green600 font-bold text-lg">
+                      <h2 className="text-green-600 font-bold text-lg">
                         Success
                       </h2>
                       <p>{confirmResult.message}</p>
@@ -343,7 +343,7 @@ const RoundQualifyList = ({
                 )}
                 <button
                   onClick={() => setShowModal(false)}
-                  className="mt-4 bg-gray700 text-white px-4 py-2 rounded-lg"
+                  className="mt-4 bg-gray-700 text-white px-4 py-2 rounded-lg"
                 >
                   Close
                 </button>
