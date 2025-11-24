@@ -17,7 +17,7 @@ const Card = ({ text, buttonText, type }) => {
       <Link
         to={path}
         state={{ userType }}
-        className="inline-block px-6 py-2 text-white font-medium rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 transition-all duration-300"
+        className="inline-block px-6 py-2 text-white font-medium rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-secondary hover:to-primary transition-all duration-300"
       >
         {buttonText}
       </Link>

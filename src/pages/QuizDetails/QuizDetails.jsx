@@ -110,7 +110,7 @@ const QuizDetails = () => {
             ) : (
               <button
                 onClick={handleQuickRegistration}
-                className="bg-pink-500 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-pink-600 transition"
+                className="bg-pink-500 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-primary transition"
               >
                 Register Now
               </button>

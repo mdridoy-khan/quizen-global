@@ -6,7 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { MdLogout, MdNewspaper } from "react-icons/md";
 import { TbRosetteDiscountCheck } from "react-icons/tb";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/logo/logo.png";
+import Logo from "../assets/logo/logo.jpg";
 
 const Sidebar = ({ role, isSidebarOpen, toggleSidebar, handleLogout }) => {
   // menu configuration based on role

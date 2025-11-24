@@ -197,7 +197,7 @@ const QuizCard = ({
             {!closedQuiz && lp_status === "open" && (
               <Link
                 to={`/announcement-details/${quizId}`}
-                className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-secondary to-primary hover:from-secondary hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Register Now
               </Link>
@@ -205,7 +205,7 @@ const QuizCard = ({
             {activeAnn === "true" && lp_status === "open" && (
               <button
                 disabled
-                className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg ursor-not-allowed"
+                className="block w-full mb-4 text-center text-base leading-10  font-bold text-white rounded-lg bg-gradient-to-r from-secondary to-primary hover:from-secondary hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg ursor-not-allowed"
               >
                 Registration Running
               </button>
@@ -232,7 +232,7 @@ const QuizCard = ({
             {shareQuestion && !isExpired && (
               <button
                 onClick={onButtonClick}
-                className="w-full text-base font-bold text-white mb-4 leading-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="w-full text-base font-bold text-white mb-4 leading-10 rounded-lg bg-gradient-to-r from-secondary to-primary hover:from-secondary hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {shareQuestion}
               </button>

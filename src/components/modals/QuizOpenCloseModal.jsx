@@ -62,7 +62,7 @@ const QuizOpenCloseModal = ({
             className={`px-4 py-2 text-sm font-medium text-white rounded-lg ${
               isLoading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                : "bg-gradient-to-r from-secondary to-primary hover:from-secondary hover:to-primary"
             }`}
           >
             {isLoading ? "Processing..." : "Confirm"}

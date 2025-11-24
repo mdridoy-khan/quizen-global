@@ -13,10 +13,10 @@ export default {
         softBounce: "softBounce 2s ease-in-out infinite",
       },
       colors: {
-        primary: "#FF2474",
+        primary: "#FFD32C",
         secondary: "#261E69",
-        gradientStart: "#540F6B",
-        gradientEnd: "#ED4186",
+        gradientStart: "#FFD32C",
+        gradientEnd: "#261E69",
         bodyGradientStart: "#FCE7F3",
         bodyGradientMiddle: "#FEF9C2",
         bodyGradientEnd: "#DBEAFE",

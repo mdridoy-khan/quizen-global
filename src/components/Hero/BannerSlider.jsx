@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -56,6 +55,7 @@ const BannerSlider = ({ onScroll }) => {
 
   // array of letter images
   const letters = [Q, U, I, Z, E, N];
+  // const letters = [F, L, B];
 
   return (
     <div className="w-full text-white py-10 md:pt-20 lg:pt-16 2xl:pt-40 pb-4">
@@ -67,7 +67,7 @@ const BannerSlider = ({ onScroll }) => {
           </h1>
 
           {/* QUIZEN Animation with SVG images */}
-          <motion.div
+          {/* <motion.div
             className="flex justify-center items-center"
             initial="hidden"
             animate="visible"
@@ -104,7 +104,10 @@ const BannerSlider = ({ onScroll }) => {
                 }}
               />
             ))}
-          </motion.div>
+          </motion.div> */}
+          <div>
+            <h1 className="text-7xl text-bold text-black">FLB</h1>
+          </div>
 
           {/* Stats Boxes */}
           {/* Uncomment and use if needed */}
@@ -140,10 +143,10 @@ const BannerSlider = ({ onScroll }) => {
           */}
         </div>
         {/* Button */}
-        <div className="flex items-center justify-center mt-14">
+        <div className="flex items-center justify-center mt-8">
           <button
             onClick={onScroll}
-            className="bg-gradient-to-r from-gradientStart to-gradientEnd text-white text-sm font-medium px-5 sm:px-6 py-2 sm:py-2 rounded-md transition duration-300 shadow-lg"
+            className="bg-gradient-to-r from-primary to-secondary text-white text-sm font-medium px-5 sm:px-6 py-2 sm:py-2 rounded-md transition duration-300 shadow-lg"
           >
             View All Announcement
           </button>

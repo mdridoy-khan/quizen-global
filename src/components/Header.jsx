@@ -7,7 +7,7 @@ import facebook from "../assets/icons/facebook.svg";
 import linkedin from "../assets/icons/linkedin.svg";
 import messanger from "../assets/icons/messanger.svg";
 import whatsapp from "../assets/icons/whatsapp.svg";
-import Logo from "../assets/logo/logo.png";
+import Logo from "../assets/logo/logo.jpg";
 import { formatDateTime } from "../utils/FormateDateTime";
 import { UserLogout } from "../utils/UserLogout";
 
@@ -650,7 +650,7 @@ export default Header;
 //   return (
 //     <header>
 //       {/* header top */}
-//       <div className="bg-gradient-to-r from-orange-500 to-purple-600">
+//       <div className="bg-gradient-to-r from-orange-500 to-secondary">
 //         <div className="container mx-auto px-4">
 //           <div className="flex items-center justify-between">
 //             <Link

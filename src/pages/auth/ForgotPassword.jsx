@@ -381,7 +381,7 @@ export default ForgotPassword;
 //             Already have an Account?{" "}
 //             <Link
 //               to="/login"
-//               className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 px-1 rounded text-white"
+//               className="inline-block bg-gradient-to-r from-indigo-600 to-secondary px-1 rounded text-white"
 //             >
 //               log in
 //             </Link>
@@ -543,7 +543,7 @@ export default ForgotPassword;
 //               <button
 //                 type="submit"
 //                 disabled={loading}
-//                 className={`bg-gradient-to-r from-indigo-600 to-purple-600 block w-full rounded-md text-white p-2 transition ${
+//                 className={`bg-gradient-to-r from-indigo-600 to-secondary block w-full rounded-md text-white p-2 transition ${
 //                   loading ? "opacity-70 cursor-not-allowed" : ""
 //                 }`}
 //               >

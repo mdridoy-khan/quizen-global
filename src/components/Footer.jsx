@@ -8,7 +8,7 @@ import playstore from "../assets/footer/playStore.png";
 import eduwise from "../assets/logo/edu-wise.jpg";
 import finwise from "../assets/logo/finwise.jpg";
 import fundDay from "../assets/logo/fund-day.jpg";
-import logo from "../assets/logo/logo.png";
+import logo from "../assets/logo/logo.jpg";
 import quicDigital from "../assets/logo/quick-digital.jpg";
 import tutorWise from "../assets/logo/tutor-wise.jpg";
 import tutorWise1 from "../assets/logo/tutor-wise1.jpg";
